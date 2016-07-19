@@ -8,7 +8,14 @@
     <div class="header">
       <%= render "layouts/navbar" %>
     </div>
-    
+
+    <div class="flash-messages large-8 large-centered columns">
+      <% flash.each do |key, value| %>
+      <section class="callout warning"><%= notice %></section>
+      <section class="callout alert"><%= alert %></section>
+      <% end %>
+    </div>
+
     <div class="row">
       <section class="large-8 large-centered columns">
         <%= yield %>
