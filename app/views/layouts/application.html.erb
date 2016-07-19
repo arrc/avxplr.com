@@ -8,9 +8,13 @@
     <div class="header">
       <%= render "layouts/navbar" %>
     </div>
-    <div class="container">
-      <%= yield %>
+    
+    <div class="row">
+      <section class="large-8 large-centered columns">
+        <%= yield %>
+      </section>
     </div>
+
     <div class="footer">
       <%= render "layouts/footer" %>
     </div>

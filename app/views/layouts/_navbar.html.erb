@@ -1,5 +1,29 @@
-<ul>
-  <li><%= link_to 'Home', root_path %></li>
-  <li><%= link_to 'Contact', contact_path %></li>
-  <li><%= link_to 'About', about_path %></li>
-</ul>
+<div class="top-bar">
+  <section class="row">
+    <section class="large-8 large-centered columns">
+      <div class="top-bar-title">
+        <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+          <button class="menu-icon dark" type="button" data-toggle></button>
+        </span> -->
+        <strong>Airborne</strong>
+      </div>
+      <div id="responsive-menu">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Contact', contact_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+          </ul>
+        </div>
+
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to 'Contact', contact_path %></li>
+            <li><%= link_to 'About', about_path %></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>
