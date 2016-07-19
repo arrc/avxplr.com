@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'devise', '~> 4.2'
 gem 'ransack', '~> 1.8'
+# gem 'ruby_gntp'
 gem 'foundation-rails'
 gem 'compass-rails'
 gem 'chosen-rails'
