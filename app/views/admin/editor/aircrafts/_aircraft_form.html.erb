@@ -18,6 +18,11 @@
 
 <%= f.association :roles, as: :check_boxes, collection: Role.all %>
 <%= f.association :types, as: :check_boxes, collection: Type.all %>
+<%= f.association :industries, as: :check_boxes, collection: Industry.all %>
+<%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all %>
+<%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all %>
+<%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all %>
+<%= f.association :engine_types, as: :check_boxes, collection: EngineType.all %>
 
 <%= f.button :submit %>
 <% end %>

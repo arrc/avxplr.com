@@ -20,6 +20,22 @@ class Aircraft < ApplicationRecord
   has_many :aircrafttypes
   has_many :types,  through: :aircrafttypes
 
+  has_many :aircraftmanufacturers
+  has_many :manufacturers,  through: :aircraftmanufacturers
+
+  has_many :aircraftenginemanufacturers
+  has_many :engine_manufacturers,  through: :aircraftenginemanufacturers
+
+  has_many :aircraftenginemodels
+  has_many :engine_models,  through: :aircraftenginemodels
+
+  has_many :aircraftenginetypes
+  has_many :engine_types,  through: :aircraftenginetypes
+
+  has_many :aircraftindustries
+  has_many :industries,  through: :aircraftindustries
+
   accepts_nested_attributes_for :roles
   accepts_nested_attributes_for :types
+  accepts_nested_attributes_for :manufacturers
 end

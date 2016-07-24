@@ -19,10 +19,8 @@ Rails.application.routes.draw do
 
 
   get 'admin/dashboard', to: "admin/admin#dashboard"
-  # Editor
   namespace :admin do
-
-
+    # Editor
     namespace :editor do
       resources :aircrafts
       resources :roles

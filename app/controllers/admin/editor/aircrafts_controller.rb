@@ -12,12 +12,22 @@ class Admin::Editor::AircraftsController < ApplicationController
     @aircraft = Aircraft.new
     @aircraft.aircraftroles.build
     @aircraft.aircrafttypes.build
+    @aircraft.aircraftenginemanufacturers.build
+    @aircraft.aircraftenginemodels.build
+    @aircraft.aircraftenginetypes.build
+    @aircraft.aircraftindustries.build
+    @aircraft.aircraftmanufacturers.build
   end
 
 
   def edit
     @aircraft.aircraftroles.build
     @aircraft.aircrafttypes.build
+    @aircraft.aircraftenginemanufacturers.build
+    @aircraft.aircraftenginemodels.build
+    @aircraft.aircraftenginetypes.build
+    @aircraft.aircraftindustries.build
+    @aircraft.aircraftmanufacturers.build
   end
 
   def create
@@ -55,6 +65,11 @@ class Admin::Editor::AircraftsController < ApplicationController
         :national_origin,
         role_ids: [],
         type_ids: [],
+        engine_manufacturer_ids: [],
+        engine_model_ids: [],
+        engine_type_ids: [],
+        industry_ids: [],
+        manufacturer_ids: [],
         #role_attributes: [:id, :name],
         # aircraft_role_ids: [],
         # aircraft_roles_attributes: [:id, :role_id, :aircraft_id, :name]
