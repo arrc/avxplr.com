@@ -1,0 +1,29 @@
+
+<%= @aircraft.id %>
+<%= @aircraft.model %>
+<%= @aircraft.description %>
+<%= @aircraft.year %>
+
+<% if @aircraft.roles.present? %>
+  <p><strong>Roles</strong></p>
+  <% @aircraft.roles.each do |role| %>
+    <p><%= role.name %></p>
+  <% end %>
+<% else %>
+  <p>No roles for this aircraft.</p>
+<% end %>
+
+<% if @aircraft.types.present? %>
+  <p><strong>Types</strong></p>
+  <% @aircraft.types.each do |type| %>
+    <p><%= type.name %></p>
+  <% end %>
+<% else %>
+  <p>No types for this aircraft.</p>
+<% end %>
+
+<%#= aircraft.types %>
+
+<hr>
+<%= link_to 'Edit', edit_admin_editor_aircraft_path(@aircraft) %>
+<%= link_to 'Back', admin_editor_aircrafts_path %>

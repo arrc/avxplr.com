@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'pages#home'
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {
     sessions: 'users/sessions'
@@ -16,9 +17,28 @@ Rails.application.routes.draw do
     delete "logout" => "users/sessions#destroy", as: :destroy_user_session
   end
 
-  root 'pages#home'
 
-  get 'about', to: 'pages#about', as: 'about'
-  get 'contact', to: 'pages#contact', as: 'contact'
+  get 'admin/dashboard', to: "admin/admin#dashboard"
+  # Editor
+  namespace :admin do
+
+
+    namespace :editor do
+      resources :aircrafts
+      resources :roles
+      resources :types
+    end
+
+    resources :users
+  end
+
+
+  # get 'about', to: 'pages#about', as: 'about'
+  # get 'contact', to: 'pages#contact', as: 'contact'
+
+  %w[about contact].each do |page|
+    get page, controller: "pages", action: page
+  end
+
   get 'name/:user', to: 'pages#user'
 end

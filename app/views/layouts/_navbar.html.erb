@@ -13,6 +13,7 @@
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Contact', contact_path %></li>
             <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to "Aircraft editor", new_admin_editor_aircraft_path %></li>
           </ul>
         </div>
 
@@ -20,6 +21,7 @@
           <ul class="menu">
             <% if user_signed_in? %>
               <li><strong><%= current_user.username %></strong> | <%= current_user.email %></li>
+              <li><%= link_to 'Dashboard', admin_dashboard_path %></li>
               <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
               <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>

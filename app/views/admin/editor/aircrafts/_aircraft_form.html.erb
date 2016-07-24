@@ -1,0 +1,22 @@
+<%# if controller_path == 'admin/editor/aircrafts' && action_name == 'edit' %>
+
+<%= simple_form_for @aircraft, url: url do |f| %>
+  <% if @aircraft.errors.any? || f.error_notification %>
+    <section class="callout warning"><%= error_notification %></section>
+  <% end %>
+
+<%= f.input :model %>
+<%= f.input :description %>
+<%= f.input :year %>
+<%= f.input :maiden_flight %>
+<%= f.input :production_status %>
+<%= f.input :national_origin %>
+<%= f.simple_fields_for :aircraft_roles do |ar| %>
+  <%= ar.input :role_id, as: :check_boxes, collection: Role.all %>
+<% end %>
+<%#= f.input :roles, as: :check_boxes, collection: Role.all %>
+
+<%#= f.association :roles, as: :check_boxes, collection: Role.all %>
+
+<%= f.button :submit %>
+<% end %>

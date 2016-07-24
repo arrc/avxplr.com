@@ -1,0 +1,8 @@
+<h1>Editing Aircraft</h1>
+
+<%#= render "aircraft_form", url: admin_editor_aircraft_path(@aircraft) %>
+<%= render "aircraft_form_for", aircraft: @aircraft, url: admin_editor_aircraft_path(@aircraft) %>
+<%#= render "aircraft_form_for", aircraft: @aircraft %>
+
+<%= link_to 'Show', admin_editor_aircraft_path(@aircraft) %> |
+<%= link_to 'Back', admin_editor_aircrafts_path %>

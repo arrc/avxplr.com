@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  references: MyString
+  aircraft: MyString
+  references: MyString
+  type: 
+
+two:
+  references: MyString
+  aircraft: MyString
+  references: MyString
+  type: 

@@ -10,7 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160719174232) do
+ActiveRecord::Schema.define(version: 20160724034045) do
+
+  create_table "aircraftroles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "aircraft_id", null: false
+    t.integer  "role_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["aircraft_id"], name: "index_aircraftroles_on_aircraft_id", using: :btree
+    t.index ["role_id"], name: "index_aircraftroles_on_role_id", using: :btree
+  end
+
+  create_table "aircrafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "model",                           default: "", null: false
+    t.text     "description",       limit: 65535
+    t.integer  "year"
+    t.integer  "maiden_flight"
+    t.string   "production_status"
+    t.string   "national_origin"
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.index ["model"], name: "index_aircrafts_on_model", using: :btree
+  end
+
+  create_table "aircrafttypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "aircraft_id", null: false
+    t.integer  "type_id",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["aircraft_id"], name: "index_aircrafttypes_on_aircraft_id", using: :btree
+    t.index ["type_id"], name: "index_aircrafttypes_on_type_id", using: :btree
+  end
+
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",                      default: "", null: false
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["name"], name: "index_roles_on_name", using: :btree
+  end
+
+  create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "username",               default: "", null: false

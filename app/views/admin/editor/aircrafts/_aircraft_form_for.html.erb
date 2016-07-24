@@ -1,0 +1,71 @@
+<%= form_for(aircraft, url: url) do |f| %>
+  <% if aircraft.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(aircraft.errors.count, "error") %> prohibited this aircraft from being saved:</h2>
+
+      <ul>
+      <% aircraft.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :model %>
+    <%= f.text_field :model %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :year %>
+    <%= f.text_field :year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :maiden_flight %>
+    <%= f.text_field :maiden_flight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :production_status %>
+    <%= f.text_field :production_status %>
+  </div>
+
+  <div class="field">
+    <%= f.label :national_origin %>
+    <%= f.text_field :national_origin %>
+  </div>
+
+  <div class="field">
+    <%= f.label :roles %>
+    <span class="ul">
+      <% Role.all.each do |role| %>
+        <label class="li"><%= check_box_tag :role_ids, role.id, @aircraft.roles.include?(role), :name => 'aircraft[role_ids][]' %> <u><%= role.name %></u></label><br />
+      <% end %>
+    </span>
+  </div>
+
+  <%#= f.label "Roles" %><br />
+  <%#= f.collection_check_boxes :aircraft_role_ids, Role.all, :id, :name do |b| %>
+  <!-- <div class="collection-check-box"> -->
+    <%#= b.check_box %>
+    <%#= b.label %>
+  <!-- </div> -->
+  <%# end %>
+
+
+  <%#= f.fields_for :aircraft_roles do |role_form| %>
+    <!-- <div> -->
+      <%#= role_form.collection_check_boxes  Role.all, :id, :name %>
+    <!-- </div> -->
+  <%# end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

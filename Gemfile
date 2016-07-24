@@ -6,6 +6,8 @@ gem 'ransack', '~> 1.8'
 gem 'foundation-rails'
 gem 'compass-rails'
 gem 'chosen-rails'
+gem 'simple_form'
+gem "select2-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use mysql as the database for Active Record
@@ -48,8 +50,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-nav'
   gem 'bullet', '~> 5.1'
-  gem 'rails_db' # http://localhost:3000/rails/db , railsdb
+  # gem 'rails_db' # http://localhost:3000/rails/db , railsdb
   gem 'meta_request'
   gem "better_errors"
   # gem "binding_of_caller"
