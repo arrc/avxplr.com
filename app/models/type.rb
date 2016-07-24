@@ -12,4 +12,6 @@
 class Type < ApplicationRecord
   has_many :aircrafttypes
   has_many :aircrafts,  through: :aircrafttypes
+
+  accepts_nested_attributes_for :aircrafts
 end

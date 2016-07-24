@@ -11,12 +11,13 @@
 <%= f.input :maiden_flight %>
 <%= f.input :production_status %>
 <%= f.input :national_origin %>
-<%= f.simple_fields_for :aircraft_roles do |ar| %>
-  <%= ar.input :role_id, as: :check_boxes, collection: Role.all %>
-<% end %>
+<%#= f.simple_fields_for :aircraft_roles do |ar| %>
+  <%#= ar.input :role_id, as: :check_boxes, collection: Role.all %>
+<%# end %>
 <%#= f.input :roles, as: :check_boxes, collection: Role.all %>
 
-<%#= f.association :roles, as: :check_boxes, collection: Role.all %>
+<%= f.association :roles, as: :check_boxes, collection: Role.all %>
+<%= f.association :types, as: :check_boxes, collection: Type.all %>
 
 <%= f.button :submit %>
 <% end %>

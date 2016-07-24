@@ -21,4 +21,5 @@ class Aircraft < ApplicationRecord
   has_many :types,  through: :aircrafttypes
 
   accepts_nested_attributes_for :roles
+  accepts_nested_attributes_for :types
 end

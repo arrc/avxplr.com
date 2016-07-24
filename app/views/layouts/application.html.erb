@@ -9,7 +9,7 @@
       <%= render "layouts/navbar" %>
     </div>
 
-    <div class="flash-messages large-8 large-centered columns">
+    <div class="flash-messages large-12 large-centered columns">
       <% flash.each do |key, value| %>
       <section class="callout warning"><%= notice %></section>
       <section class="callout alert"><%= alert %></section>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="row">
-      <section class="large-8 large-centered columns">
+      <section class="large-12 large-centered columns">
         <%= yield %>
       </section>
     </div>

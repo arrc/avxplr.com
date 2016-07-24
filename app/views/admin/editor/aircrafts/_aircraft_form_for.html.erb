@@ -50,6 +50,15 @@
     </span>
   </div>
 
+  <div class="field">
+    <%= f.label :types %>
+    <span class="ul">
+      <% Type.all.each do |type| %>
+        <label class="li"><%= check_box_tag :type_ids, type.id, @aircraft.types.include?(type), :name => 'aircraft[type_ids][]' %> <u><%= type.name %></u></label><br />
+      <% end %>
+    </span>
+  </div>
+
   <%#= f.label "Roles" %><br />
   <%#= f.collection_check_boxes :aircraft_role_ids, Role.all, :id, :name do |b| %>
   <!-- <div class="collection-check-box"> -->
