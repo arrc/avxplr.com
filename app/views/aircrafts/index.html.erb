@@ -1,0 +1,21 @@
+<h2>Aircrafts</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aircrafts.each do |aircraft| %>
+      <tr>
+        <td><%= aircraft.id %></td>
+        <td><%= aircraft.model %></td>
+        <td><%= link_to 'Show', aircraft_path(aircraft) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

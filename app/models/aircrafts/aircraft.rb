@@ -35,7 +35,12 @@ class Aircraft < ApplicationRecord
   has_many :aircraftindustries
   has_many :industries,  through: :aircraftindustries
 
-  accepts_nested_attributes_for :roles
-  accepts_nested_attributes_for :types
-  accepts_nested_attributes_for :manufacturers
+  # Favorite
+  has_many :favorites, as: :favoritable
+
+  # accepts_nested_attributes_for :roles
+  # accepts_nested_attributes_for :types
+  # accepts_nested_attributes_for :manufacturers
+
+
 end

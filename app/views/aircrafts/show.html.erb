@@ -1,0 +1,33 @@
+
+<%= @aircraft.id %>
+<%= @aircraft.model %>
+<%= @aircraft.description %>
+<%= @aircraft.year %>
+
+<% if @aircraft.roles.present? %>
+  <p><strong>Roles</strong></p>
+  <% @aircraft.roles.each do |role| %>
+    <p><%= role.name %></p>
+  <% end %>
+<% else %>
+  <p>No roles for this aircraft.</p>
+<% end %>
+
+<% if @aircraft.types.present? %>
+  <p><strong>Types</strong></p>
+  <% @aircraft.types.each do |type| %>
+    <p><%= type.name %></p>
+  <% end %>
+<% else %>
+  <p>No types for this aircraft.</p>
+<% end %>
+
+<%#= aircraft.types %>
+
+<hr>
+<% if current_user %>
+  <%= link_to "Favorite | ",   favorite_aircraft_path(@aircraft), method: :put %>
+<% end %>
+<%= link_to 'Back', aircrafts_path %>
+
+<%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>

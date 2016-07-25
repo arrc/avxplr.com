@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+<!-- Favorite -->
+http://stackoverflow.com/questions/21817019/rails-polymorphic-favorites-user-can-favorite-different-models

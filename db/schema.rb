@@ -100,11 +100,11 @@ ActiveRecord::Schema.define(version: 20160725054608) do
 
   create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "favoritable_type"
     t.integer  "favoritable_id"
+    t.string   "favoritable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["favoritable_type", "favoritable_id"], name: "index_favorites_on_favoritable_type_and_favoritable_id", using: :btree
+    t.index ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable_id_and_favoritable_type", unique: true, using: :btree
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
