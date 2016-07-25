@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725125509) do
+ActiveRecord::Schema.define(version: 20160725143204) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20160725125509) do
     t.datetime "updated_at",  null: false
     t.index ["aircraft_id"], name: "index_aircrafttypes_on_aircraft_id", using: :btree
     t.index ["type_id"], name: "index_aircrafttypes_on_type_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "body",             limit: 65535
+    t.integer  "user_id"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "engine_manufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -159,5 +170,6 @@ ActiveRecord::Schema.define(version: 20160725125509) do
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "comments", "users"
   add_foreign_key "favorites", "users"
 end

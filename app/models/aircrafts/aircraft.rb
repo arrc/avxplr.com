@@ -38,6 +38,9 @@ class Aircraft < ApplicationRecord
   # Favorite
   has_many :favorites, as: :favoritable
 
+  # comments
+  has_many :comments, as: :commentable
+
   # accepts_nested_attributes_for :roles
   # accepts_nested_attributes_for :types
   # accepts_nested_attributes_for :manufacturers

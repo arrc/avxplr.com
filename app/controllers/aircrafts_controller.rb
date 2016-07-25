@@ -6,6 +6,9 @@ class AircraftsController < ApplicationController
 
   def show
     @aircraft = Aircraft.find(params[:id])
+    @commentable = @aircraft
+    @comments = @commentable.comments
+    @comment = Comment.new
     # @aircraft.increment!(:view_count)
     # @aircraft.increment_counter(:view_count,1)
   end

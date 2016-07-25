@@ -30,5 +30,11 @@
   <%= link_to "Favorite | ",   favorite_aircraft_path(@aircraft), method: :put %>
 <% end %>
 <%= link_to 'Back', aircrafts_path %>
-
 <%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
+
+<hr>
+
+<h3>Comments</h3>
+
+<%= render "comments/comments" %>
+<%= render "comments/form" %>
