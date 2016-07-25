@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725054608) do
+ActiveRecord::Schema.define(version: 20160725125509) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160725054608) do
     t.string   "national_origin"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+    t.integer  "view_count"
     t.index ["model"], name: "index_aircrafts_on_model", using: :btree
   end
 

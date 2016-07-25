@@ -1,10 +1,13 @@
 class AircraftsController < ApplicationController
+  after_action :increment_views, only: :show
   def index
     @aircrafts = Aircraft.all
   end
 
   def show
     @aircraft = Aircraft.find(params[:id])
+    # @aircraft.increment!(:view_count)
+    # @aircraft.increment_counter(:view_count,1)
   end
 
   # http://stackoverflow.com/questions/13240109/implement-add-to-favorites-in-rails-3-4
@@ -43,5 +46,11 @@ class AircraftsController < ApplicationController
       Favorite.create(user_id: current_user.id, favoritable_id: params[:id], favoritable_type: "Aircraft")
       redirect_back(fallback_location: root_path, notice: "Favorited")
     end
+  end
+
+  private
+  def increment_views
+    @aircraft = Aircraft.find(params[:id])
+    @aircraft.increment!(:view_count)
   end
 end
