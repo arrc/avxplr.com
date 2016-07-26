@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'comments/index'
-
-  get 'comments/new'
-
-  get 'comments/create'
-
   root 'pages#home'
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {
@@ -24,7 +17,13 @@ Rails.application.routes.draw do
     delete "logout" => "users/sessions#destroy", as: :destroy_user_session
   end
 
+  get 'tags/:tag', to: "shots#tags", as: "tag"
   resources :aircrafts, only: [:index, :show]  do
+    put :favorite, on: :member
+    resources :comments, only: [:index, :new, :create]
+  end
+
+  resources :shots, except: [:edit, :update, :destroy]  do
     put :favorite, on: :member
     resources :comments, only: [:index, :new, :create]
   end

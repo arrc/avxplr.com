@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
+//= require selectize
 //= require_tree .

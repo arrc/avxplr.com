@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725143204) do
+ActiveRecord::Schema.define(version: 20160726120633) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -142,6 +142,32 @@ ActiveRecord::Schema.define(version: 20160725143204) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "shots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.text     "caption",     limit: 65535
+    t.integer  "view_count"
+    t.integer  "aircraft_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["aircraft_id"], name: "index_shots_on_aircraft_id", using: :btree
+    t.index ["user_id"], name: "index_shots_on_user_id", using: :btree
+  end
+
+  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "shot_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shot_id"], name: "index_taggings_on_shot_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
@@ -172,4 +198,8 @@ ActiveRecord::Schema.define(version: 20160725143204) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "users"
+  add_foreign_key "shots", "aircrafts"
+  add_foreign_key "shots", "users"
+  add_foreign_key "taggings", "shots"
+  add_foreign_key "taggings", "tags"
 end

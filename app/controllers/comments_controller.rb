@@ -12,6 +12,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comments_params)
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_back(fallback_location: root_path)
     else
@@ -26,7 +27,7 @@ private
   end
 
   def load_commentable
-    klass = [Aircraft].detect {|c| params["#{c.name.underscore}_id"] }
+    klass = [Aircraft, Shot].detect {|c| params["#{c.name.underscore}_id"] }
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
 end

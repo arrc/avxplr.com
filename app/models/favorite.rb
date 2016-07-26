@@ -8,6 +8,7 @@ class Favorite < ApplicationRecord
   }
 
   scope :aircrafts, ->(user_id) { where(user_id: user_id ,favoritable_type: 'Aircraft') }
+  scope :shots, ->(user_id) { where(user_id: user_id ,favoritable_type: 'Shot') }
   # scope :consumable, lambda { where('expiration_date > ?', Date.today) }
   # scope :cheaper_than, lambda { |user_id, aircraft_id| where('user_id < ? and favoritable_id < ?', user_id,favoritable_id) }
   scope :cheaper_than, ->(user_id, aircraft_id) { where(user_id: user_id,favoritable_id: aircraft_id) }

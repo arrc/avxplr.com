@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_self
+ *= require selectize
+ *= require selectize.default
 //= require foundation_and_overrides
 
  */
@@ -18,3 +20,4 @@
 @import "layout.scss";
 @import "navbar.scss";
 @import "footer.scss";
+@import "tags.scss";

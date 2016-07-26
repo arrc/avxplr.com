@@ -1,0 +1,28 @@
+
+<%= @shot.id %> -
+<%= @shot.caption %> -
+<%= @shot.view_count %>
+
+<% if @shot.tags.present? %>
+  <%=raw tag_links(@shot.all_tags)%>
+  <p><strong>Tags</strong></p>
+  <% @shot.tags.each do |tag| %>
+    <p><%= tag.name %></p>
+  <% end %>
+<% else %>
+  <p>No Tags for this shot.</p>
+<% end %>
+
+<hr>
+<% if current_user %>
+  <%= link_to "Favorite | ",   favorite_shot_path(@shot), method: :put %>
+<% end %>
+<%= link_to 'Back', shots_path %>
+<%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @shot.id) %>
+
+<hr>
+
+<h3>Comments</h3>
+
+<%= render "comments/comments" %>
+<%= render "comments/form" %>

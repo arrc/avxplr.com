@@ -1,0 +1,14 @@
+<h3>Post new shot</h3>
+
+<%= simple_form_for @shot, url: shots_path do |f| %>
+  <% if @shot.errors.any? || f.error_notification %>
+    <section class="callout warning"><%= error_notification %></section>
+  <% end %>
+
+  <%= f.input :caption %>
+  <%= f.input :all_tags %>
+  <%#= f.input :all_tags, Tag.map{|u| [u.name, u.id]}, wrapper_html: { class: 'all_tagsx' } %>
+  <%#= f.association :aircraft, as: :check_boxes, collection: Aircraft.all %>
+  <%#= f.input :aircraft_id, collection: @aircrafts, as: :grouped_select, group_method: :manufacturers %>
+  <%= f.button :submit %>
+<% end %>

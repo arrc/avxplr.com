@@ -28,7 +28,8 @@ class User < ApplicationRecord
 
   has_many :favorites, inverse_of: :user
   has_many :comments, inverse_of: :user
-  # has_many :favorite_aircrafts, through: :favorites, source: :favoritable, source_type: 'Favorite'
+  has_many :shots, inverse_of: :user
+  # has_many :aircrafts, through: :favorites, source: :favoritable, source_type: 'Favorite'
 
   scope :favorite_aircrafts, -> { where(favoritable_type: 'Aircraft') }
 end

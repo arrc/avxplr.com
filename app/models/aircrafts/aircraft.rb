@@ -41,6 +41,9 @@ class Aircraft < ApplicationRecord
   # comments
   has_many :comments, as: :commentable
 
+  # Shots
+  has_many :shots
+
   # accepts_nested_attributes_for :roles
   # accepts_nested_attributes_for :types
   # accepts_nested_attributes_for :manufacturers
