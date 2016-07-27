@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'pages#home'
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {
@@ -37,12 +38,9 @@ Rails.application.routes.draw do
       resources :types
     end
 
-    resources :users
+    resources :users, except: [:new, :create]
+    resources :shots, except: [:new, :create]
   end
-
-
-  # get 'about', to: 'pages#about', as: 'about'
-  # get 'contact', to: 'pages#contact', as: 'contact'
 
   %w[about contact].each do |page|
     get page, controller: "pages", action: page

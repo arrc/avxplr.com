@@ -3,7 +3,7 @@ class ShotsController < ApplicationController
   after_action :increment_views, only: :show
 
   def index
-    @shots = Shot.all
+    @shots = Shot.where(is_public: true).all
   end
 
   def show
@@ -22,7 +22,7 @@ class ShotsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @shot = Shot.new(shot_params)
     @shot.user_id = current_user.id
     if @shot.save
