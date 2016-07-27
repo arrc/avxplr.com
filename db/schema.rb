@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160726120633) do
+ActiveRecord::Schema.define(version: 20160727035832) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -57,15 +57,16 @@ ActiveRecord::Schema.define(version: 20160726120633) do
   end
 
   create_table "aircrafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "model",                           default: "", null: false
+    t.string   "model",                           default: "",   null: false
     t.text     "description",       limit: 65535
     t.integer  "year"
     t.integer  "maiden_flight"
     t.string   "production_status"
     t.string   "national_origin"
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "view_count"
+    t.boolean  "is_public",                       default: true
     t.index ["model"], name: "index_aircrafts_on_model", using: :btree
   end
 
@@ -147,8 +148,9 @@ ActiveRecord::Schema.define(version: 20160726120633) do
     t.text     "caption",     limit: 65535
     t.integer  "view_count"
     t.integer  "aircraft_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.boolean  "is_public",                 default: true
     t.index ["aircraft_id"], name: "index_shots_on_aircraft_id", using: :btree
     t.index ["user_id"], name: "index_shots_on_user_id", using: :btree
   end
@@ -176,21 +178,22 @@ ActiveRecord::Schema.define(version: 20160726120633) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "username",               default: "", null: false
+    t.string   "username",               default: "",   null: false
     t.string   "bio"
     t.string   "profile_image"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.boolean  "is_active",              default: true
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
