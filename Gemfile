@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.2'# rails g devise:install
 gem 'ransack', '~> 1.8'
 # gem 'ruby_gntp'
-gem 'foundation-rails'
+gem 'foundation-rails'# rails d foundation:install
 gem 'compass-rails'
 gem 'chosen-rails'
-gem 'simple_form'
+gem 'simple_form'# rails g simple_form:install --foundation
 gem "select2-rails"
 gem "selectize-rails"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -54,8 +54,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-nav'
-  gem 'bullet', '~> 5.1'
-  # gem 'rails_db' # http://localhost:3000/rails/db , railsdb
+  gem 'bullet', '~> 5.1'# set config/environments/development.rb
   gem 'meta_request'
   gem "better_errors"
   # gem "binding_of_caller"
