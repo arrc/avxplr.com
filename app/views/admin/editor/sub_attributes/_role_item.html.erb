@@ -1,0 +1,21 @@
+<tr class="table-items" id="role_item_<%= role.id %>">
+  <td><%= role.id %></td>
+  <td>
+    <p><%= role.name %></p>
+    <p><%= role.description %></p>
+  </td>
+  <td><%= link_to 'Edit', edit_admin_editor_sub_attribute_path(role, model: 'Role'), remote: true , data: { open: "role-edit-modal-#{role.id}" }%></td>
+  <td><%= link_to 'Destroy', admin_editor_sub_attribute_path(role), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+</tr>
+
+<!-- Edit Modal -->
+<div class="reveal" id="role-edit-modal-<%= role.id %>" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= simple_form_for role, url: admin_editor_sub_attribute_path(role), remote: true do |f| %>
+    <%= f.input :name, input_html: {class: 'role-name'} %>
+    <%= f.input :description, input_html: {class: 'role-description'}  %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

@@ -1,0 +1,4 @@
+console.log("Deleted");
+$("#role_item_<%= @role.id %>").fadeOut(500, function(){
+  $(this).remove();
+});

@@ -1,0 +1,10 @@
+<div id="role-new-modal" class="reveal" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= simple_form_for @role, url: admin_editor_sub_attributes_path, remote: true do |f| %>
+    <%= f.input :name, input_html: {class: 'role-name'} %>
+    <%= f.input :description, input_html: {class: 'role-description'}  %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

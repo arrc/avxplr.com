@@ -2,7 +2,7 @@ class Admin::Editor::AircraftsController < ApplicationController
   before_action :set_aircraft, only: [:show, :edit, :update, :destroy]
 
   def index
-    @aircrafts = Aircraft.all#.includes(:roles, :types)
+    @aircrafts = Aircraft.all.includes(:roles, :types)
   end
 
   def show

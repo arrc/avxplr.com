@@ -34,8 +34,8 @@ Rails.application.routes.draw do
     # Editor
     namespace :editor do
       resources :aircrafts
-      resources :roles
-      resources :types
+      resources :sub_attributes
+      resources :engines
     end
 
     resources :users, except: [:new, :create]

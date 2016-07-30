@@ -1,0 +1,4 @@
+$("#role-new-modal").foundation('close');
+$("#role-new-modal .role-name").val('');
+$("#role-new-modal .role-description").val('');
+$("tbody").append("<%= j render(partial: 'role_item', locals: {role: @role}) %>");

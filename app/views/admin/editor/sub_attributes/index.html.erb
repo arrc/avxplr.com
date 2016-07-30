@@ -1,0 +1,32 @@
+<ul class="tabs" data-tabs id="admin-sub-attributes-tabs">
+  <li class="tabs-title is-active"><a href="#roles">Roles</a></li>
+  <li class="tabs-title"><a href="#aircraft-types">Aircraft types</a></li>
+  <li class="tabs-title"><a href="#aircraft-manufacturers">Aircraft manufacturers</a></li>
+  <li class="tabs-title"><a href="#industries">Industries</a></li>
+  <li class="tabs-title"><a href="#production-status">Production status</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="admin-sub-attributes-tabs">
+  <div class="tabs-panel is-active" id="roles">
+    <h3>Roles</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Role'), remote: true , data: { open: "role-new-modal" }%>
+    <%= render "new_role_form", role: @role %>
+    <%= render "roles_list" %>
+  </div>
+  <div class="tabs-panel" id="aircraft-types">
+    <h3>Aircraft types</h3>
+
+  </div>
+  <div class="tabs-panel" id="aircraft-manufacturers">
+    <h3>Aircraft manufacturers</h3>
+    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+  </div>
+  <div class="tabs-panel" id="industries">
+    <h3>Industries</h3>
+
+  </div>
+  <div class="tabs-panel" id="production-status">
+    <p>five</p>
+    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+  </div>
+</div>
