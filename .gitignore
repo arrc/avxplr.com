@@ -144,3 +144,6 @@ $RECYCLE.BIN/
 .byebug_history
 
 .dumb.rb
+
+# Ignore application configuration
+/config/application.yml

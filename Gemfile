@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+#---------------------------- CUSTOM
 gem 'devise', '~> 4.2'# rails g devise:install
 gem 'ransack', '~> 1.8'
 # gem 'ruby_gntp'
@@ -11,6 +12,14 @@ gem "select2-rails"
 gem "selectize-rails"
 gem 'jquery-turbolinks'
 gem 'rails-assets-noty', source: 'https://rails-assets.org'
+gem 'dotenv-rails'
+gem "figaro" # bundle exec figaro install
+gem "carrierwave"
+gem "fog"
+gem "mini_magick"
+gem "simple_enum"
+#---------------------------- CUSTOM END
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 # Use mysql as the database for Active Record

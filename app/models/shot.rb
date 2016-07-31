@@ -21,6 +21,10 @@ class Shot < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
 
+  mount_uploader :image, ShotUploader
+
+   as_enum :shot_type, {photo:0, video:1}
+
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.where(name: name.strip).first_or_create!

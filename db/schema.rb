@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731130556) do
+ActiveRecord::Schema.define(version: 20160731183605) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -156,12 +156,16 @@ ActiveRecord::Schema.define(version: 20160731130556) do
 
   create_table "shots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.text     "caption",     limit: 65535
+    t.text     "caption",      limit: 65535
     t.integer  "view_count"
     t.integer  "aircraft_id"
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.boolean  "is_public",                 default: true
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.boolean  "is_public",                  default: true
+    t.string   "image"
+    t.integer  "shot_type_cd"
+    t.text     "video",        limit: 65535
+    t.string   "source"
     t.index ["aircraft_id"], name: "index_shots_on_aircraft_id", using: :btree
     t.index ["user_id"], name: "index_shots_on_user_id", using: :btree
   end

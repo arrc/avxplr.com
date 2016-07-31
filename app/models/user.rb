@@ -32,5 +32,7 @@ class User < ApplicationRecord
   has_many :shots, inverse_of: :user
   # has_many :aircrafts, through: :favorites, source: :favoritable, source_type: 'Favorite'
 
+  mount_uploader :profile_image, ProfileImageUploader
+
   scope :favorite_aircrafts, -> { where(favoritable_type: 'Aircraft') }
 end
