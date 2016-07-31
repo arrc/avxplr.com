@@ -2,11 +2,10 @@
   <% @comments.each do |comment| %>
     <section>
       <%= simple_format comment.body %>
-      <%= link_to 'Flag', data: { open: "comment-flag-modal-#{comment.id}" }%>
       <button class="button tiny" data-open="comment-flag-modal-<%= comment.id %>">Flag</button>
     </section>
 
-    <!-- Flag Modal -->
+    <!-- Comment Flag Modal -->
     <div class="reveal tiny" id="comment-flag-modal-<%= comment.id %>" data-reveal>
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>

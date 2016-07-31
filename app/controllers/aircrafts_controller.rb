@@ -9,8 +9,9 @@ class AircraftsController < ApplicationController
   def show
 
     @commentable = @aircraft
-    @comments = @commentable.comments
+    @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
+    @flag = Flag.new
     # @aircraft.increment!(:view_count)
     # @aircraft.increment_counter(:view_count,1)
   end

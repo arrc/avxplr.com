@@ -44,7 +44,23 @@ class ShotsController < ApplicationController
     end
   end
 
+  def flag
+    @flag = Flag.new(flag_params)
+    @flag.user_id = current_user.id
+    @flag.flagable_type = "Shot"
+    @flag.flagable_id = params[:id]
+      respond_to do |format|
+        if @flag.save
+          format.js
+        end
+      end
+  end
+
 private
+
+  def flag_params
+    params.require(:flag).permit(:message)
+  end
 
   def set_shot
     @shot = Shot.find(params[:id])

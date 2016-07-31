@@ -17,8 +17,23 @@
 <% if current_user %>
   <%= link_to "Favorite | ",   favorite_shot_path(@shot), method: :put %>
 <% end %>
-<%= link_to 'Back', shots_path %>
+<%= link_to 'Back', shots_path %>|
+<button class="button tiny secondary" data-open="shot-flag-modal-<%= @shot.id %>">Flag</button>
 <%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @shot.id) %>
+
+<!-- Shot Flag Modal -->
+<div class="reveal tiny" id="shot-flag-modal-<%= @shot.id %>" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= simple_form_for @flag, url: flag_shot_path(@shot), remote: true do |f| %>
+  <%= f.input :message, input_html: {class: 'shot-flag-modal-message'} %>
+  <%= f.button :submit %>
+  <% end %>
+</div>
+
+
+
 
 <hr>
 
