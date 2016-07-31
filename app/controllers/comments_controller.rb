@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
   def index
     # @commentable = Aircraft.find(params[:aircraft_id])
-    @comments = @commentable.comments
+    @comments = @commentable.comments.includes(:user)
+
   end
 
   def new
@@ -20,7 +21,23 @@ class CommentsController < ApplicationController
     end
   end
 
+  def flag
+    @flag = Flag.new(flag_params)
+    @flag.user_id = current_user.id
+    @flag.flagable_type = "Comment"
+    @flag.flagable_id = params[:id]
+      respond_to do |format|
+        if @flag.save
+          format.js
+        end
+      end
+  end
+
 private
+
+  def flag_params
+    params.require(:flag).permit(:message)
+  end
 
   def comments_params
     params.require(:comment).permit(:body)

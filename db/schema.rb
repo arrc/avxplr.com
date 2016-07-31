@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160727035832) do
+ActiveRecord::Schema.define(version: 20160731130556) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -121,6 +121,17 @@ ActiveRecord::Schema.define(version: 20160727035832) do
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
+  create_table "flags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "message",       limit: 65535
+    t.integer  "user_id"
+    t.string   "flagable_type"
+    t.integer  "flagable_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["flagable_type", "flagable_id"], name: "index_flags_on_flagable_type_and_flagable_id", using: :btree
+    t.index ["user_id"], name: "index_flags_on_user_id", using: :btree
+  end
+
   create_table "industries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
@@ -201,6 +212,7 @@ ActiveRecord::Schema.define(version: 20160727035832) do
 
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "users"
+  add_foreign_key "flags", "users"
   add_foreign_key "shots", "aircrafts"
   add_foreign_key "shots", "users"
   add_foreign_key "taggings", "shots"

@@ -2,6 +2,23 @@
   <% @comments.each do |comment| %>
     <section>
       <%= simple_format comment.body %>
+      <%= link_to 'Flag', data: { open: "comment-flag-modal-#{comment.id}" }%>
+      <button class="button tiny" data-open="comment-flag-modal-<%= comment.id %>">Flag</button>
     </section>
+
+    <!-- Flag Modal -->
+    <div class="reveal tiny" id="comment-flag-modal-<%= comment.id %>" data-reveal>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <blockquote>
+        <%= simple_format comment.body %>
+        <cite><%= comment.user.username %></cite>
+      </blockquote>
+      <%= simple_form_for @flag, url: comment_flag_path(flagable_type, comment), remote: true do |f| %>
+      <%= f.input :message, input_html: {class: 'comment-flag-modal-message'} %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
   <% end %>
 </div>

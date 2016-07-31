@@ -1,0 +1,3 @@
+var n = noty({type: 'success',text: 'Flagged'});
+$('.comment-flag-modal-message').val('');
+$("#comment-flag-modal-<%= @flag.flagable_id %>").foundation('close');

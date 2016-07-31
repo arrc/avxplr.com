@@ -16,5 +16,12 @@
 //= require foundation
 //= require turbolinks
 //= require selectize
+//= require noty
 //= require_tree .
 // $(function(){ $(document).foundation(); });
+$ = jQuery
+
+$.noty.defaults.timeout = 1000
+$.noty.defaults.layout = 'top'
+$.noty.defaults.theme = 'relax'
+$.noty.defaults.type = 'alert'

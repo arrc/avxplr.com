@@ -4,12 +4,14 @@ class ShotsController < ApplicationController
 
   def index
     @shots = Shot.where(is_public: true).all
+    # pp @flag
   end
 
   def show
     @commentable = @shot
-    @comments = @commentable.comments
+    @comments = @commentable.comments.includes(:user)
     @comment = Comment.new
+    @flag = Flag.new
   end
 
   def tags

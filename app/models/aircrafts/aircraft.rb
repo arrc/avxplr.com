@@ -11,6 +11,8 @@
 #  national_origin   :string(255)
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  view_count        :integer
+#  is_public         :boolean          default(TRUE)
 #
 
 class Aircraft < ApplicationRecord
