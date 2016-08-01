@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require turbolinks
-//= require selectize
+//= require select2
 //= require noty
 //= require_tree .
 // $(function(){ $(document).foundation(); });
@@ -25,3 +25,10 @@ $.noty.defaults.timeout = 1000
 $.noty.defaults.layout = 'top'
 $.noty.defaults.theme = 'relax'
 $.noty.defaults.type = 'alert'
+// select2
+$(document).ready(function() {
+  $("#shot-tag-select").select2({
+    tags: true,
+    tokenSeparators: [',', ' ']
+  });
+});

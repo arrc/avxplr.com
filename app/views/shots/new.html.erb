@@ -1,15 +1,14 @@
 <h3>Post new shot</h3>
 
-<%= simple_form_for @shot, url: shots_path, html: { multipart: true } do |f| %>
-  <% if @shot.errors.any? || f.error_notification %>
-    <section class="callout warning"><%= error_notification %></section>
-  <% end %>
+<%= form_for @shot, url: shots_path, html: { multipart: true } do |f| %>
 
   <%= f.file_field :image %> <br>
   <%= f.hidden_field :image_cache %> <br>
 
-  <%= f.input :caption %>
-  <%= f.input :all_tags %>
+  <%= f.text_field :caption %>
+  <%#= f.input :all_tags %>
+  <%#= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {id: "shot-tag-select"} %> <br>
+  <%= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {multiple: true, id: "shot-tag-select"} %> <br>
   <%#= f.input :all_tags, Tag.map{|u| [u.name, u.id]}, wrapper_html: { class: 'all_tagsx' } %>
   <%#= f.association :aircraft, as: :check_boxes, collection: Aircraft.all %>
   <%#= f.input :aircraft_id, collection: @aircrafts, as: :grouped_select, group_method: :manufacturers %>

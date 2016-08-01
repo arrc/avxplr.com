@@ -23,7 +23,7 @@
       <tr>
         <td><%= shot.id %></td>
         <td><%#= shot.id %></td>
-        <td><%= shot.user %></td>
+        <td><%= shot.user.username if shot.user.present? %></td>
         <td><%= shot.caption %></td>
         <td><%= shot.all_tags %></td>
         <td><%= link_to 'Show', shot_path(shot) %></td>

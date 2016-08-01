@@ -67,7 +67,7 @@ private
   end
 
   def shot_params
-    params.require(:shot).permit(:caption, :all_tags, :image, :shot_type, :video, :source)
+    params.require(:shot).permit(:caption, :image, :shot_type, :video, :source, all_tags: [])
   end
 
   def increment_views
