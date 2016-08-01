@@ -1,0 +1,11 @@
+<div id="new-item-modal" class="reveal" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <%= simple_form_for klass, url: admin_editor_sub_attributes_path, remote: true do |f| %>
+    <%= f.hidden_field :klass, value: klass.class.name  %>
+    <%= f.input :name, input_html: {class: 'item-name'} %>
+    <%= f.input :description, input_html: {class: 'item-description'}  %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

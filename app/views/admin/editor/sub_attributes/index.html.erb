@@ -15,7 +15,9 @@
   </div>
   <div class="tabs-panel" id="aircraft-types">
     <h3>Aircraft types</h3>
-
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Type'), remote: true , data: { open: "new-item-modal" }%>
+    <%= render "new_form", klass: @type %>
+    <%= render "klass_list", klass: @types %>
   </div>
   <div class="tabs-panel" id="aircraft-manufacturers">
     <h3>Aircraft manufacturers</h3>

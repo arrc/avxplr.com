@@ -5,7 +5,10 @@ class Admin::Editor::SubAttributesController < ApplicationController
   def index
     @roles = Role.find_each
     @role = Role.new
+
     @types = Type.find_each
+    @type = Type.new
+
     @manufacturers = Manufacturer.find_each
     @industries = Industry.find_each
   end
@@ -26,7 +29,8 @@ class Admin::Editor::SubAttributesController < ApplicationController
 
   def edit
     pp params
-    pp params["model"].constantize.find(params[:id])
+    pp params[:klass]
+    pp params[:klass].constantize.find(params[:id])
     # pp params["#{c.name.underscore}_id"]
     # klass = [Role, Type].detect {|c| params["#{c.name.underscore}_id"] }
   end

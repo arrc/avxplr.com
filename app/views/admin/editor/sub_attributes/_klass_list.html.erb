@@ -1,0 +1,15 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% klass.each do |klass_item| %>
+      <%= render "klass_item", klass_item: klass_item %>
+    <% end %>
+  </tbody>
+</table>
