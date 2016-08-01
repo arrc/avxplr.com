@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :load_commentable
+  before_action :load_commentable, except: [:show]
 
   def index
     # @commentable = Aircraft.find(params[:aircraft_id])
@@ -9,6 +9,10 @@ class CommentsController < ApplicationController
 
   def new
     @comment = @commentable.comments.new
+  end
+
+  def show
+    @comment = Comment.find(params[:id])
   end
 
   def create

@@ -14,5 +14,5 @@
 class Comment < ApplicationRecord
   belongs_to :user, inverse_of: :comments
   belongs_to :commentable, polymorphic: true
-  has_many :flags, as: :flagable
+  has_many :flags, as: :flagable, dependent: :destroy
 end

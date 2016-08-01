@@ -35,6 +35,7 @@
 #                                 POST   /shots(.:format)                                    shots#create
 #                        new_shot GET    /shots/new(.:format)                                shots#new
 #                            shot GET    /shots/:id(.:format)                                shots#show
+#                         comment GET    /comments/:id(.:format)                             comments#show
 #                 admin_dashboard GET    /admin/dashboard(.:format)                          admin/admin#dashboard
 #          admin_editor_aircrafts GET    /admin/editor/aircrafts(.:format)                   admin/editor/aircrafts#index
 #                                 POST   /admin/editor/aircrafts(.:format)                   admin/editor/aircrafts#create
@@ -72,6 +73,10 @@
 #                                 PATCH  /admin/shots/:id(.:format)                          admin/shots#update
 #                                 PUT    /admin/shots/:id(.:format)                          admin/shots#update
 #                                 DELETE /admin/shots/:id(.:format)                          admin/shots#destroy
+#                 nuke_admin_flag DELETE /admin/flags/:id/nuke(.:format)                     admin/flags#nuke
+#                     admin_flags GET    /admin/flags(.:format)                              admin/flags#index
+#                      admin_flag GET    /admin/flags/:id(.:format)                          admin/flags#show
+#                                 DELETE /admin/flags/:id(.:format)                          admin/flags#destroy
 #                           about GET    /about(.:format)                                    pages#about
 #                         contact GET    /contact(.:format)                                  pages#contact
 #                                 GET    /name/:user(.:format)                               pages#user
@@ -107,6 +112,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :comments, only: [:show]
+
   get 'admin/dashboard', to: "admin/admin#dashboard"
   namespace :admin do
     # Editor
@@ -118,6 +125,7 @@ Rails.application.routes.draw do
 
     resources :users, except: [:new, :create]
     resources :shots, except: [:new, :create]
+    resources :flags, only: [:index, :show, :destroy]
   end
 
   %w[about contact].each do |page|
