@@ -80,6 +80,14 @@
 
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'comments/index'
+  end
+
+  namespace :admin do
+    get 'comments/destroy'
+  end
+
   root 'pages#home'
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {

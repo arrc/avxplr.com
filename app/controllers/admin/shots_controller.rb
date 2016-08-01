@@ -5,6 +5,7 @@ class Admin::ShotsController < ApplicationController
     @shots = Shot.all.includes(:user)
   end
 
+# TODO: shots destroy js response
   def destroy
     @shot = Shot.find(params[:id])
     @shot.destroy
