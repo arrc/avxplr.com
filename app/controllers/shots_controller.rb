@@ -3,7 +3,7 @@ class ShotsController < ApplicationController
   after_action :increment_views, only: :show
 
   def index
-    @shots = Shot.where(is_public: true).all
+    @shots = Shot.where(is_public: true).all.includes(:user)
     # pp @flag
   end
 

@@ -1,0 +1,24 @@
+<h2>Shots</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Permalink</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @shots.each do |shot| %>
+      <tr>
+        <td><%= shot.id %></td>
+        <td><%= link_to "Shot permalink", shot_path(shot) %></td>
+        <td><%= shot.user.username if shot.user.present? %></td>
+        <td><%= link_to 'Destroy', admin_shot_path(shot), remote: true, method: :delete %></td>
+        <td><%= link_to 'Nuke it!', admin_shot_path(shot, nuke: true), remote: true, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

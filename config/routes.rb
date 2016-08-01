@@ -67,16 +67,12 @@
 #                                 PATCH  /admin/users/:id(.:format)                          admin/users#update
 #                                 PUT    /admin/users/:id(.:format)                          admin/users#update
 #                                 DELETE /admin/users/:id(.:format)                          admin/users#destroy
-#                     admin_shots GET    /admin/shots(.:format)                              admin/shots#index
-#                 edit_admin_shot GET    /admin/shots/:id/edit(.:format)                     admin/shots#edit
-#                      admin_shot GET    /admin/shots/:id(.:format)                          admin/shots#show
-#                                 PATCH  /admin/shots/:id(.:format)                          admin/shots#update
-#                                 PUT    /admin/shots/:id(.:format)                          admin/shots#update
-#                                 DELETE /admin/shots/:id(.:format)                          admin/shots#destroy
-#                 nuke_admin_flag DELETE /admin/flags/:id/nuke(.:format)                     admin/flags#nuke
 #                     admin_flags GET    /admin/flags(.:format)                              admin/flags#index
-#                      admin_flag GET    /admin/flags/:id(.:format)                          admin/flags#show
-#                                 DELETE /admin/flags/:id(.:format)                          admin/flags#destroy
+#                      admin_flag DELETE /admin/flags/:id(.:format)                          admin/flags#destroy
+#                     admin_shots GET    /admin/shots(.:format)                              admin/shots#index
+#                      admin_shot DELETE /admin/shots/:id(.:format)                          admin/shots#destroy
+#                  admin_comments GET    /admin/comments(.:format)                           admin/comments#index
+#                   admin_comment DELETE /admin/comments/:id(.:format)                       admin/comments#destroy
 #                           about GET    /about(.:format)                                    pages#about
 #                         contact GET    /contact(.:format)                                  pages#contact
 #                                 GET    /name/:user(.:format)                               pages#user
@@ -124,8 +120,9 @@ Rails.application.routes.draw do
     end
 
     resources :users, except: [:new, :create]
-    resources :shots, except: [:new, :create]
-    resources :flags, only: [:index, :show, :destroy]
+    resources :flags, only: [:index, :destroy]
+    resources :shots, only: [:index, :destroy]
+    resources :comments, only: [:index, :destroy]
   end
 
   %w[about contact].each do |page|

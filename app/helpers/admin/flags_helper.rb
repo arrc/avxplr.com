@@ -9,10 +9,10 @@ module Admin::FlagsHelper
   end
 
   def flaged_by_user(flag)
-    pp flag.user.username
+    flag.user.username
   end
 
   def flaged_user(flag)
-    pp flag.flagable.user
+    flag.flagable.user.username if flag.flagable.user.present?
   end
 end

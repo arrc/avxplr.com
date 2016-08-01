@@ -2,6 +2,7 @@
 <%= @shot.id %> -
 <%= @shot.caption %> -
 <%= @shot.view_count %>
+User - <%= @shot.user.username if @shot.user.present? %>
 
 <% if @shot.image.url.present? %>
   <%= image_tag(@shot.image.small.url) %>

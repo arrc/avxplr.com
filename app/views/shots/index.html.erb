@@ -11,6 +11,7 @@
     <tr>
       <th>Id</th>
       <th>Shot</th>
+      <th>User</th>
       <th>Caption</th>
       <th>Tags</th>
       <th colspan="3"></th>
@@ -22,6 +23,7 @@
       <tr>
         <td><%= shot.id %></td>
         <td><%#= shot.id %></td>
+        <td><%= shot.user %></td>
         <td><%= shot.caption %></td>
         <td><%= shot.all_tags %></td>
         <td><%= link_to 'Show', shot_path(shot) %></td>
