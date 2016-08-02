@@ -1,4 +1,4 @@
-$("#new-item-modal").foundation('close');
-$("#new-item-modal .item-name").val('');
-$("#new-item-modal .item-description").val('');
+$("#<%= @klass.class.name.downcase %>-new-item-modal").foundation('close');
+$("#<%= @klass.class.name.downcase %>-new-item-modal .item-name").val('');
+$("#<%= @klass.class.name.downcase %>-new-item-modal .item-description").val('');
 $("#tab-<%= @klass.class.name.downcase %> tbody").append("<%= j render(partial: 'klass_item', locals: {klass_item: @klass}) %>");

@@ -1,7 +1,8 @@
-<div id="new-item-modal" class="reveal" data-reveal>
+<div id="<%= klass.class.name.downcase %>-new-item-modal" class="reveal" data-reveal>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
+  <h3><%= klass.class.name.downcase %></h3>
   <%= simple_form_for klass, url: admin_editor_sub_attributes_path(klass: klass.class.name), remote: true do |f| %>
     <%= f.hidden_field :klass, value: klass.class.name  %>
     <%= f.input :name, input_html: {class: 'item-name'} %>

@@ -1,34 +1,60 @@
+
 <ul class="tabs" data-tabs id="admin-sub-attributes-tabs">
-  <li class="tabs-title is-active"><a href="#roles">Roles</a></li>
+  <!-- <li class="tabs-title is-active"><a href="#roles">Roles</a></li> -->
+  <li class="tabs-title is-active"><a href="#tab-<%= @role.class.name.downcase %>">Aircraft roles</a></li>
   <li class="tabs-title"><a href="#tab-<%= @type.class.name.downcase %>">Aircraft types</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @industry.class.name.downcase %>">Industries</a></li>
   <li class="tabs-title"><a href="#tab-<%= @manufacturer.class.name.downcase %>">Aircraft manufacturers</a></li>
-  <li class="tabs-title"><a href="#industries">Industries</a></li>
-  <li class="tabs-title"><a href="#production-status">Production status</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @engine_manufacturer.class.name.downcase %>">Engine manufacturers</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @enginetype.class.name.downcase %>">Engine types</a></li>
 </ul>
 
 <div class="tabs-content" data-tabs-content="admin-sub-attributes-tabs">
-  <div class="tabs-panel is-active" id="roles">
+  <!-- ROLES -->
+  <div class="tabs-panel  is-active" id="tab-<%= @role.class.name.downcase %>">
     <h3>Roles</h3>
-    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Role'), remote: true , data: { open: "role-new-modal" }%>
-    <%= render "new_role_form", role: @role %>
-    <%= render "roles_list" %>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Role'), remote: true , data: { open: "#{@role.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @role %>
+    <%= render "klass_list", klass: @roles %>
   </div>
+
+  <!-- TYPES -->
   <div class="tabs-panel" id="tab-<%= @type.class.name.downcase %>">
     <h3>Aircraft types</h3>
-    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Type'), remote: true , data: { open: "new-item-modal" }%>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Type'), remote: true , data: { open: "#{@type.class.name.downcase}-new-item-modal" }%>
     <%= render "new_form", klass: @type %>
     <%= render "klass_list", klass: @types %>
   </div>
+
+  <!-- MANUFACTURERS -->
   <div class="tabs-panel" id="tab-<%= @manufacturer.class.name.downcase %>">
     <h3>Aircraft manufacturers</h3>
-    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Manufacturer'), remote: true , data: { open: "#{@manufacturer.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @manufacturer %>
+    <%= render "klass_list", klass: @manufacturers %>
   </div>
-  <div class="tabs-panel" id="industries">
-    <h3>Industries</h3>
 
+  <!-- INDUSTRIES -->
+  <div class="tabs-panel" id="tab-<%= @industry.class.name.downcase %>">
+    <h3>Industries</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Industry'), remote: true , data: { open: "#{@industry.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @industry %>
+    <%= render "klass_list", klass: @industries %>
   </div>
-  <div class="tabs-panel" id="production-status">
-    <p>five</p>
-    <p>Check me out! I'm a super cool Tab panel with text content!</p>
+
+  <!-- ENGINE MANUFACTURERS -->
+  <div class="tabs-panel" id="tab-<%= @engine_manufacturer.class.name.downcase %>">
+    <h3>Engine manufacturers</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'EngineManufacturer'), remote: true , data: { open: "#{@engine_manufacturer.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @engine_manufacturer %>
+    <%= render "klass_list", klass: @engine_manufacturers %>
+  </div>
+
+  <!-- ENGINE TYPES -->
+  <div class="tabs-panel" id="tab-<%= @enginetype.class.name.downcase %>">
+    <h3>Engine types</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'EngineType'), remote: true , data: { open: "#{@enginetype.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @enginetype %>
+    <%= render "klass_list", klass: @enginetypes %>
   </div>
 </div>

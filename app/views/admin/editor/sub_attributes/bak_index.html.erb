@@ -1,0 +1,27 @@
+<ul class="tabs" data-tabs id="admin-sub-attributes-tabs">
+  <li class="tabs-title is-active"><a href="#roles">Roles</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @type.class.name.downcase %>">Aircraft types</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @industry.class.name.downcase %>">Industries</a></li>
+  <li class="tabs-title"><a href="#tab-<%= @manufacturer.class.name.downcase %>">Aircraft manufacturers</a></li>
+</ul>
+
+<div class="tabs-content" data-tabs-content="admin-sub-attributes-tabs">
+  <div class="tabs-panel is-active" id="roles">
+    <h3>Roles</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Role'), remote: true , data: { open: "role-new-modal" }%>
+    <%= render "new_role_form", role: @role %>
+    <%= render "roles_list" %>
+  </div>
+  <div class="tabs-panel" id="tab-<%= @type.class.name.downcase %>">
+    <h3>Aircraft types</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Type'), remote: true , data: { open: "#{@type.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @type %>
+    <%= render "klass_list", klass: @types %>
+  </div>
+  <div class="tabs-panel" id="tab-<%= @industry.class.name.downcase %>">
+    <h3>Aircraft industries</h3>
+    <%= link_to 'Add new', new_admin_editor_sub_attribute_path(model: 'Industry'), remote: true , data: { open: "#{@industry.class.name.downcase}-new-item-modal" }%>
+    <%= render "new_form", klass: @industry %>
+    <%= render "klass_list", klass: @industries %>
+  </div>
+</div>

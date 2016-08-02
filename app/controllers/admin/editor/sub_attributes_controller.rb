@@ -3,23 +3,24 @@ class Admin::Editor::SubAttributesController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
-    @roles = Role.find_each
+    @roles = Role.all
     @role = Role.new
 
-    @types = Type.find_each
+    @types = Type.all
     @type = Type.new
 
-    @manufacturers = Manufacturer.find_each
+    @manufacturers = Manufacturer.all
     @manufacturer = Manufacturer.new
 
-    @industries = Industry.find_each
+    @industries = Industry.all
     @industry = Industry.new
 
-    @engine_manufacturers = EngineManufacturer.find_each
-    @engine_manufacturer = EngineManufacturer.new
+    #
+    @enginetypes = EngineType.all
+    @enginetype = EngineType.new
 
-    @engine_types = EngineType.find_each
-    @engine_type = EngineType.new
+    @engine_manufacturers = EngineManufacturer.all
+    @engine_manufacturer = EngineManufacturer.new
   end
 
   def new
@@ -82,12 +83,13 @@ private
 
   def set_item
     # @role = Role.find(params[:id])
-    @klass = params[:klass].constantize.find(params[:id])
+    pp @klass = params[:klass].constantize.find(params[:id])
   end
 
   def permited_params
     # params.require(:role).permit(:name, :description, :klass)
-    klass = params[:klass].downcase.parameterize.to_sym
+    # pp lass = params[:klass].downcase.parameterize.to_sym
+    klass = params[:klass].tableize.singularize.to_sym
     params.require(klass).permit(:name, :description)
   end
 end
