@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802143132) do
+ActiveRecord::Schema.define(version: 20160802152855) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160802143132) do
     t.float    "length",               limit: 24
     t.float    "height",               limit: 24
     t.float    "wing_span",            limit: 24
-    t.float    "wind_area",            limit: 24
+    t.float    "wing_area",            limit: 24
     t.float    "empty_weight",         limit: 24
     t.float    "gross_weight",         limit: 24
     t.float    "max_takeoff_weight",   limit: 24

@@ -5,29 +5,91 @@
     <section class="callout warning"><%= error_notification %></section>
   <% end %>
 
-<%= f.input :model %>
-<%= f.input :description %>
-<%= f.input :year %>
-<%= f.input :maiden_flight %>
-<%= f.input :production_status %>
-<%= f.input :national_origin %>
+
+<fieldset class="fieldset">
+  <legend>General</legend>
+  <%= f.input :model %>
+  <%= f.input :description %>
+  <%= f.input :year %>
+  <%= f.input :maiden_flight %>
+  <%= f.input :production_status_cd %>
+  <%= f.input :national_origin_cd %>
+  <%= f.association :roles, as: :check_boxes, collection: Role.all %>
+  <%= f.association :types, as: :check_boxes, collection: Type.all %>
+  <%= f.association :industries, as: :check_boxes, collection: Industry.all %>
+  <%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all %>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend>Interior</legend>
+  <%= f.input :crew %>
+  <%= f.input :passengers %>
+  <%= f.input :bootspace %>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend>Dimensions</legend>
+  <%= f.input :length %>
+  <%= f.input :height %>
+  <%= f.input :wing_span %>
+  <%= f.input :wing_area %>
+</fieldset>
+
+
+<fieldset class="fieldset">
+  <legend>Weight</legend>
+  <%= f.input :gross_weight %>
+  <%= f.input :empty_weight %>
+  <%= f.input :max_takeoff_weight %>
+  <%= f.input :max_landing_weight %>
+  <%= f.input :max_payload %>
+  <%= f.input :full_fuel_payload %>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend>Power plant</legend>
+  <%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all %>
+  <%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all %>
+  <%= f.association :engine_types, as: :check_boxes, collection: EngineType.all %>
+  <%= f.input :power_output %>
+  <%= f.input :thrust %>
+</fieldset>
+
+
+<fieldset class="fieldset">
+  <legend>Performance</legend>
+  <%= f.input :max_cruise_speed %>
+  <%= f.input :stall_speed %>
+  <%= f.input :range %>
+  <%= f.input :service_ceiling %>
+  <%= f.input :max_climb_rate %>
+  <%= f.input :max_speed_limit %>
+  <%= f.input :takeoff_distance %>
+  <%= f.input :takeoff_ground_roll %>
+  <%= f.input :landing_distance %>
+  <%= f.input :landing_ground_roll %>
+</fieldset>
+
+<fieldset class="fieldset">
+  <legend>Images</legend>
+  <%= f.input :image_front %>
+  <%= f.input :image_back %>
+  <%= f.input :image_left %>
+  <%= f.input :image_right %>
+  <%= f.input :image_top %>
+  <%= f.input :image_takeoff %>
+  <%= f.input :image_airborne %>
+  <%= f.input :image_landing %>
+</fieldset>
+
+
+
 <%#= f.simple_fields_for :aircraft_roles do |ar| %>
   <%#= ar.input :role_id, as: :check_boxes, collection: Role.all %>
 <%# end %>
 <%#= f.input :roles, as: :check_boxes, collection: Role.all %>
 
-<fieldset class="fieldset">
-  <legend>Model</legend>
-  <%= f.input :model %>
-</fieldset>
 
-<%= f.association :roles, as: :check_boxes, collection: Role.all %>
-<%= f.association :types, as: :check_boxes, collection: Type.all %>
-<%= f.association :industries, as: :check_boxes, collection: Industry.all %>
-<%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all %>
-<%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all %>
-<%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all %>
-<%= f.association :engine_types, as: :check_boxes, collection: EngineType.all %>
 
 <%= f.button :submit %>
 <% end %>

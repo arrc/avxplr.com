@@ -50,5 +50,7 @@ class Aircraft < ApplicationRecord
   # accepts_nested_attributes_for :types
   # accepts_nested_attributes_for :manufacturers
 
+  as_enum :production_status, { in_production: 0, in_development: 1, out_of_production: 2}
+  as_enum :national_origin, { usa: 0, sweden: 1, russia: 2}
 
 end
