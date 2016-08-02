@@ -1,4 +1,4 @@
-$("#role-new-modal").foundation('close');
-$("#role-new-modal .role-name").val('');
-$("#role-new-modal .role-description").val('');
-$("tbody").append("<%= j render(partial: 'role_item', locals: {role: @role}) %>");
+$("#new-item-modal").foundation('close');
+$("#new-item-modal .item-name").val('');
+$("#new-item-modal .item-description").val('');
+$("#tab-<%= @klass.class.name.downcase %> tbody").append("<%= j render(partial: 'klass_item', locals: {klass_item: @klass}) %>");

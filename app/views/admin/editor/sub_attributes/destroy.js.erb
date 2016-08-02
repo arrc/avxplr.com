@@ -1,4 +1,4 @@
 console.log("Deleted");
-$("#role_item_<%= @role.id %>").fadeOut(500, function(){
+$("#<%= @klass.class.name.downcase %>_item_<%= @klass.id %>").fadeOut(500, function(){
   $(this).remove();
 });
