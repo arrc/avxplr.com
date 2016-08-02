@@ -1,0 +1,10 @@
+<%= form_for @engine, url: url do |f| %>
+
+<%= f.text_field :name, placeholder: :name %>
+<%= f.text_area :description, placeholder: :description %>
+<%= f.text_field :year, placeholder: :year %>
+<%#= f.association :engine_manufacturer, as: :select, collection: EngineManufacturer.all %>
+<%= f.collection_select :engine_manufacturer_id, EngineManufacturer.order(:name), :id, :name, {include_blank: true}, { id: "engine-manufacturer-select"} %> <br>
+
+<%= f.button :submit %>
+<% end %>

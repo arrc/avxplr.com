@@ -12,6 +12,7 @@
 class EngineModel < ApplicationRecord
   has_many :aircraftenginemodels
   has_many :aircrafts,  through: :aircraftenginemodels
+  belongs_to :engine_manufacturer
 
   accepts_nested_attributes_for :aircrafts
 end

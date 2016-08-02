@@ -1,0 +1,10 @@
+
+<%= @engine.id %> |
+<%= @engine.name %> |
+<%= @engine.description %> |
+<%= @engine.year %> |
+<%= @engine.engine_manufacturer.name if @engine.engine_manufacturer.present? %>
+
+<hr>
+<%= link_to 'Edit', edit_admin_editor_engine_path(@engine) %>
+<%= link_to 'Back', admin_editor_engines_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160731183605) do
+ActiveRecord::Schema.define(version: 20160802143132) do
 
   create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "aircraft_id",            null: false
@@ -57,16 +57,49 @@ ActiveRecord::Schema.define(version: 20160731183605) do
   end
 
   create_table "aircrafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "model",                           default: "",   null: false
-    t.text     "description",       limit: 65535
+    t.string   "model",                              default: "",   null: false
+    t.text     "description",          limit: 65535
     t.integer  "year"
     t.integer  "maiden_flight"
-    t.string   "production_status"
-    t.string   "national_origin"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
     t.integer  "view_count"
-    t.boolean  "is_public",                       default: true
+    t.boolean  "is_public",                          default: true
+    t.integer  "production_status_cd"
+    t.integer  "national_origin_cd"
+    t.integer  "crew"
+    t.integer  "passengers"
+    t.float    "bootspace",            limit: 24
+    t.float    "length",               limit: 24
+    t.float    "height",               limit: 24
+    t.float    "wing_span",            limit: 24
+    t.float    "wind_area",            limit: 24
+    t.float    "empty_weight",         limit: 24
+    t.float    "gross_weight",         limit: 24
+    t.float    "max_takeoff_weight",   limit: 24
+    t.float    "max_landing_weight",   limit: 24
+    t.float    "max_payload",          limit: 24
+    t.float    "full_fuel_payload",    limit: 24
+    t.float    "power_output",         limit: 24
+    t.float    "thrust",               limit: 24
+    t.float    "max_cruise_speed",     limit: 24
+    t.float    "stall_speed",          limit: 24
+    t.float    "range",                limit: 24
+    t.float    "service_ceiling",      limit: 24
+    t.float    "max_climb_rate",       limit: 24
+    t.float    "max_speed_limit",      limit: 24
+    t.float    "takeoff_distance",     limit: 24
+    t.float    "takeoff_ground_roll",  limit: 24
+    t.float    "landing_distance",     limit: 24
+    t.float    "landing_ground_roll",  limit: 24
+    t.string   "image_front"
+    t.string   "image_back"
+    t.string   "image_left"
+    t.string   "image_right"
+    t.string   "image_top"
+    t.string   "image_takeoff"
+    t.string   "image_airborne"
+    t.string   "image_landing"
     t.index ["model"], name: "index_aircrafts_on_model", using: :btree
   end
 
@@ -100,8 +133,11 @@ ActiveRecord::Schema.define(version: 20160731183605) do
   create_table "engine_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "year"
+    t.integer  "engine_manufacturer_id"
+    t.index ["engine_manufacturer_id"], name: "index_engine_models_on_engine_manufacturer_id", using: :btree
   end
 
   create_table "engine_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -215,6 +251,7 @@ ActiveRecord::Schema.define(version: 20160731183605) do
   end
 
   add_foreign_key "comments", "users"
+  add_foreign_key "engine_models", "engine_manufacturers"
   add_foreign_key "favorites", "users"
   add_foreign_key "flags", "users"
   add_foreign_key "shots", "aircrafts"

@@ -16,6 +16,11 @@
 <%# end %>
 <%#= f.input :roles, as: :check_boxes, collection: Role.all %>
 
+<fieldset class="fieldset">
+  <legend>Model</legend>
+  <%= f.input :model %>
+</fieldset>
+
 <%= f.association :roles, as: :check_boxes, collection: Role.all %>
 <%= f.association :types, as: :check_boxes, collection: Type.all %>
 <%= f.association :industries, as: :check_boxes, collection: Industry.all %>
