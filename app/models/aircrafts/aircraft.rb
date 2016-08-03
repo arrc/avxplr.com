@@ -53,4 +53,13 @@ class Aircraft < ApplicationRecord
   as_enum :production_status, { in_production: 0, in_development: 1, out_of_production: 2}
   as_enum :national_origin, { usa: 0, sweden: 1, russia: 2}
 
+  mount_uploader :image_front, AircraftUploader
+  mount_uploader :image_back, AircraftUploader
+  mount_uploader :image_left, AircraftUploader
+  mount_uploader :image_right, AircraftUploader
+  mount_uploader :image_top, AircraftUploader
+  mount_uploader :image_takeoff, AircraftUploader
+  mount_uploader :image_airborne, AircraftUploader
+  mount_uploader :image_landing, AircraftUploader
+
 end

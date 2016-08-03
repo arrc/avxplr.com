@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ShotUploader < CarrierWave::Uploader::Base
+class AircraftUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

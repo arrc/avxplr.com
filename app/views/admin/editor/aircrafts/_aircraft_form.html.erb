@@ -1,19 +1,21 @@
 <%# if controller_path == 'admin/editor/aircrafts' && action_name == 'edit' %>
 
-<%= simple_form_for @aircraft, url: url do |f| %>
+<%= simple_form_for @aircraft, url: url, html: { multipart: true } do |f| %>
   <% if @aircraft.errors.any? || f.error_notification %>
     <section class="callout warning"><%= error_notification %></section>
   <% end %>
 
 
 <fieldset class="fieldset">
-  <legend>General</legend>
+  <legend>1 : General</legend>
   <%= f.input :model %>
   <%= f.input :description %>
   <%= f.input :year %>
   <%= f.input :maiden_flight %>
-  <%= f.input :production_status_cd %>
-  <%= f.input :national_origin_cd %>
+  <%= f.label "Production status" %>
+  <%= f.select :production_status_cd, enum_option_pairs(Aircraft, :production_status, true), include_blank: true %>
+  <%= f.label "National origin" %>
+  <%= f.select :national_origin_cd, enum_option_pairs(Aircraft, :national_origin, true), include_blank: true %>
   <%= f.association :roles, as: :check_boxes, collection: Role.all %>
   <%= f.association :types, as: :check_boxes, collection: Type.all %>
   <%= f.association :industries, as: :check_boxes, collection: Industry.all %>
@@ -21,14 +23,14 @@
 </fieldset>
 
 <fieldset class="fieldset">
-  <legend>Interior</legend>
+  <legend>2 : Interior</legend>
   <%= f.input :crew %>
   <%= f.input :passengers %>
   <%= f.input :bootspace %>
 </fieldset>
 
 <fieldset class="fieldset">
-  <legend>Dimensions</legend>
+  <legend>3 : Dimensions</legend>
   <%= f.input :length %>
   <%= f.input :height %>
   <%= f.input :wing_span %>
@@ -37,7 +39,7 @@
 
 
 <fieldset class="fieldset">
-  <legend>Weight</legend>
+  <legend>4 : Weight</legend>
   <%= f.input :gross_weight %>
   <%= f.input :empty_weight %>
   <%= f.input :max_takeoff_weight %>
@@ -47,7 +49,7 @@
 </fieldset>
 
 <fieldset class="fieldset">
-  <legend>Power plant</legend>
+  <legend>5 : Power plant</legend>
   <%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all %>
   <%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all %>
   <%= f.association :engine_types, as: :check_boxes, collection: EngineType.all %>
@@ -57,7 +59,7 @@
 
 
 <fieldset class="fieldset">
-  <legend>Performance</legend>
+  <legend>6 : Performance</legend>
   <%= f.input :max_cruise_speed %>
   <%= f.input :stall_speed %>
   <%= f.input :range %>
@@ -71,15 +73,15 @@
 </fieldset>
 
 <fieldset class="fieldset">
-  <legend>Images</legend>
-  <%= f.input :image_front %>
-  <%= f.input :image_back %>
-  <%= f.input :image_left %>
-  <%= f.input :image_right %>
-  <%= f.input :image_top %>
-  <%= f.input :image_takeoff %>
-  <%= f.input :image_airborne %>
-  <%= f.input :image_landing %>
+  <legend>7 : Images</legend>
+  <%= f.input :remote_image_front_url %>
+  <%= f.input :remote_image_back_url %>
+  <%= f.input :remote_image_left_url %>
+  <%= f.input :remote_image_right_url %>
+  <%= f.input :remote_image_top_url %>
+  <%= f.input :remote_image_takeoff_url %>
+  <%= f.input :remote_image_airborne_url %>
+  <%= f.input :remote_image_landing_url %>
 </fieldset>
 
 
