@@ -17,8 +17,13 @@
 
  */
  @import "foundation_and_overrides";
-@import "variables.scss";
-@import "layout.scss";
-@import "navbar.scss";
-@import "footer.scss";
-@import "tags.scss";
+
+// GENERAL
+@import "general/variables.scss";
+@import "general/fonts.scss";
+
+// Layout
+@import "layout/notifications.scss";
+@import "layout/navbar.scss";
+@import "layout/sidebar.scss";
+@import "layout/tags.scss";

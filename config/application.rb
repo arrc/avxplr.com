@@ -13,5 +13,6 @@ module Airborne
     # -- all .rb files in that directory are automatically loaded.
     # config.autoload_paths << Dir["#{Rails.root}/app/models/*"]
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '*/')]
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
