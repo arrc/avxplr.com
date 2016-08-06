@@ -19,9 +19,24 @@
         <% end %>
       </section>
 
-      <section class="large-12 large-centered columns">
-        <%= yield %>
-      </section>
+      <div>
+        <section class="large-9 columns">
+          <%= render "layouts/subnav" %>
+        </section>
+        <section class="large-3 columns">
+          <%= render "layouts/qoutes" %>
+        </section>
+      </div>
+
+      <div>
+        <section class="large-9 columns">
+          <%= yield %>
+        </section>
+
+        <section class="large-3 columns">
+          <%= render "layouts/sidebar" %>
+        </section>
+      </div>
 
     </div>
 
@@ -32,7 +47,7 @@
     <script type="text/javascript">
       $(function(){ $(document).foundation(); });
 
-      
+
     </script>
   </body>
 </html>

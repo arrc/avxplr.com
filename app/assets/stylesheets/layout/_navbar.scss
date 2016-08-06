@@ -1,0 +1,12 @@
+.top-bar {
+  font-family: 'worksans-light';
+  .menu {
+    background-color: $white;
+    li a { color: $secondary-color; }
+   }
+}
+
+.navbar__logo {
+  font-size: 33px;
+  color: $primary-color;
+}
