@@ -1,24 +1,43 @@
+
 .subnav {
 
-}
+  background-color: #fff;
 
-
-.subnav__item {
-  width: 100px;
-  height: 100px;
-  text-align: center;
-
-  .icon {
-    font-size: 100px;
+  &--column {
+    min-height: 100px;
   }
 
-  .name {
+  &__item {
+    width: 150px;
+    height: 100px;
+    text-align: center;
+
+    &--active {
+      color: red;
+    }
+  }
+
+  &__item-icon {
+    font-size: 50px;
+    color: $tertiary-color;
+  }
+
+  &__item-name {
     margin-bottom: 0px;
     font-family: 'worksans-regular';
-    color: $secondary-color;
+    a, a:hover {color: $secondary-color;}
   }
-}
 
-.subnav__item:hover {
-  background-color: #d6d6d6;
+  &__item:hover {
+    cursor: pointer;
+    background-color: #d6d6d6;
+  }
+
+  &__quote {
+    color: $tertiary-color;
+    font-size: rem-calc(16);
+    font-family: 'josefin-light';
+    height: 100px;
+    text-align: center;
+  }
 }

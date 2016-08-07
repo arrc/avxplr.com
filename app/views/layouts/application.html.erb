@@ -12,30 +12,30 @@
     </div>
 
     <!-- Notifications -->
-    <section class="flash-messages">
-      <% flash.each do |key, value| %>
-      <section class="callout warning"><%= notice if flash.notice %></section>
-      <section class="callout alert"><%= alert if flash.alert %></section>
-      <% end %>
-    </section>
+        <div class="flash-messages">
+          <% flash.each do |key, value| %>
+            <section class="callout warning flash-messages--notice"><%= notice if flash.notice %></section>
+            <section class="callout alert flash-messages--alert"><%= alert if flash.alert %></section>
+          <% end %>
+        </div>
 
     <!-- secondary menu & quotes block -->
-    <div class="row">
-      <section class="large-9 columns">
+    <div class="row subnav--row">
+      <section class="large-8 columns subnav--column">
         <%= render "layouts/subnav" %>
       </section>
-      <section class="large-3 columns">
+      <section class="large-4 columns subnav--column">
         <%= render "layouts/qoutes" %>
       </section>
     </div>
 
     <!-- content sidebar row -->
     <div class="row">
-      <section class="large-9 columns">
+      <section class="large-8 columns">
         <%= yield %>
       </section>
 
-      <section class="large-3 columns">
+      <section class="large-4 columns">
         <%= render "layouts/sidebar" %>
       </section>
     </div>
