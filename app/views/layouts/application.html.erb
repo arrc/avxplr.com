@@ -1,48 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <%= render "layouts/header" %>
+    <%= render "layouts/header" %> <!-- Main header block -->
   </head>
 
   <body id="<%= params[:controller].parameterize %>_controller">
+
+    <!-- Heaer/ navbar -->
     <div class="header">
-      <%= render "layouts/navbar" %>
+      <%= render "layouts/navbar" %> <!-- Navigation menu -->
     </div>
 
+    <!-- Notifications -->
+    <section class="flash-messages">
+      <% flash.each do |key, value| %>
+      <section class="callout warning"><%= notice if flash.notice %></section>
+      <section class="callout alert"><%= alert if flash.alert %></section>
+      <% end %>
+    </section>
 
+    <!-- secondary menu & quotes block -->
     <div class="row">
+      <section class="large-9 columns">
+        <%= render "layouts/subnav" %>
+      </section>
+      <section class="large-3 columns">
+        <%= render "layouts/qoutes" %>
+      </section>
+    </div>
 
-      <section class="flash-messages">
-        <% flash.each do |key, value| %>
-        <section class="callout warning"><%= notice if flash.notice %></section>
-        <section class="callout alert"><%= alert if flash.alert %></section>
-        <% end %>
+    <!-- content sidebar row -->
+    <div class="row">
+      <section class="large-9 columns">
+        <%= yield %>
       </section>
 
-      <div>
-        <section class="large-9 columns">
-          <%= render "layouts/subnav" %>
-        </section>
-        <section class="large-3 columns">
-          <%= render "layouts/qoutes" %>
-        </section>
-      </div>
-
-      <div>
-        <section class="large-9 columns">
-          <%= yield %>
-        </section>
-
-        <section class="large-3 columns">
-          <%= render "layouts/sidebar" %>
-        </section>
-      </div>
-
+      <section class="large-3 columns">
+        <%= render "layouts/sidebar" %>
+      </section>
     </div>
 
-    <div class="footer">
-      <%= render "layouts/footer" %>
-    </div>
     <%#= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <script type="text/javascript">
       $(function(){ $(document).foundation(); });
