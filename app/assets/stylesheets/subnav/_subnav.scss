@@ -1,3 +1,24 @@
 .subnav {
-  
+
+}
+
+
+.subnav__item {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+
+  .icon {
+    font-size: 100px;
+  }
+
+  .name {
+    margin-bottom: 0px;
+    font-family: 'worksans-regular';
+    color: $secondary-color;
+  }
+}
+
+.subnav__item:hover {
+  background-color: #d6d6d6;
 }
