@@ -3,6 +3,31 @@
   src: font-url('Work_Sans/WorkSans-Light.ttf') format('truetype');
 }
 
+
+@font-face {
+  font-family: 'aviation-icon';
+  src: font-url('Aviation_Icon/aviation-icon.ttf') format('truetype'),
+       font-url('Aviation_Icon/aviation-icon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-drone:before {
+  content: "\e901";
+}
+.icon-jet:before {
+  content: "\e902";
+}
+.icon-airplane:before {
+  content: "\e903";
+}
+.icon-helicopter:before {
+  content: "\e904";
+}
+.icon-pet-drone:before {
+  content: "\e900";
+}
+
 // #shots_controller {
 //   font-family: 'worksans-light';
 //   color: red;
