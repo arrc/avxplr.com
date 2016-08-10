@@ -40,35 +40,11 @@
   <section class="av_comments">
       <hr>
       <h4>Comments</h4>
-      <div class="av_comments__form">
-          <form action="">
-              <textarea rows="2"></textarea>
-              <input type="submit" class="button tiny secondary" value="Post">
-          </form>
-      </div>
 
-      <div class="av_comments__list">
-          <div class="av_comment__item clearfix">
-              <section class="av_comment__item comment__user float-left">
-                  <img src="images/user.png">
-              </section>
-              <section class="av_comment_item comment__body float-right">
-                  <p class="comment__body__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident dolore, culpa suscipit aperiam inventore exercitationem debitis corrupti odio nam facere?</p>
-                  <div class="comment__body__meta clearfix">
-                      <date class="comment__body__meta__date float-left">20 July 2016</date>
+      <%= render "comments/form" %>
 
-                      <span class="comment__body__meta__flag float-right">Flag</span>
-                  </div>
-              </section>
-          </div>
-      </div>
+      <%= render "comments/comments", flagable_type: @shot %>
+
   </section>
 
 </div>
-
-<hr>
-
-<h3>Comments</h3>
-
-<%= render "comments/comments", flagable_type: @shot %>
-<%= render "comments/form" %>

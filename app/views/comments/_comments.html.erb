@@ -1,9 +1,18 @@
-<div>
+<div class="av_comments__list">
   <% @comments.each do |comment| %>
-    <section>
-      <%= simple_format comment.body %>
-      <button class="button tiny" data-open="comment-flag-modal-<%= comment.id %>">Flag</button>
-    </section>
+  <div class="av_comment__item clearfix">
+      <section class="av_comment__item comment__user float-left">
+          <img src="images/user.png">
+      </section>
+      <section class="av_comment_item comment__body float-right">
+          <p class="comment__body__text"><%= simple_format comment.body %></p>
+          <div class="comment__body__meta clearfix">
+              <date class="comment__body__meta__date float-left">20 July 2016</date>
+
+              <span class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>">Flag</span>
+          </div>
+      </section>
+  </div>
 
     <!-- Comment Flag Modal -->
     <div class="reveal tiny" id="comment-flag-modal-<%= comment.id %>" data-reveal>
