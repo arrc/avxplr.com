@@ -19,7 +19,6 @@
         <div class="top-bar-right">
           <ul class="dropdown menu av_navbar__menu--right" data-dropdown-menu>
             <% if user_signed_in? %>
-              <li class="av_navbar__menu--right__item"><strong><%= current_user.username %></strong> | <small><%= current_user.email %></small></li>
               <li class="has-submenu is-dropdown-submenu-parent">
                 <%= link_to 'Dashboard', admin_dashboard_path %>
                 <ul class="submenu menu vertical" data-submenu>
@@ -33,8 +32,9 @@
                   <li><%= link_to "Comments", admin_comments_path %></li>
                 </ul>
               </li>
-              <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
-              <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+              <li class="av_navbar__menu--right__item"><%= link_to 'New', new_shot_path %></li>
+              <li class="av_navbar__menu--right__item"><%= link_to 'Edit profile', edit_user_registration_path %></li>
+              <li class="av_navbar__menu--right__item"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
               <li class="av_navbar__menu--right__item"><%= link_to 'Login', new_user_session_path %></li>
               <li class="av_navbar__menu--right__item"><%= link_to "Sign up", new_user_registration_path %></li>

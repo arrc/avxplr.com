@@ -80,15 +80,8 @@
 
 Rails.application.routes.draw do
 
-  namespace :admin do
-    get 'comments/index'
-  end
-
-  namespace :admin do
-    get 'comments/destroy'
-  end
-
-  root 'pages#home'
+  # root 'pages#home'
+  root 'shots#index'
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {
     sessions: 'users/sessions'
@@ -100,7 +93,10 @@ Rails.application.routes.draw do
     delete "logout" => "users/sessions#destroy", as: :destroy_user_session
   end
 
+# TAGS
   get 'tags/:tag', to: "shots#tags", as: "tag"
+
+# AIRCRAFTS
   resources :aircrafts, only: [:index, :show]  do
     put :favorite, on: :member
     resources :comments, only: [:index, :new, :create] do
@@ -108,6 +104,7 @@ Rails.application.routes.draw do
     end
   end
 
+# SHOTS
   resources :shots, except: [:edit, :update, :destroy]  do
     put :favorite, on: :member
     post :flag, on: :member
@@ -116,9 +113,11 @@ Rails.application.routes.draw do
     end
   end
 
+# COMMENTS
   resources :comments, only: [:show]
 
-  get 'admin/dashboard', to: "admin/admin#dashboard"
+# ADMIN routes
+  get 'admin/dashboard', to: "admin/admin#dashboard" # Dashboard
   namespace :admin do
     # Editor
     namespace :editor do
@@ -133,9 +132,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :destroy]
   end
 
+# PAGES
   %w[about contact].each do |page|
     get page, controller: "pages", action: page
   end
 
+# PROFILE
   get 'name/:user', to: 'pages#user'
 end

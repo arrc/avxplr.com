@@ -1,33 +1,22 @@
-<h2>Shots</h2>
-<%= link_to 'New shot', new_shot_path, class: "button" %>
+<% @shots.each do |shot| %>
+<section class="av_shot_item">
+    <!-- <img src="images/piper_m600.jpg" class="av_shot_item__shot_image" /> -->
+    <%= image_tag(shot.image.url, class: "av_shot_item__shot_image") %>
+    <div class="av_shot_item__shot_info">
+        <div class="shot_info__caption">
+            <p><%= shot.caption %></p>
+        </div>
+        <div class="shot_info__meta">
+            by <em><%= shot.user.username %></em>,
+            <date title="<%= shot.created_at.strftime("%b %d,%Y") %>"><%= time_ago_in_words(shot.created_at) %></date>
+        </div>
+    </div>
+</section>
+<% end %>
+<!-- <hr>
 <div class="tags-cloud glassy-bg">
   <h4>Tags Cloud</h4>
-  <% tag_cloud Tag.tag_counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
-    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-</div>
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Shot</th>
-      <th>User</th>
-      <th>Caption</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shots.each do |shot| %>
-      <tr>
-        <td><%= shot.id %></td>
-        <td><%#= shot.id %></td>
-        <td><%= shot.user.username if shot.user.present? %></td>
-        <td><%= shot.caption %></td>
-        <td><%= shot.all_tags %></td>
-        <td><%= link_to 'Show', shot_path(shot) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%# tag_cloud Tag.tag_counts, %w{css1 css2 css3 css4} do |tag, css_class| %>
+    <%#= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <%# end %>
+</div> -->
