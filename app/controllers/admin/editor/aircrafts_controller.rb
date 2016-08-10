@@ -44,7 +44,7 @@ class Admin::Editor::AircraftsController < ApplicationController
 
     def aircraft_params
       params.require(:aircraft).permit(
-        :model, :description, :year, :maiden_flight, :production_status_cd, :national_origin_cd,
+        :model, :description, :year, :maiden_flight, :production_status_cd, :national_origin_cd, :category_id,
         :crew, :passengers, :bootspace,
         :length, :height, :wing_span, :wing_area,
         :gross_weight, :empty_weight, :max_takeoff_weight, :max_landing_weight, :max_payload, :full_fuel_payload,

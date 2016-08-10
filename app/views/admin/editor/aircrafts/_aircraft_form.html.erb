@@ -16,6 +16,7 @@
   <%= f.select :production_status_cd, enum_option_pairs(Aircraft, :production_status, true), include_blank: true %>
   <%= f.label "National origin" %>
   <%= f.select :national_origin_cd, enum_option_pairs(Aircraft, :national_origin, true), include_blank: true %>
+  <%= f.association :category, as: :select, collection: Category.all %>
   <%= f.association :roles, as: :check_boxes, collection: Role.all %>
   <%= f.association :types, as: :check_boxes, collection: Type.all %>
   <%= f.association :industries, as: :check_boxes, collection: Industry.all %>

@@ -1,5 +1,7 @@
 # air.aircraft_types.create(type: type)
 # air.aircraft_roles.create(role: role)
-cars = ["car", "", "rewr", "vsafdsa"].reject!(&:empty?)
+cars = ["car", "", "rewr", "vsafdsa"]
 
-p "fdsafsa,", cars.compact
+cars.each do |i|
+  puts i
+end
