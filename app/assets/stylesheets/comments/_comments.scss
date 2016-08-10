@@ -1,0 +1,41 @@
+.av_comments {
+    h4 {
+        font-family: 'worksans-regular';
+        color: $tertiary-color;
+    }
+
+    &__form {
+        textarea {
+            border: 2px solid $tertiary-color;
+        }
+    }
+
+    .av_comment__item {
+        background-color: $white;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        .comment__user { padding: 0px; }
+
+        .comment__user img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50px;
+            border: 1px solid $tertiary-color;
+
+        }
+
+        .comment__body {
+            font-family: 'worksans-regular';
+            color: $tertiary-color;
+            width: 600px;
+            padding: 0px;
+            font-size: rem-calc(10);
+
+            p {
+                color: darken($tertiary-color, 20);
+                font-size: rem-calc(12);
+            }
+        }
+    }
+}

@@ -1,44 +1,70 @@
+<div class="large-8 columns av_shot_show">
 
-<%= @shot.id %> -
-<%= @shot.caption %> -
-<%= @shot.view_count %>
-User - <%= @shot.user.username if @shot.user.present? %>
-
-<% if @shot.image.url.present? %>
-  <%= image_tag(@shot.image.small.url) %>
-<% end %>
-
-<% if @shot.tags.present? %>
-  <%=raw tag_links(@shot.all_tags)%>
-  <p><strong>Tags</strong></p>
-  <% @shot.tags.each do |tag| %>
-    <p><%= tag.name %></p>
-  <% end %>
-<% else %>
-  <p>No Tags for this shot.</p>
-<% end %>
-
-<hr>
-<% if current_user %>
-  <%= link_to "Favorite | ",   favorite_shot_path(@shot), method: :put %>
-<% end %>
-<%= link_to 'Back', shots_path %>|
-<button class="button tiny secondary" data-open="shot-flag-modal-<%= @shot.id %>">Flag</button>
-<%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @shot.id) %>
+    <section class="av_shot_item">
+        <%= image_tag(@shot.image.url, class: "av_shot_item__shot_image" ) %>
+        <div class="av_shot_item__shot_info">
+            <div class="shot_info__caption">
+                <p><%= @shot.caption %></p>
+            </div>
+            <div class="clearfix shot_info__meta">
+                <section class="shot_info__meta__user float-left">
+                    By: <em><%= @shot.user.username %></em>
+                </section>
+                <!-- Date -->
+                <date title="<%= @shot.created_at.strftime("%b %d,%Y") %>"><%= time_ago_in_words(@shot.created_at) %></date>
+                <section class="shot_info__meta__flag float-right">
+                    <span>Views: <%= @shot.view_count %></span>
+                    <!-- Fav -->
+                    <% if current_user %>
+                      <span><%= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @shot.id) %>Already favorited</span>
+                      <span class="shot_info__meta__flag float-right"><%= link_to "Fav", favorite_shot_path(@shot), method: :put %></span>
+                    <% end %>
+                    <span data-open="shot-flag-modal-<%= @shot.id %>">Flag</span>
+                </section>
+            </div>
+        </div>
+    </section>
 
 <!-- Shot Flag Modal -->
-<div class="reveal tiny" id="shot-flag-modal-<%= @shot.id %>" data-reveal>
-  <button class="close-button" data-close aria-label="Close modal" type="button">
-    <span aria-hidden="true">&times;</span>
-  </button>
-  <%= simple_form_for @flag, url: flag_shot_path(@shot), remote: true do |f| %>
-  <%= f.input :message, input_html: {class: 'shot-flag-modal-message'} %>
-  <%= f.button :submit %>
-  <% end %>
+    <div class="reveal tiny" id="shot-flag-modal-<%= @shot.id %>" data-reveal>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <%= simple_form_for @flag, url: flag_shot_path(@shot), remote: true do |f| %>
+      <%= f.input :message, input_html: {class: 'shot-flag-modal-message'} %>
+      <%= f.button :submit %>
+      <% end %>
+    </div>
+
+<!-- Comments -->
+  <section class="av_comments">
+      <hr>
+      <h4>Comments</h4>
+      <div class="av_comments__form">
+          <form action="">
+              <textarea rows="2"></textarea>
+              <input type="submit" class="button tiny secondary" value="Post">
+          </form>
+      </div>
+
+      <div class="av_comments__list">
+          <div class="av_comment__item clearfix">
+              <section class="av_comment__item comment__user float-left">
+                  <img src="images/user.png">
+              </section>
+              <section class="av_comment_item comment__body float-right">
+                  <p class="comment__body__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident dolore, culpa suscipit aperiam inventore exercitationem debitis corrupti odio nam facere?</p>
+                  <div class="comment__body__meta clearfix">
+                      <date class="comment__body__meta__date float-left">20 July 2016</date>
+
+                      <span class="comment__body__meta__flag float-right">Flag</span>
+                  </div>
+              </section>
+          </div>
+      </div>
+  </section>
+
 </div>
-
-
-
 
 <hr>
 
