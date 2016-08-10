@@ -12,42 +12,45 @@
 
 ActiveRecord::Schema.define(version: 20160802152855) do
 
-  create_table "aircraftenginemanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "aircraftenginemanufacturers", force: :cascade do |t|
     t.integer "aircraft_id",            null: false
     t.integer "engine_manufacturer_id", null: false
     t.index ["aircraft_id"], name: "index_aircraftenginemanufacturers_on_aircraft_id", using: :btree
     t.index ["engine_manufacturer_id"], name: "index_aircraftenginemanufacturers_on_engine_manufacturer_id", using: :btree
   end
 
-  create_table "aircraftenginemodels", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircraftenginemodels", force: :cascade do |t|
     t.integer "aircraft_id",     null: false
     t.integer "engine_model_id", null: false
     t.index ["aircraft_id"], name: "index_aircraftenginemodels_on_aircraft_id", using: :btree
     t.index ["engine_model_id"], name: "index_aircraftenginemodels_on_engine_model_id", using: :btree
   end
 
-  create_table "aircraftenginetypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircraftenginetypes", force: :cascade do |t|
     t.integer "aircraft_id",    null: false
     t.integer "engine_type_id", null: false
     t.index ["aircraft_id"], name: "index_aircraftenginetypes_on_aircraft_id", using: :btree
     t.index ["engine_type_id"], name: "index_aircraftenginetypes_on_engine_type_id", using: :btree
   end
 
-  create_table "aircraftindustries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircraftindustries", force: :cascade do |t|
     t.integer "aircraft_id", null: false
     t.integer "industry_id", null: false
     t.index ["aircraft_id"], name: "index_aircraftindustries_on_aircraft_id", using: :btree
     t.index ["industry_id"], name: "index_aircraftindustries_on_industry_id", using: :btree
   end
 
-  create_table "aircraftmanufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircraftmanufacturers", force: :cascade do |t|
     t.integer "aircraft_id",     null: false
     t.integer "manufacturer_id", null: false
     t.index ["aircraft_id"], name: "index_aircraftmanufacturers_on_aircraft_id", using: :btree
     t.index ["manufacturer_id"], name: "index_aircraftmanufacturers_on_manufacturer_id", using: :btree
   end
 
-  create_table "aircraftroles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircraftroles", force: :cascade do |t|
     t.integer  "aircraft_id", null: false
     t.integer  "role_id",     null: false
     t.datetime "created_at",  null: false
@@ -56,42 +59,42 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["role_id"], name: "index_aircraftroles_on_role_id", using: :btree
   end
 
-  create_table "aircrafts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "model",                              default: "",   null: false
-    t.text     "description",          limit: 65535
+  create_table "aircrafts", force: :cascade do |t|
+    t.string   "model",                default: "",   null: false
+    t.text     "description"
     t.integer  "year"
     t.integer  "maiden_flight"
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.integer  "view_count"
-    t.boolean  "is_public",                          default: true
+    t.boolean  "is_public",            default: true
     t.integer  "production_status_cd"
     t.integer  "national_origin_cd"
     t.integer  "crew"
     t.integer  "passengers"
-    t.float    "bootspace",            limit: 24
-    t.float    "length",               limit: 24
-    t.float    "height",               limit: 24
-    t.float    "wing_span",            limit: 24
-    t.float    "wing_area",            limit: 24
-    t.float    "empty_weight",         limit: 24
-    t.float    "gross_weight",         limit: 24
-    t.float    "max_takeoff_weight",   limit: 24
-    t.float    "max_landing_weight",   limit: 24
-    t.float    "max_payload",          limit: 24
-    t.float    "full_fuel_payload",    limit: 24
-    t.float    "power_output",         limit: 24
-    t.float    "thrust",               limit: 24
-    t.float    "max_cruise_speed",     limit: 24
-    t.float    "stall_speed",          limit: 24
-    t.float    "range",                limit: 24
-    t.float    "service_ceiling",      limit: 24
-    t.float    "max_climb_rate",       limit: 24
-    t.float    "max_speed_limit",      limit: 24
-    t.float    "takeoff_distance",     limit: 24
-    t.float    "takeoff_ground_roll",  limit: 24
-    t.float    "landing_distance",     limit: 24
-    t.float    "landing_ground_roll",  limit: 24
+    t.float    "bootspace"
+    t.float    "length"
+    t.float    "height"
+    t.float    "wing_span"
+    t.float    "wing_area"
+    t.float    "empty_weight"
+    t.float    "gross_weight"
+    t.float    "max_takeoff_weight"
+    t.float    "max_landing_weight"
+    t.float    "max_payload"
+    t.float    "full_fuel_payload"
+    t.float    "power_output"
+    t.float    "thrust"
+    t.float    "max_cruise_speed"
+    t.float    "stall_speed"
+    t.float    "range"
+    t.float    "service_ceiling"
+    t.float    "max_climb_rate"
+    t.float    "max_speed_limit"
+    t.float    "takeoff_distance"
+    t.float    "takeoff_ground_roll"
+    t.float    "landing_distance"
+    t.float    "landing_ground_roll"
     t.string   "image_front"
     t.string   "image_back"
     t.string   "image_left"
@@ -103,7 +106,7 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["model"], name: "index_aircrafts_on_model", using: :btree
   end
 
-  create_table "aircrafttypes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "aircrafttypes", force: :cascade do |t|
     t.integer  "aircraft_id", null: false
     t.integer  "type_id",     null: false
     t.datetime "created_at",  null: false
@@ -112,25 +115,25 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["type_id"], name: "index_aircrafttypes_on_type_id", using: :btree
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "body",             limit: 65535
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
     t.integer  "user_id"
     t.string   "commentable_type"
     t.integer  "commentable_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "engine_manufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "engine_manufacturers", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "engine_models", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "engine_models", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",             null: false
@@ -140,14 +143,14 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["engine_manufacturer_id"], name: "index_engine_models_on_engine_manufacturer_id", using: :btree
   end
 
-  create_table "engine_types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "engine_types", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "favorites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "favoritable_id"
     t.string   "favoritable_type"
@@ -157,56 +160,56 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 
-  create_table "flags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "message",       limit: 65535
+  create_table "flags", force: :cascade do |t|
+    t.text     "message"
     t.integer  "user_id"
     t.string   "flagable_type"
     t.integer  "flagable_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["flagable_type", "flagable_id"], name: "index_flags_on_flagable_type_and_flagable_id", using: :btree
     t.index ["user_id"], name: "index_flags_on_user_id", using: :btree
   end
 
-  create_table "industries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "industries", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "manufacturers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "manufacturers", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                      default: "", null: false
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",        default: "", null: false
+    t.text     "description"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
-  create_table "shots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "shots", force: :cascade do |t|
     t.integer  "user_id"
-    t.text     "caption",      limit: 65535
+    t.text     "caption"
     t.integer  "view_count"
     t.integer  "aircraft_id"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.boolean  "is_public",                  default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "is_public",    default: true
     t.string   "image"
     t.integer  "shot_type_cd"
-    t.text     "video",        limit: 65535
+    t.text     "video"
     t.string   "source"
     t.index ["aircraft_id"], name: "index_shots_on_aircraft_id", using: :btree
     t.index ["user_id"], name: "index_shots_on_user_id", using: :btree
   end
 
-  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "taggings", force: :cascade do |t|
     t.integer  "shot_id"
     t.integer  "tag_id"
     t.datetime "created_at", null: false
@@ -215,20 +218,20 @@ ActiveRecord::Schema.define(version: 20160802152855) do
     t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "types", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username",               default: "",   null: false
     t.string   "bio"
     t.string   "profile_image"
