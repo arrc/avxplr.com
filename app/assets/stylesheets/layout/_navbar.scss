@@ -1,12 +1,42 @@
-.top-bar {
-  font-family: 'worksans-light';
-  .menu {
-    background-color: $white;
-    li a { color: $secondary-color; }
-   }
+.av_header {
+//    padding: 2px;
+    background-color: #fff;
 }
 
-.navbar__logo {
-  font-size: 33px;
-  color: $primary-color;
+.av_navbar {
+    background-color: #fff;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    min-height: 60px;
+    line-height: 60px;
+
+    &__logo {
+        font-family: 'worksans-light';
+        color: $primary-color;
+        font-size: rem-calc(40);
+    }
+
+    &__menu__item {
+
+
+        a {
+            font-family: 'worksans-light';
+            color: $secondary-color;
+        }
+    }
+
+    &__menu--left {
+
+    }
+
+    &__menu--right, &__menu--left {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: normal;
+        a {
+            font-family: 'worksans-light';
+            color: $secondary-color;
+        }
+    }
 }

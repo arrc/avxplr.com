@@ -1,15 +1,15 @@
-<div class="top-bar navbar">
+<div class="row top-bar av_navbar">
   <section class="row">
     <section class="large-12 columns">
       <div class="top-bar-title">
         <!-- <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
           <button class="menu-icon dark" type="button" data-toggle></button>
         </span> -->
-        <strong class="navbar__logo">avxplr</strong>
+        <strong class="av_navbar__logo">avxplr</strong>
       </div>
       <div id="responsive-menu">
         <div class="top-bar-left">
-          <ul class="menu">
+          <ul class="menu av_navbar__menu--left">
             <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to "Aircrafts", aircrafts_path %></li>
             <li><%= link_to "Shots", shots_path %></li>
@@ -17,9 +17,9 @@
         </div>
 
         <div class="top-bar-right">
-          <ul class="dropdown menu" data-dropdown-menu>
+          <ul class="dropdown menu av_navbar__menu--right" data-dropdown-menu>
             <% if user_signed_in? %>
-              <li><strong><%= current_user.username %></strong> | <small><%= current_user.email %></small></li>
+              <li class="av_navbar__menu--right__item"><strong><%= current_user.username %></strong> | <small><%= current_user.email %></small></li>
               <li class="has-submenu is-dropdown-submenu-parent">
                 <%= link_to 'Dashboard', admin_dashboard_path %>
                 <ul class="submenu menu vertical" data-submenu>
@@ -36,8 +36,8 @@
               <li><%= link_to 'Edit profile', edit_user_registration_path %></li>
               <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to 'Login', new_user_session_path %></li>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li class="av_navbar__menu--right__item"><%= link_to 'Login', new_user_session_path %></li>
+              <li class="av_navbar__menu--right__item"><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
           </ul>
         </div>

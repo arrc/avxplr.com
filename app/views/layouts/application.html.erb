@@ -7,7 +7,7 @@
   <body id="<%= params[:controller].parameterize %>_controller">
 
     <!-- Heaer/ navbar -->
-    <div class="header">
+    <div class="av_header">
       <%= render "layouts/navbar" %> <!-- Navigation menu -->
     </div>
 
@@ -20,22 +20,22 @@
         </div>
 
     <!-- secondary menu & quotes block -->
-    <div class="row subnav--row">
-      <section class="large-8 columns subnav--column">
+    <div class="row av_subnav">
+      <section class="large-8 columns  av_subnav__column av_subnav__column--menu">
         <%= render "layouts/subnav" %>
       </section>
-      <section class="large-4 columns subnav--column">
+      <section class="large-4 columns av_subnav__column av_subnav__column--quotes">
         <%= render "layouts/qoutes" %>
       </section>
     </div>
 
     <!-- content sidebar row -->
     <div class="row">
-      <section class="large-8 columns">
+      <section class="large-8 columns av_content">
         <%= yield %>
       </section>
 
-      <section class="large-4 columns">
+      <section class="large-4 columns av_sidebar">
         <%= render "layouts/sidebar" %>
       </section>
     </div>

@@ -1,19 +1,59 @@
-@font-face {
-  font-family: 'worksans-light';
-  src: font-url('Work_Sans/WorkSans-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'worksans-regular';
-  src: font-url('Work_Sans/WorkSans-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'josefin-light';
-  src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
-}
-
-// #shots_controller {
+// @font-face {
 //   font-family: 'worksans-light';
-//   color: red;
+//   src: font-url('Work_Sans/WorkSans-Light.ttf') format('truetype');
 // }
+//
+// @font-face {
+//   font-family: 'worksans-regular';
+//   src: font-url('Work_Sans/WorkSans-Regular.ttf') format('truetype');
+// }
+// 
+// @font-face {
+//   font-family: 'josefin-light';
+//   src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
+// }
+
+@font-face { // Light
+    font-family: 'worksans-light';
+    src: font-url('Work_Sans/WorkSans-Light.ttf') format('truetype');
+}
+
+@font-face { // Regular
+    font-family: 'worksans-regular';
+    src: font-url('Work_Sans/WorkSans-Regular.ttf') format('truetype');
+}
+
+@font-face { // Medium
+    font-family: 'worksans-medium';
+    src: font-url('Work_Sans/WorkSans-Medium.ttf') format('truetype');
+}
+
+
+// ----------------------------- Josefine
+@font-face { // Light
+    font-family: 'josefin-light';
+    src: font-url('Josefin_Sans/JosefinSans-Light.ttf') format('truetype');
+}
+
+@font-face { // Regular
+    font-family: 'josefin-regular';
+    src: font-url('Josefin_Sans/JosefinSans-Regular.ttf') format('truetype');
+}
+
+@font-face { // Italic
+    font-family: 'josefin-italic';
+    src: font-url('Josefin_Sans/JosefinSans-Italic.ttf') format('truetype');
+}
+
+
+// ----------------------------- Muli
+@font-face { // Light
+    font-family: 'muli-light';
+    src: font-url('Muli/Muli-Light.ttf') format('truetype');
+}
+
+
+@font-face { // Regular
+    font-family: 'muli-regular';
+    src: font-url('Muli/Muli-Regular.ttf') format('truetype');
+}
