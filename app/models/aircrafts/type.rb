@@ -10,6 +10,7 @@
 #
 
 class Type < ApplicationRecord
+  belongs_to :category
   has_many :aircrafttypes
   has_many :aircrafts,  through: :aircrafttypes
 

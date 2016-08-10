@@ -16,6 +16,9 @@
 #
 
 class Aircraft < ApplicationRecord
+
+  belongs_to :category
+
   has_many :aircraftroles#, inverse_of: :role
   has_many :roles,  through: :aircraftroles
 
