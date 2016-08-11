@@ -1,5 +1,9 @@
 module AircraftsHelper
   def x_links(klass)
-    klass.map { |role| link_to role.strip, tag_path(role.strip) }.join(", ")
+    klass.map { |i| link_to i.strip, tag_path(i.strip) }.join(", ")
+  end
+
+  def comma_seperated(klass)
+    klass.map { |i| i }.join(", ")
   end
 end

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render "layouts/header" %> <!-- Main header block -->
+  </head>
+
+  <body id="<%= params[:controller].parameterize %>_controller">
+
+    <!-- Heaer/ navbar -->
+    <div class="av_header">
+      <%= render "layouts/navbar" %> <!-- Navigation menu -->
+    </div>
+
+    <section class="row av_admin">
+        <ul class="row column menu simple av_admin__menu">
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Editor</a></li>
+            <li><a href="">Sub attributes</a></li>
+            <li><a href="">Users</a></li>
+            <li><a href="">Comments</a></li>
+            <li><a href="">Shots</a></li>
+            <li><a href="">Flags</a></li>
+        </ul>
+    </section>
+
+    <!-- Notifications -->
+        <div class="flash-messages">
+          <% flash.each do |key, value| %>
+            <section class="callout warning flash-messages--notice"><%= notice if flash.notice %></section>
+            <section class="callout alert flash-messages--alert"><%= alert if flash.alert %></section>
+          <% end %>
+        </div>
+
+    <!-- content sidebar row -->
+    <div class="row av_content">
+        <%= yield %>
+    </div>
+
+    <%#= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <script type="text/javascript">
+      $(function(){ $(document).foundation(); });
+
+
+    </script>
+  </body>
+</html>

@@ -1,6 +1,27 @@
-<h2>Aircrafts</h2>
+<%= page_title "Aircrafts list" %>
 
-<table>
+<div class="large-8 columns">
+  <section class="av_aircrafts_grid--wrapper">
+
+    <div class="row small-up-1 medium-up-2 large-up-3">
+      <% @aircrafts.each do |aircraft| %>
+        <div class="column av_aircrafts_grid__item">
+          <%= image_tag(aircraft.image_takeoff.thumb.url, class: "thumbnail av_aircrafts_grid__item--image")  %>
+          <section class="grid__item__info">
+               <h5><%= link_to aircraft.model, aircraft_path(aircraft) %></h5>
+               <p class="grid__item__info__manufacturer"><%=raw comma_seperated(aircraft.manufacturers.pluck(:name)) %></p>
+               <p class="grid__item__info__roles"><%=raw comma_seperated(aircraft.roles.pluck(:name)) %></p>
+               <p class="grid__item__info__speed"><%= aircraft.max_cruise_speed %></p>
+               <p class="grid__item__info__cost">$400 million</p>
+           </section>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+
+<!-- <table>
   <thead>
     <tr>
       <th>Id</th>
@@ -9,13 +30,13 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @aircrafts.each do |aircraft| %>
-      <tr>
-        <td><%= aircraft.id %></td>
-        <td><%= aircraft.model %></td>
-        <td><%= link_to 'Show', aircraft_path(aircraft) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <tbody> -->
+    <%# @aircrafts.each do |aircraft| %>
+      <!-- <tr> -->
+        <!-- <td><%#= aircraft.id %></td>
+        <td><%#= aircraft.model %></td>
+        <td><%#= link_to 'Show', aircraft_path(aircraft) %></td>
+      </tr> -->
+    <%# end %>
+  <!-- </tbody>
+</table> -->

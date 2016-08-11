@@ -1,3 +1,6 @@
+<%= page_title @aircraft.model %>
+
+
 <div class="large-8 columns ">
 <section class="av_aircraft_show">
   <!-- Title  -->
@@ -121,135 +124,175 @@
               <!-- / Heading -->
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Length:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.length %> ft</div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Height</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.height %> ft</div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Wing span:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.wing_span %> ft</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Wing area:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.wing_area %> sq.ft</div>
               </div>
           </section>  <!-- /Dimensions -->
 
-
-        <!-- General -->
+        <!-- Weight -->
           <section class="av_aircraft__details--specifications__section">
             <!-- Heading -->
-              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Weight</h4></div>
               <!-- / Heading -->
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Gross weight:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.gross_weight %> kgs</div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Empty weight:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.empty_weight %> kgs</div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Max takeoff weight:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_takeoff_weight %> kgs</div>
               </div>
-          </section>  <!-- /General -->
 
-        <!-- General -->
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Max landing weight:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_landing_weight %> kgs</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Max payload:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_payload %> kgs</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Full fuel payload:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.full_fuel_payload %> kgs</div>
+              </div>
+
+          </section>  <!-- /Weight -->
+
+        <!-- Power plant -->
           <section class="av_aircraft__details--specifications__section">
             <!-- Heading -->
-              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Power plant</h4></div>
               <!-- / Heading -->
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Engine manufacturers:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.engine_manufacturers.pluck(:name)) %></div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Engine models:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.engine_models.pluck(:name)) %></div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Engine types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.engine_types.pluck(:name)) %></div>
               </div>
-          </section>  <!-- /General -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Power output:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.power_output %> hp</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Thrust:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.thrust %></div>
+              </div>
+
+          </section>  <!-- /Power plant -->
 
 
-        <!-- General -->
+        <!-- Performance -->
           <section class="av_aircraft__details--specifications__section">
             <!-- Heading -->
-              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Performance</h4></div>
               <!-- / Heading -->
 
+              <% if @aircraft.max_cruise_speed.present? %>
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Max cruise speed:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_cruise_speed %> kn</div>
+              </div>
+              <% end %>
+
+              <% if @aircraft.stall_speed.present? %>
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Stall speed:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.stall_speed %> kn</div>
+              </div>
+              <% end %>
+
+              <% if @aircraft.range.present? %>
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Range:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.range %> nmi</div>
+              </div>
+              <% end %>
+
+              <% if @aircraft.service_ceiling.present? %>
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Service ceiling:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.service_ceiling %> ft</div>
+              </div>
+              <% end %>
+
+              <% if @aircraft.max_climb_rate.present? %>
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Max climb rate:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_climb_rate %> ft/min</div>
+              </div>
+              <% end %>
+
+              <% if @aircraft.max_speed_limit.present? %>
               <div class="row av_aircraft__details--specifications__item">
                   <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.max_speed_limit %> kn</div>
               </div>
+              <% end %>
 
+              <% if @aircraft.takeoff_distance.present? %>
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Takeoff distance:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.takeoff_distance %> mtr</div>
               </div>
+              <% end %>
 
+              <% if @aircraft.takeoff_ground_roll.present? %>
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Takeoff ground roll:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.takeoff_ground_roll %> mtr</div>
               </div>
-          </section>  <!-- /General -->
+              <% end %>
 
-        <!-- General -->
-          <section class="av_aircraft__details--specifications__section">
-            <!-- Heading -->
-              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
-              <!-- / Heading -->
-
+              <% if @aircraft.landing_distance.present? %>
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Landing distance:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.landing_distance %> mtr</div>
               </div>
+              <% end %>
 
+              <% if @aircraft.landing_ground_roll.present? %>
               <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Landing ground roll:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.landing_ground_roll %> mtr</div>
               </div>
+              <% end %>
 
-              <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
-              </div>
-          </section>  <!-- /General -->
-
-
-        <!-- General -->
-          <section class="av_aircraft__details--specifications__section">
-            <!-- Heading -->
-              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
-              <!-- / Heading -->
-
-              <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
-              </div>
-
-              <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
-              </div>
-
-              <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
-              </div>
-          </section>  <!-- /General -->
-
-
+          </section>  <!-- /Performance -->
 
     </div> <!-- /Specifications content panel -->
 
@@ -328,30 +371,16 @@
   </div>
 <!-- /Tabs content -->
 
-  <%= @aircraft.year %>
-  <%= @aircraft.view_count %>
+<!-- Comments -->
+  <section class="av_comments">
+      <hr>
+      <h4>Comments</h4>
 
-  <% if @aircraft.roles.present? %>
-  <p><strong>Roles</strong></p>
-  <% @aircraft.roles.each do |role| %>
-  <p><%= role.name %></p>
-  <% end %>
-  <% else %>
-  <p>No roles for this aircraft.</p>
-  <% end %>
+      <%= render "comments/form" %>
 
-  <% if @aircraft.types.present? %>
-  <p><strong>Types</strong></p>
-  <% @aircraft.types.each do |type| %>
-  <p><%= type.name %></p>
-  <% end %>
-  <% else %>
-  <p>No types for this aircraft.</p>
-  <% end %>
+      <%= render "comments/comments", flagable_type: @aircraft %>
 
-  <h3>Comments</h3>
+  </section>
 
-  <%= render "comments/comments", flagable_type: @aircraft %>
-  <%= render "comments/form" %>
   </section>
 </div>
