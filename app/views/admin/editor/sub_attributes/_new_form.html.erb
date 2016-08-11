@@ -7,6 +7,10 @@
     <%= f.hidden_field :klass, value: klass.class.name  %>
     <%= f.input :name, input_html: {class: 'item-name'} %>
     <%= f.input :description, input_html: {class: 'item-description'}  %>
+    <!-- ONLY FOR "TYPE" -->
+      <% if klass.class.name == "Type" %>
+        <%= f.association :category, as: :select, collection: Category.all %>
+      <% end %>
     <%= f.button :submit %>
   <% end %>
 </div>

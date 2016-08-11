@@ -90,6 +90,6 @@ private
     # params.require(:role).permit(:name, :description, :klass)
     # pp lass = params[:klass].downcase.parameterize.to_sym
     klass = params[:klass].tableize.singularize.to_sym
-    params.require(klass).permit(:name, :description)
+    params.require(klass).permit(:name, :description, :category_id)
   end
 end
