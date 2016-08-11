@@ -3,10 +3,11 @@
 # Table name: types
 #
 #  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :string(255)
+#  name        :string
+#  description :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category_id :integer
 #
 
 class Type < ApplicationRecord

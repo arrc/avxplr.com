@@ -1,0 +1,126 @@
+.av_content--main {
+//    background-color: $white;
+}
+
+.av_roles__tag {
+    background-color: $white;
+
+    &--list {
+        padding: 15px;
+    }
+
+    &--item {
+        margin-bottom: 5px;
+        font-size: rem-calc(12);
+        font-family: 'worksans-light';
+        padding: 8px;
+        border: 2px solid lighten($tertiary-color, 30);
+        border-radius: 50px;
+
+        a { color: $tertiary-color; }
+    }
+
+    &--item:hover {
+        a { color: $secondary-color; }
+    }
+}
+
+
+
+
+
+
+
+
+
+.av_aircraft_show {
+    background-color: $white;
+}
+
+.aircraft_show__title {
+    margin: 0 10px;
+    &--heading {
+        font-family: 'josefin-italic';
+        color: $primary-color;
+    }
+
+    &--fav-icon {
+
+    }
+}
+
+.av_aircraft__details--tabs {
+    .tabs-title {
+        background-color: none;
+        font-family: 'worksans-regular';
+    }
+
+
+}
+
+.av_aircraft__details {
+    &--content {
+
+    }
+
+    &--gallery {
+
+        .av_gallery__grid {
+
+        }
+
+        .av_gallery__item {
+            height: 200px;
+            margin-bottom: 10px;
+        }
+
+        .av_gallery__item--image {
+            width: 200px;
+            height: 150px;
+            border: 0px;
+        }
+
+        .av_gallery__item--caption {
+            text-align: center;
+            font-family: 'worksans-light';
+            color: $tertiary-color;
+            font-size: rem-calc(12);
+        }
+    }
+
+    &--specifications__section{
+       margin-bottom: 10px;
+    }
+
+    &--specifications__heading {
+        text-align: center;
+        color: $primary-color;
+        h4 {font-family: 'josefin-italic';}
+        margin: 20px 0;
+    }
+
+    &--specifications__item {
+        font-family: 'worksans-regular';
+        color: darken($tertiary-color, 20);
+        font-size: rem-calc(14);
+        margin: 10px 0;
+    }
+
+    &--specifications__name {
+        font-weight: bold;
+        text-align: right;
+    }
+
+    &--specifications__value {
+//        color: $tertiary-color;
+    }
+}
+
+//av_aircraft__details--content
+//av_aircraft__details--specifications
+//av_aircraft__details--specifications__section
+//av_aircraft__details--specifications__heading
+//av_aircraft__details--specifications__item
+//av_aircraft__details--specifications__name
+//av_aircraft__details--specifications__value
+//av_aircraft__details--gallery

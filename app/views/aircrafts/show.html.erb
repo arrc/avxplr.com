@@ -1,40 +1,357 @@
+<div class="large-8 columns ">
+<section class="av_aircraft_show">
+  <!-- Title  -->
+  <section class="aircraft_show__title clearfix">
+      <h2 class="float-left aircraft_show__title--heading"><%= @aircraft.model %></h2>
+      <!-- Fav -->
+        <% if current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
+          <div class="float-right aircraft_show__title--fav-icon">Faved</div>
+        <% elsif current_user %>
+          <div class="float-right aircraft_show__title--fav-icon"><%= link_to "Fav", favorite_aircraft_path(@aircraft), method: :put %></div>
+        <% end %>
+      <!-- /Fav -->
+  </section>
 
-<%= @aircraft.id %>
-<%= @aircraft.model %>
-<%= @aircraft.description %>
-<%= @aircraft.year %>
-<%= @aircraft.view_count %>
+  <!-- Description -->
+  <section class="aircraft_show__description">
+    <p><%= @aircraft.description %></p>
+  </section>
 
-<% if @aircraft.roles.present? %>
+  <!-- Tabs -->
+  <ul class="tabs av_aircraft__details--tabs" data-tabs id="av_aircraft__details">
+    <li class="tabs-title is-active"><a href="#av_aircraft__details--specifications" aria-selected="true">Specifications</a></li>
+    <li class="tabs-title"><a href="#av_aircraft__details--gallery">Gallery</a></li>
+  </ul>
+
+<!-- Tabs content -->
+  <div class="tabs-content av_aircraft__details--content" data-tabs-content="av_aircraft__details">
+    <!-- Specifications content panel -->
+    <div class="tabs-panel is-active av_aircraft__details--specifications" id="av_aircraft__details--specifications">
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>General</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.model %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Year:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.year %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Maiden flight:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.maiden_flight %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.production_status %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">National origin:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.national_origin %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Category:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.category.name %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Roles:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.roles.pluck(:name)) %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.production_status %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.types.pluck(:name)) %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Industries:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.industries.pluck(:name)) %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Manufacturers:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.manufacturers.pluck(:name)) %></div>
+              </div>
+
+          </section>  <!-- /General -->
+
+
+        <!-- Interior -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Interior</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Crew:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.crew %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Passengers</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.passengers %></div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Bootspace:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.bootspace %></div>
+              </div>
+          </section>  <!-- /Interior -->
+
+        <!-- Dimensions -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Dimensions</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /Dimensions -->
+
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /General -->
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /General -->
+
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /General -->
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /General -->
+
+
+        <!-- General -->
+          <section class="av_aircraft__details--specifications__section">
+            <!-- Heading -->
+              <div class="row column av_aircraft__details--specifications__heading"><h4>Genreal</h4></div>
+              <!-- / Heading -->
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Model:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Boeing 747 - 400</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">Out of production</div>
+              </div>
+
+              <div class="row av_aircraft__details--specifications__item">
+                  <div class="large-4 columns av_aircraft__details--specifications__name">Types:</div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value">fixed wings, jumbo jet, quad engines</div>
+              </div>
+          </section>  <!-- /General -->
+
+
+
+    </div> <!-- /Specifications content panel -->
+
+    <!-- Gallery content panel -->
+    <div class="tabs-panel av_aircraft__details--gallery" id="av_aircraft__details--gallery">
+      <!-- Gallery grid -->
+      <div class="row small-up-1 medium-up-2 large-up-3 av_gallery__grid">
+        <!-- Front -->
+        <% if @aircraft.image_front.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_front.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Front</p>
+          </div>
+        <% end %>
+
+
+        <!-- Back -->
+        <% if @aircraft.image_back.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_back.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Back</p>
+          </div>
+        <% end %>
+
+        <!-- Left -->
+        <% if @aircraft.image_left.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_left.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Left</p>
+          </div>
+        <% end %>
+
+        <!-- Right -->
+        <% if @aircraft.image_right.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_right.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Right</p>
+          </div>
+        <% end %>
+
+        <!-- Takeoff -->
+        <% if @aircraft.image_takeoff.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_takeoff.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Takeoff</p>
+          </div>
+        <% end %>
+
+        <!-- Landing -->
+        <% if @aircraft.image_landing.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_landing.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Landing</p>
+          </div>
+        <% end %>
+
+        <!-- Airborne -->
+        <% if @aircraft.image_airborne.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_airborne.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Airborne</p>
+          </div>
+        <% end %>
+
+        <!-- Top -->
+        <% if @aircraft.image_top.present? %>
+          <div class="column av_gallery__item">
+            <%= image_tag(@aircraft.image_top.url, class: "thumbnail av_gallery__item--image")  %>
+            <p class="av_gallery__item--caption">Top</p>
+          </div>
+        <% end %>
+      </div>
+      <!-- /Gallery grid -->
+    </div>
+    <!-- /Gallery content panel -->
+  </div>
+<!-- /Tabs content -->
+
+  <%= @aircraft.year %>
+  <%= @aircraft.view_count %>
+
+  <% if @aircraft.roles.present? %>
   <p><strong>Roles</strong></p>
   <% @aircraft.roles.each do |role| %>
-    <p><%= role.name %></p>
+  <p><%= role.name %></p>
   <% end %>
-<% else %>
+  <% else %>
   <p>No roles for this aircraft.</p>
-<% end %>
+  <% end %>
 
-<% if @aircraft.types.present? %>
+  <% if @aircraft.types.present? %>
   <p><strong>Types</strong></p>
   <% @aircraft.types.each do |type| %>
-    <p><%= type.name %></p>
+  <p><%= type.name %></p>
   <% end %>
-<% else %>
+  <% else %>
   <p>No types for this aircraft.</p>
-<% end %>
+  <% end %>
 
-<%#= aircraft.types %>
+  <h3>Comments</h3>
 
-<hr>
-<% if current_user %>
-  <%= link_to "Favorite | ",   favorite_aircraft_path(@aircraft), method: :put %>
-<% end %>
-<%= link_to 'Back', aircrafts_path %>
-<%#= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
-
-<hr>
-
-<h3>Comments</h3>
-
-<%= render "comments/comments", flagable_type: @aircraft %>
-<%= render "comments/form" %>
+  <%= render "comments/comments", flagable_type: @aircraft %>
+  <%= render "comments/form" %>
+  </section>
+</div>

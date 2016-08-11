@@ -3,9 +3,9 @@
 # Table name: flags
 #
 #  id            :integer          not null, primary key
-#  message       :text(65535)
+#  message       :text
 #  user_id       :integer
-#  flagable_type :string(255)
+#  flagable_type :string
 #  flagable_id   :integer
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

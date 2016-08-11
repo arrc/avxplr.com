@@ -5,7 +5,7 @@
 #  id               :integer          not null, primary key
 #  user_id          :integer
 #  favoritable_id   :integer
-#  favoritable_type :string(255)
+#  favoritable_type :string
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

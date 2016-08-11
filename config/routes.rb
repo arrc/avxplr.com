@@ -1,7 +1,7 @@
 # == Route Map
 #
 #                          Prefix Verb   URI Pattern                                         Controller#Action
-#                            root GET    /                                                   pages#home
+#                            root GET    /                                                   shots#index
 #                   user_password POST   /users/password(.:format)                           devise/passwords#create
 #               new_user_password GET    /users/password/new(.:format)                       devise/passwords#new
 #              edit_user_password GET    /users/password/edit(.:format)                      devise/passwords#edit

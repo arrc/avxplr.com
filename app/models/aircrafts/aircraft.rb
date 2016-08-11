@@ -2,17 +2,51 @@
 #
 # Table name: aircrafts
 #
-#  id                :integer          not null, primary key
-#  model             :string(255)      default(""), not null
-#  description       :text(65535)
-#  year              :integer
-#  maiden_flight     :integer
-#  production_status :string(255)
-#  national_origin   :string(255)
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
-#  view_count        :integer
-#  is_public         :boolean          default(TRUE)
+#  id                   :integer          not null, primary key
+#  model                :string           default(""), not null
+#  description          :text
+#  year                 :integer
+#  maiden_flight        :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  view_count           :integer
+#  is_public            :boolean          default(TRUE)
+#  production_status_cd :integer
+#  national_origin_cd   :integer
+#  crew                 :integer
+#  passengers           :integer
+#  bootspace            :float
+#  length               :float
+#  height               :float
+#  wing_span            :float
+#  wing_area            :float
+#  empty_weight         :float
+#  gross_weight         :float
+#  max_takeoff_weight   :float
+#  max_landing_weight   :float
+#  max_payload          :float
+#  full_fuel_payload    :float
+#  power_output         :float
+#  thrust               :float
+#  max_cruise_speed     :float
+#  stall_speed          :float
+#  range                :float
+#  service_ceiling      :float
+#  max_climb_rate       :float
+#  max_speed_limit      :float
+#  takeoff_distance     :float
+#  takeoff_ground_roll  :float
+#  landing_distance     :float
+#  landing_ground_roll  :float
+#  image_front          :string
+#  image_back           :string
+#  image_left           :string
+#  image_right          :string
+#  image_top            :string
+#  image_takeoff        :string
+#  image_airborne       :string
+#  image_landing        :string
+#  category_id          :integer
 #
 
 class Aircraft < ApplicationRecord
@@ -54,7 +88,15 @@ class Aircraft < ApplicationRecord
   # accepts_nested_attributes_for :manufacturers
 
   as_enum :production_status, { in_production: 0, in_development: 1, out_of_production: 2}
-  as_enum :national_origin, { usa: 0, sweden: 1, russia: 2}
+  as_enum :national_origin, {
+    usa: 0,
+    sweden: 1,
+    russia: 2,
+    austria: 3,
+    canada: 4,
+    uk: 5,
+    india: 6
+  }
 
   mount_uploader :image_front, AircraftUploader
   mount_uploader :image_back, AircraftUploader

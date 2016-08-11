@@ -2,11 +2,13 @@
 #
 # Table name: engine_models
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  description :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id                     :integer          not null, primary key
+#  name                   :string
+#  description            :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  year                   :integer
+#  engine_manufacturer_id :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
