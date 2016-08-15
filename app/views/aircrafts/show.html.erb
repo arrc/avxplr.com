@@ -7,7 +7,7 @@
   <section class="aircraft_show__title clearfix">
       <h2 class="float-left aircraft_show__title--heading"><%= @aircraft.model %></h2>
       <!-- Fav -->
-        <% if current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
+        <% if current_user && current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
           <div class="float-right aircraft_show__title--fav-icon">Faved</div>
         <% elsif current_user %>
           <div class="float-right aircraft_show__title--fav-icon"><%= link_to "Fav", favorite_aircraft_path(@aircraft), method: :put %></div>

@@ -1,0 +1,26 @@
+# config valid only for current version of Capistrano
+lock '3.6.0'
+
+set :application, 'avxplrapp'
+set :repo_url, 'git@github.com:arrc/avxplr.com.git'
+set :deploy_to, '/opt/www/avxplrapp'
+set :user, 'deployer'
+set :linked_dirs, %w{public/system public/uploads log tmp/uploads tmp/pids tmp/cache tmp/sockets}
+append :linked_files, 'config/database.yml', 'config/secrets.yml', 'config/application.yml'
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# before 'deploy:assets:precompile'
+namespace :deploy do
+  %w[start stop restart].each do |command|
+    desc "Manage Unicorn"
+    task command do
+      on roles(:app), in: :sequence, wait: 1 do
+        execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
+      end
+    end
+  end
+
+  after :publishing, :restart
+end
