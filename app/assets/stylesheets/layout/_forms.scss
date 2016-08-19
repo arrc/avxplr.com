@@ -1,0 +1,35 @@
+.av_forms {
+  label {
+    font-family: 'worksans-regular';
+    color: $secondary-color;
+    font-size: rem-calc(14);
+  }
+
+  input {
+    font-family: 'muli-light';
+    color: #444;
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid lightgray;
+    box-shadow: none;
+  }
+
+  input:focus {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid lightgreen;
+    box-shadow: none;
+  }
+
+  input:placeholder-shown {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid salmon;
+    box-shadow: none;
+  }
+
+  // .checkbox {
+  //   display: inline-block;
+  //   margin-right: 10px;
+  // }
+}
