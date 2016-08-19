@@ -1,5 +1,5 @@
 class Admin::CommentsController < ApplicationController
-
+  layout "admin"
   # TODO: flag count for comment
   def index
     @comments = Comment.all

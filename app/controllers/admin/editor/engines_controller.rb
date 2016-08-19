@@ -1,4 +1,5 @@
 class Admin::Editor::EnginesController < ApplicationController
+  layout "admin"
   before_action :set_engine, only: [:show, :edit, :update, :destroy]
   def index
     @engines = EngineModel.all

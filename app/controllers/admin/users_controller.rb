@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  layout "admin"
   before_action :set_user, except: [:index]
 
   def index

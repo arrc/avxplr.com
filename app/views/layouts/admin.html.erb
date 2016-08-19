@@ -13,13 +13,15 @@
 
     <section class="row av_admin">
         <ul class="row column menu simple av_admin__menu">
-            <li><a href="">Dashboard</a></li>
-            <li><a href="">Editor</a></li>
-            <li><a href="">Sub attributes</a></li>
-            <li><a href="">Users</a></li>
-            <li><a href="">Comments</a></li>
-            <li><a href="">Shots</a></li>
-            <li><a href="">Flags</a></li>
+            <li><%= link_to 'Dashboard', admin_dashboard_path %></li>
+            <li><%= link_to "Aircrafts", admin_editor_aircrafts_path %></li>
+            <li><%= link_to "Editor", new_admin_editor_aircraft_path %></li>
+            <li><%= link_to "Engine", admin_editor_engines_path %></li>
+            <li><%= link_to "Sub Attributes", admin_editor_sub_attributes_path %></li>
+            <li><%= link_to "Spam", admin_flags_path %></li>
+            <li><%= link_to "Users", admin_users_path %></li>
+            <li><%= link_to "Shots", admin_shots_path %></li>
+            <li><%= link_to "Comments", admin_comments_path %></li>
         </ul>
     </section>
 

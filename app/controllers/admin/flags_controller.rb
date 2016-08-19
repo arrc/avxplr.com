@@ -1,5 +1,5 @@
 class Admin::FlagsController < ApplicationController
-
+  layout "admin"
   def index
     @flags = Flag.all.includes(:user, :flagable)
   end

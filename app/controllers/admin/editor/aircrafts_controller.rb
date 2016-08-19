@@ -1,4 +1,5 @@
 class Admin::Editor::AircraftsController < ApplicationController
+  layout "admin"
   before_action :set_aircraft, only: [:show, :edit, :update, :destroy]
 
   def index
