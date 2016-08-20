@@ -18,12 +18,12 @@
       <%= f.label "National origin" %>
       <%= f.select :national_origin_cd, enum_option_pairs(Aircraft, :national_origin, true), include_blank: true %>
       <%= f.association :category, as: :select, collection: Category.all %>
-      <section class="row small-up-1 medium-up-2 large-up-4">
-        <%= f.association :roles, as: :check_boxes, collection: Role.all, item_wrapper_class: "column" %>
-      </section>
-      <%= f.association :types, as: :check_boxes, collection: Type.all %>
-      <%= f.association :industries, as: :check_boxes, collection: Industry.all %>
-      <%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all %>
+      <!-- <section class="row small-up-1 medium-up-2 large-up-4"> -->
+        <%= f.association :roles, as: :check_boxes, collection: Role.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
+      <!-- </section> -->
+      <%= f.association :types, as: :check_boxes, collection: Type.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
+      <%= f.association :industries, as: :check_boxes, collection: Industry.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
+      <%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
     </fieldset>
   </div>
   <div class="large-6 columns">
