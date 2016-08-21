@@ -1,16 +1,27 @@
-<h3>Post new shot</h3>
+<div class="large-8 columns av_shot_new">
+  <section class="av_shot_wrapper">
+    <% if @shot.errors.any? %>
+      <p class="av_error">Please fix the errors and try again</p>
+    <% end %>
 
-<%= form_for @shot, url: shots_path, html: { multipart: true } do |f| %>
+    <%= form_for @shot, url: shots_path, html: { multipart: true, class: 'av_forms' } do |f| %>
 
-  <%= f.file_field :image %> <br>
-  <%= f.hidden_field :image_cache %> <br>
+      <%= f.file_field :image, required: false %> <br>
+      <%= f.hidden_field :image_cache %> <br>
+      <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
-  <%= f.text_field :caption %>
-  <%#= f.input :all_tags %>
-  <%#= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {id: "shot-tag-select"} %> <br>
-  <%= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {multiple: true, id: "shot-tag-select"} %> <br>
-  <%#= f.input :all_tags, Tag.map{|u| [u.name, u.id]}, wrapper_html: { class: 'all_tagsx' } %>
-  <%#= f.association :aircraft, as: :check_boxes, collection: Aircraft.all %>
-  <%#= f.input :aircraft_id, collection: @aircrafts, as: :grouped_select, group_method: :manufacturers %>
-  <%= f.button :submit %>
-<% end %>
+      <%= f.label :caption, "Caption" %>
+      <%= f.text_field :caption, placeholder: "caption" , required: false %>
+      <p class="help-text av_error"><%= @shot.errors[:caption].first %></p>
+
+      <%= f.label :shot_category_id, "Category" %>
+      <%= f.collection_radio_buttons :shot_category_id, ShotCategory.all, :id, :name, required: false %> <br>
+      <p class="help-text av_error"><%= @shot.errors[:shot_category_id].first %></p>
+
+      <%#= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {multiple: true, id: "shot-tag-select"} %>
+
+      <%#= f.input :aircraft_id, collection: @aircrafts, as: :grouped_select, group_method: :manufacturers %>
+      <%= f.button :submit, class: "button small secondary" %>
+    <% end %>
+  </section>
+</div>

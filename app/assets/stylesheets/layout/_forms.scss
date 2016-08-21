@@ -9,7 +9,7 @@
     font-size: rem-calc(16);
   }
 
-  input {
+  input:not([type="file"]){
     font-family: 'muli-light';
     color: #444;
     border: none;
@@ -17,6 +17,7 @@
     border-bottom: 1px solid lightgray;
     box-shadow: none;
   }
+
 
   input:focus {
     border: none;
@@ -30,6 +31,12 @@
     background: transparent;
     border-bottom: 1px solid salmon;
     box-shadow: none;
+  }
+
+  input[type="radio"] + label {
+    color: gray;
+    font-family: 'worksans-light';
+    font-size: rem-calc(14);
   }
 
   // .checkbox {

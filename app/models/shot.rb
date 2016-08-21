@@ -19,6 +19,7 @@
 class Shot < ApplicationRecord
   belongs_to :user
   belongs_to :aircraft
+  belongs_to :shot_category
   has_many :favorites, as: :favoritable
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :flags, as: :flagable, dependent: :destroy
@@ -27,7 +28,11 @@ class Shot < ApplicationRecord
 
   mount_uploader :image, ShotUploader
 
-   as_enum :shot_type, {photo:0, video:1}
+  as_enum :shot_type, {photo:0, video:1}
+
+  validates :caption, presence: { message: "caption cannot be blank." }
+  validates :image, presence: { message: "please upload some image." }
+  validates :shot_category_id, presence: { message: "select a category." }
 
   # def all_tags=(names)
   #   self.tags = names.split(",").map do |name|

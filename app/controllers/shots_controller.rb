@@ -2,6 +2,7 @@ class ShotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :favorite, :flag]
   before_action :set_shot, only: :show
   after_action :increment_views, only: :show
+
   def index
     @shots = Shot.where(is_public: true).all.includes(:user)
     # pp @flag
@@ -67,7 +68,7 @@ private
   end
 
   def shot_params
-    params.require(:shot).permit(:caption, :image, :shot_type, :video, :source, all_tags: [])
+    params.require(:shot).permit(:caption, :image, :shot_type, :video, :source, :shot_category_id, all_tags: [])
   end
 
   def increment_views

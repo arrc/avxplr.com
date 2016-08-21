@@ -22,6 +22,7 @@
 @import "general/variables.scss";
 @import "general/aviation-icon.scss";
 @import "general/fonts.scss";
+@import "general/global.scss";
 
 // Layout
 @import "layout/notifications.scss";
@@ -39,6 +40,7 @@
 // Shots
 @import "shots/shots";
 @import "shots/shot";
+@import "shots/new";
 
 // comments
 @import "comments/comments";
