@@ -1,8 +1,12 @@
 .av_forms {
+  .av_checkbox--simple_form {
+    background:yellow;
+  }
+
   label {
     font-family: 'worksans-regular';
     color: $secondary-color;
-    font-size: rem-calc(14);
+    font-size: rem-calc(16);
   }
 
   input {
@@ -32,4 +36,14 @@
   //   display: inline-block;
   //   margin-right: 10px;
   // }
+
+  .check_boxes {
+    margin-left: 15px;
+
+    .checkbox > label {
+      color: gray;
+      cursor: pointer;
+      font-size: rem-calc(12);
+    }
+  }
 }
