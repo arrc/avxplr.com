@@ -196,7 +196,7 @@ ActiveRecord::Schema.define(version: 20160820182904) do
 
   create_table "quotes", force: :cascade do |t|
     t.text     "body"
-    t.string   "cite"
+    t.string   "author"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -18,19 +18,29 @@
       <%= f.label "National origin" %>
       <%= f.select :national_origin_cd, enum_option_pairs(Aircraft, :national_origin, true), include_blank: true %>
       <%= f.association :category, as: :select, collection: Category.all %>
-      <!-- <section class="row small-up-1 medium-up-2 large-up-4"> -->
-        <%= f.association :roles, as: :check_boxes, collection: Role.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
-      <!-- </section> -->
-      <%= f.association :types, as: :check_boxes, collection: Type.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-2' }, item_wrapper_class: "column" %>
-      <%= f.association :industries, as: :check_boxes, collection: Industry.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-3' }, item_wrapper_class: "column" %>
-      <%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all, wrapper_html: { class: 'row small-up-1 medium-up-2 large-up-2' }, item_wrapper_class: "column" %>
+      <%= f.association :roles, as: :check_boxes, collection: Role.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column" %>
+      <%= f.association :types, as: :check_boxes, collection: Type.all, wrapper_html: { class: 'row large-up-2' }, item_wrapper_class: "column" %>
+      <%= f.association :industries, as: :check_boxes, collection: Industry.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column" %>
+      <%= f.association :manufacturers, as: :check_boxes, collection: Manufacturer.all, wrapper_html: { class: 'row large-up-2' }, item_wrapper_class: "column" %>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <legend>7 : Images</legend>
+      <%= f.input :remote_image_front_url, placeholder: "front"  %>
+      <%= f.input :remote_image_back_url, placeholder: "back"  %>
+      <%= f.input :remote_image_left_url, placeholder: "left"  %>
+      <%= f.input :remote_image_right_url, placeholder: "right"  %>
+      <%= f.input :remote_image_top_url %>
+      <%= f.input :remote_image_takeoff_url, placeholder: "year"  %>
+      <%= f.input :remote_image_airborne_url, placeholder: "year"  %>
+      <%= f.input :remote_image_landing_url %>
     </fieldset>
   </div>
   <div class="large-6 columns">
     <fieldset class="fieldset">
       <legend>2 : Interior</legend>
-      <%= f.input :crew %>
-      <%= f.input :passengers %>
+      <%= f.input :crew, placeholder: "crew"  %>
+      <%= f.input :passengers, placeholder: "passengers"  %>
       <%= f.input :bootspace %>
     </fieldset>
 
@@ -54,38 +64,28 @@
 
     <fieldset class="fieldset">
       <legend>5 : Power plant</legend>
-      <%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all %>
-      <%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all %>
-      <%= f.association :engine_types, as: :check_boxes, collection: EngineType.all %>
-      <%= f.input :power_output %>
+      <%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all, wrapper_html: { class: 'row large-up-2' }, item_wrapper_class: "column"  %>
+      <%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column"  %>
+      <%= f.association :engine_types, as: :check_boxes, collection: EngineType.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column"  %>
+      <%= f.input :power_output, placeholder: "power output"  %>
       <%= f.input :thrust %>
     </fieldset>
 
     <fieldset class="fieldset">
       <legend>6 : Performance</legend>
-      <%= f.input :max_cruise_speed %>
-      <%= f.input :stall_speed %>
-      <%= f.input :range %>
-      <%= f.input :service_ceiling %>
-      <%= f.input :max_climb_rate %>
-      <%= f.input :max_speed_limit %>
-      <%= f.input :takeoff_distance %>
-      <%= f.input :takeoff_ground_roll %>
-      <%= f.input :landing_distance %>
-      <%= f.input :landing_ground_roll %>
+      <%= f.input :max_cruise_speed, placeholder: "max cruise speed"  %>
+      <%= f.input :stall_speed, placeholder: "stall speed"  %>
+      <%= f.input :range, placeholder: "range"  %>
+      <%= f.input :service_ceiling, placeholder: "service ceiling"  %>
+      <%= f.input :max_climb_rate, placeholder: "mcr"  %>
+      <%= f.input :max_speed_limit, placeholder: "max speed limit"  %>
+      <%= f.input :takeoff_distance, placeholder: "year"  %>
+      <%= f.input :takeoff_ground_roll, placeholder: "year"  %>
+      <%= f.input :landing_distance, placeholder: "year"  %>
+      <%= f.input :landing_ground_roll, placeholder: "year"  %>
     </fieldset>
 
-    <fieldset class="fieldset">
-      <legend>7 : Images</legend>
-      <%= f.input :remote_image_front_url %>
-      <%= f.input :remote_image_back_url %>
-      <%= f.input :remote_image_left_url %>
-      <%= f.input :remote_image_right_url %>
-      <%= f.input :remote_image_top_url %>
-      <%= f.input :remote_image_takeoff_url %>
-      <%= f.input :remote_image_airborne_url %>
-      <%= f.input :remote_image_landing_url %>
-    </fieldset>
+
   </div>
 </section>
 
