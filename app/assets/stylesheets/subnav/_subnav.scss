@@ -39,6 +39,10 @@ $subnav-row--min-height: 100px;
     &__menu__item {
         width: 150px;
         text-align: center;
+        a {
+          padding: 0 !important;
+          color: $secondary-color;
+        }
     }
 
     &__menu__item:hover {

@@ -1,9 +1,15 @@
 class ShotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :favorite, :flag]
   before_action :set_shot, only: :show
+  before_action :shots_count
   after_action :increment_views, only: :show
 
   def index
+    # binding.pry
+    pp params
+    if params[:category]
+      return @shots = Shot.where(shot_category_id: params[:category]).where(is_public: true).all.includes(:user)
+    end
     @shots = Shot.where(is_public: true).all.includes(:user)
     # pp @flag
   end
@@ -17,6 +23,10 @@ class ShotsController < ApplicationController
 
   def tags
     @shots = Shot.tagged_with(params[:tag])
+  end
+
+  def category
+    # @shots = Shot.where()
   end
 
   def new
@@ -69,6 +79,10 @@ private
 
   def shot_params
     params.require(:shot).permit(:caption, :image, :shot_type, :video, :source, :shot_category_id, all_tags: [])
+  end
+
+  def shots_count
+    @shots_stats = Shot.count
   end
 
   def increment_views

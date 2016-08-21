@@ -1,5 +1,6 @@
 class AircraftsController < ApplicationController
   before_action :set_aircraft, only: :show
+  before_action :aircrafts_count
   after_action :increment_views, only: :show
 
   def index
@@ -57,6 +58,10 @@ class AircraftsController < ApplicationController
   private
   def set_aircraft
     @aircraft = Aircraft.find(params[:id])
+  end
+
+  def aircrafts_count
+    @aircrafts_stats = Aircraft.count
   end
 
   def increment_views

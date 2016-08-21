@@ -31,6 +31,7 @@
 #                   shot_comments GET    /shots/:shot_id/comments(.:format)                  comments#index
 #                                 POST   /shots/:shot_id/comments(.:format)                  comments#create
 #                new_shot_comment GET    /shots/:shot_id/comments/new(.:format)              comments#new
+#                  category_shots GET    /shots/:category(.:format)                          shots#categroy
 #                           shots GET    /shots(.:format)                                    shots#index
 #                                 POST   /shots(.:format)                                    shots#create
 #                        new_shot GET    /shots/new(.:format)                                shots#new
@@ -96,6 +97,9 @@ Rails.application.routes.draw do
 # TAGS
   get 'tags/:tag', to: "shots#tags", as: "tag"
 
+# SHOTS/Category
+
+
 # AIRCRAFTS
   resources :aircrafts, only: [:index, :show]  do
     put :favorite, on: :member
@@ -111,6 +115,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :new, :create] do
       post :flag, on: :member
     end
+    # get ':category', to: "shots#categroy", as: "category", on: :collection
   end
 
 # COMMENTS

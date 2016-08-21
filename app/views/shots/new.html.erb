@@ -6,8 +6,9 @@
 
     <%= form_for @shot, url: shots_path, html: { multipart: true, class: 'av_forms' } do |f| %>
 
-      <%= f.file_field :image, required: false %> <br>
-      <%= f.hidden_field :image_cache %> <br>
+      <%= f.label :image, "Image" %>
+      <%= f.file_field :image, required: false %>
+      <%= f.hidden_field :image_cache %>
       <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
       <%= f.label :caption, "Caption" %>

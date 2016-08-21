@@ -2,18 +2,19 @@
 #
 # Table name: shots
 #
-#  id           :integer          not null, primary key
-#  user_id      :integer
-#  caption      :text
-#  view_count   :integer
-#  aircraft_id  :integer
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  is_public    :boolean          default(TRUE)
-#  image        :string
-#  shot_type_cd :integer
-#  video        :text
-#  source       :string
+#  id               :integer          not null, primary key
+#  user_id          :integer
+#  caption          :text
+#  view_count       :integer
+#  aircraft_id      :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  is_public        :boolean          default(TRUE)
+#  image            :string
+#  shot_type_cd     :integer
+#  video            :text
+#  source           :string
+#  shot_category_id :integer
 #
 
 class Shot < ApplicationRecord
@@ -24,7 +25,7 @@ class Shot < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :flags, as: :flagable, dependent: :destroy
   has_many :taggings
-  has_many :tags, through: :taggings
+  has_many :tags, through: :taggings, dependent: :destroy
 
   mount_uploader :image, ShotUploader
 

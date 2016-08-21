@@ -1,6 +1,8 @@
 class Admin::ShotsController < ApplicationController
+
 layout "admin"
-  # TODO: comments,fav count
+
+# TODO: comments,fav count
   def index
     @shots = Shot.all.includes(:user)
   end
