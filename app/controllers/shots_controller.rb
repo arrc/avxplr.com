@@ -1,7 +1,7 @@
 class ShotsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :favorite, :flag]
   before_action :set_shot, only: :show
   after_action :increment_views, only: :show
-
   def index
     @shots = Shot.where(is_public: true).all.includes(:user)
     # pp @flag

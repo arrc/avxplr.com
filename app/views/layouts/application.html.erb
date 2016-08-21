@@ -5,19 +5,14 @@
   </head>
 
   <body id="<%= params[:controller].parameterize %>_controller">
+    <!-- Notifications -->
+    <%= render "layouts/notifications" %>
 
     <!-- Heaer/ navbar -->
     <div class="av_header">
       <%= render "layouts/navbar" %> <!-- Navigation menu -->
     </div>
 
-    <!-- Notifications -->
-        <div class="flash-messages">
-          <% flash.each do |key, value| %>
-            <section class="callout warning flash-messages--notice"><%= notice if flash.notice %></section>
-            <section class="callout alert flash-messages--alert"><%= alert if flash.alert %></section>
-          <% end %>
-        </div>
 
     <!-- secondary menu & quotes block -->
     <div class="row av_subnav">
