@@ -1,13 +1,17 @@
 .av_comments {
   background-color: $white;
     h4 {
+      margin-left: 20px;
+      margin-top: 10px;
         font-family: 'worksans-regular';
         color: $tertiary-color;
     }
 
     &__form {
+      width: 90%;
+      margin: 0 auto;
         textarea {
-            border: 2px solid $tertiary-color;
+            border: 1px solid $tertiary-color;
         }
     }
 

@@ -2,7 +2,7 @@
   <% @comments.each do |comment| %>
   <div class="av_comment__item clearfix">
       <section class="av_comment__item comment__user float-left">
-          <img src="images/user.png">
+          <%= image_tag("user.png") %>
       </section>
       <section class="av_comment_item comment__body float-right">
           <p class="comment__body__text"><%= simple_format comment.body %></p>
