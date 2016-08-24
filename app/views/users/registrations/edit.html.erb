@@ -1,30 +1,31 @@
-<div class="large-8 columns">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="large-8 columns av_content_column av_profile_edit">
+  <section class="av_wrapper">
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put, class: "av_forms" }) do |f| %>
-    <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put, class: "av_forms" }) do |f| %>
+      <%= f.error_notification %>
 
-    <div class="form-inputs">
+      <div class="form-inputs">
 
-      <% if current_user.profile_image.url.present? %>
-        <%= image_tag(current_user.profile_image.small.url) %>
-      <% end %>
-      <%= f.file_field :profile_image %> <br>
-      <%= f.hidden_field :profile_image_cache %> <br>
+        <% if current_user.profile_image.url.present? %>
+          <%= image_tag(current_user.profile_image.small.url) %>
+        <% end %>
+        <%= f.file_field :profile_image %> <br>
+        <%= f.hidden_field :profile_image_cache %> <br>
 
-      <%= f.input :email, required: true, autofocus: true %>
-      <%= f.input :bio %>
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :bio %>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
 
-      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-    </div>
+        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Update", class: "button small secondary" %>
-    </div>
-  <% end %>
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: "button small secondary" %>
+      </div>
+    <% end %></section>
   </div>
