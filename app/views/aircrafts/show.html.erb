@@ -386,16 +386,17 @@
     <!-- /Gallery content panel -->
   </div>
 <!-- /Tabs content -->
-
-<!-- Comments -->
-  <section class="av_comments">
-      <h4>Comments</h4>
-
-      <%= render "comments/form" %>
-
-      <%= render "comments/comments", flagable_type: @aircraft %>
-
   </section>
 
-  </section>
+
+
+  <!-- Comments -->
+    <section class="av_comments">
+        <h4>Comments</h4>
+
+        <%= render "comments/form" %>
+
+        <%= render "comments/comments", flagable_type: @aircraft %>
+
+    </section>
 </div>

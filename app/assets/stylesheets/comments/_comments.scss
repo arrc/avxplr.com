@@ -20,7 +20,11 @@
         margin-bottom: 20px;
         padding: 20px;
 
-        .comment__user { padding: 0px; }
+        .comment__user {
+          padding: 0px;
+          margin-bottom: 0;
+          margin-top: 20px;
+         }
 
         .comment__user img {
             height: 40px;
