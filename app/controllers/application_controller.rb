@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :latest_shots
 
   def latest_shots
-    @latest_shots = Shot.all
+    @latest_shots = Shot.order(created_at: :desc)
   end
 
   protected
