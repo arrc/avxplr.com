@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :latest_shots
 
   def latest_shots
+    # TODO - limit 9 or 12
     @latest_shots = Shot.order(created_at: :desc)
   end
 

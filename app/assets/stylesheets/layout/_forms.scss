@@ -9,7 +9,7 @@
     font-size: rem-calc(16);
   }
 
-  input:not([type="file"]) {
+  input:not([type="file"]):not([type="submit"]) {
     font-family: 'muli-light';
     color: #444;
     border: none;
