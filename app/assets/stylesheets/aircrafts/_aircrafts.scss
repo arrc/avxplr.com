@@ -4,19 +4,14 @@
 
 .av_aircrafts_grid {
   &--wrapper {
-    background-color: $white;
+    background-color: $white !important;
   }
 }
 
 .av_aircrafts_grid__item {
     height: 350px;
-    margin-bottom: 10px;
+    padding-top: 10px;
     text-align: center;
-
-
-    &:hover {
-      background-color: lavender;
-    }
 
     .grid__item__image {
 
@@ -26,10 +21,14 @@
       width: 100%;
       height: 150px;
       border: 0px !important;
+      margin-bottom: 0 !important;
     }
 
     .grid__item__info {
+      background: ghostwhite;
+      padding-top: 16px;
         h5 {
+            font-size: rem-calc(16);
             font-family: 'josefin-italic';
             text-align: center;
             color: $primary-color;
