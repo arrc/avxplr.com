@@ -9,9 +9,14 @@
 }
 
 .av_aircrafts_grid__item {
-    height: 400px;
+    height: 350px;
     margin-bottom: 10px;
     text-align: center;
+
+
+    &:hover {
+      background-color: lavender;
+    }
 
     .grid__item__image {
 
@@ -24,7 +29,7 @@
     }
 
     .grid__item__info {
-        h5 a {
+        h5 {
             font-family: 'josefin-italic';
             text-align: center;
             color: $primary-color;
