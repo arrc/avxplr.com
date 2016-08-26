@@ -131,6 +131,7 @@ Rails.application.routes.draw do
       resources :engines
     end
 
+    resources :quotes
     resources :users, except: [:new, :create]
     resources :flags, only: [:index, :destroy]
     resources :shots, only: [:index, :destroy]
