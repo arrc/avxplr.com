@@ -1,5 +1,18 @@
-<tr>
+<tr id="av_quote_<%= quote.id %>">
   <td><%= quote.id %></td>
   <td><%= quote.body %></td>
-  <td>Edit | Delete</td>
+  <td width="200">
+    <%= link_to 'Edit', edit_admin_quote_path(quote), remote: true , data: { open: "edit-quote-modal-#{quote.id}" }%> |
+    <%= link_to 'Destroy', admin_quote_path(quote), method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+  </td>
 </tr>
+<div class="reveal" data-reveal id=<%= "edit-quote-modal-#{quote.id}"  %> >
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h3>New Quote</h3>
+  <%= simple_form_for quote, url: admin_quote_path(quote), remote: true do |f| %>
+    <%= f.input :body, input_html: {class: 'av_quote_body'} %>
+    <%= f.button :submit, value: "Update", class: "button secondary small" %>
+  <% end %>
+</div>

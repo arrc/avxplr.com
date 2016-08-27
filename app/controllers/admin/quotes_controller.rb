@@ -2,10 +2,10 @@ class Admin::QuotesController < ApplicationController
 
   layout 'admin'
 
-  before_action :set_item, only: [:update, :destroy]
+  before_action :set_quote, only: [:edit, :update, :destroy]
 
   def index
-    @quotes = Quote.all
+    @quotes = Quote.order(:id)
     # we use modal dialog for creating new quotes hence we need to instantiate Quote here.
     @quote = Quote.new
   end
@@ -13,6 +13,10 @@ class Admin::QuotesController < ApplicationController
   def new
     #code
     @quote = Quote.new
+  end
+
+  def edit
+    #code
   end
 
   def create
