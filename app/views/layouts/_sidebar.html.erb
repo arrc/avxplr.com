@@ -3,8 +3,9 @@
   <div class="row small-up-1 medium-up-2 large-up-3">
     <% @latest_shots.each do |shot| %>
       <div class="column">
-        <%#= image_tag(shot.image.small.url, class: "thumbnail") %>
-        <%= image_tag(shot.image.url, class: "thumbnail") %>
+        <%= link_to shot.image.url, { class: "xxxxxx", 'data-lightbox': "sidebar", rel: "lightbox" } do %>
+          <%= image_tag(shot.image.thumb.url, class: "thumbnail") %>
+        <% end %>
       </div>
     <% end %>
   </div>

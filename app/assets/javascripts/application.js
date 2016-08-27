@@ -14,10 +14,12 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+//= require lightbox
 //= require select2
 //= require noty
+//= require turbolinks
 //= require_tree .
+
 // $(function(){ $(document).foundation(); });
 $ = jQuery
 

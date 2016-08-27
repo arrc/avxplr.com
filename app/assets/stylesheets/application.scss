@@ -13,9 +13,11 @@
  *= require_self
  *= require select2
  *= require selectize.default
+ *= require lightbox
 //= require foundation_and_overrides
 
  */
+ @import 'lightbox';
  @import "foundation_and_overrides";
 
 // GENERAL

@@ -19,6 +19,7 @@ gem "carrierwave"
 gem "fog"
 gem "mini_magick"
 gem "simple_enum"
+gem 'lightbox2-rails'
 #---------------------------- CUSTOM END
 
 gem 'rails', '~> 5.0.0'
