@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def random_quote
-    @random_quote = Quote.limit(1).order("RANDOM()")
+    @random_quote = Quote.limit(1).order("RANDOM()").pluck(:body).first
   end
 
   protected

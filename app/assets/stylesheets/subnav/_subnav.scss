@@ -20,7 +20,7 @@ $subnav-row--min-height: 100px;
         font-family: 'josefin-italic';
         text-align: center;
         padding: 5px;
-        color: $tertiary-color;
+        color: darken($tertiary-color, 20);
 
         span {
             display: inline-block;
