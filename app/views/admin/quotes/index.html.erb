@@ -6,15 +6,14 @@
 <table id="av_quotes_table">
   <thead>
     <tr>
-      <th>#No.</th>
       <th>ID</th>
       <th>Body</th>
       <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <% @quotes.each_with_index do |quote, index| %>
-      <%= render "quotes", quote: quote, index: index %>
+    <% @quotes.each do |quote| %>
+      <%= render "quotes", quote: quote %>
     <% end %>
   </tbody>
 </table>
