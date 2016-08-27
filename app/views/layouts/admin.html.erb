@@ -22,19 +22,15 @@
             <li><%= link_to "Users", admin_users_path %></li>
             <li><%= link_to "Shots", admin_shots_path %></li>
             <li><%= link_to "Comments", admin_comments_path %></li>
+            <li><%= link_to "Quotes", admin_quotes_path %></li>
         </ul>
     </section>
 
     <!-- Notifications -->
-        <div class="flash-messages">
-          <% flash.each do |key, value| %>
-            <section class="callout warning flash-messages--notice"><%= notice if flash.notice %></section>
-            <section class="callout alert flash-messages--alert"><%= alert if flash.alert %></section>
-          <% end %>
-        </div>
+    <%= render "layouts/notifications" %>
 
     <!-- content sidebar row -->
-    <div class="row av_admin av_content">
+    <div class="row column av_admin av_content">
         <%= yield %>
     </div>
 

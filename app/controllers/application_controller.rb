@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :latest_shots
-  before_action :quotes
+  before_action :random_quote
 
   def latest_shots
     # TODO - limit 9 or 12

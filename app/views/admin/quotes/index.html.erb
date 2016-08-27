@@ -1,0 +1,25 @@
+<section class="clearfix">
+  <h3 class="float-left">Quotes</h3>
+  <button class="button small float-right">New</button>
+</section>
+
+<table>
+  <thead>
+    <tr>
+      <th>#No.</th>
+      <th>ID</th>
+      <th>Body</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @quotes.each_with_index do |quote, index| %>
+      <tr>
+        <td><%= index %></td>
+        <td><%= quote.id %></td>
+        <td><%= quote.body %></td>
+        <td>Edit | Delete</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
