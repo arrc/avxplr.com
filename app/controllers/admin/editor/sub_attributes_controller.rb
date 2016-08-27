@@ -15,7 +15,6 @@ class Admin::Editor::SubAttributesController < ApplicationController
     @industries = Industry.all
     @industry = Industry.new
 
-    #
     @enginetypes = EngineType.all
     @enginetype = EngineType.new
 
@@ -36,14 +35,6 @@ class Admin::Editor::SubAttributesController < ApplicationController
         format.js
       end
     end
-    # @role = Role.new(permited_params)
-    # respond_to do |format|
-    #   if @role.save
-    #     format.js
-    #   else
-    #     format.js
-    #   end
-    # end
   end
 
   def edit
@@ -57,14 +48,6 @@ class Admin::Editor::SubAttributesController < ApplicationController
         format.js
       end
     end
-
-    # respond_to do |format|
-    #   if @role.update(permited_params)
-    #     format.js
-    #   else
-    #     format.js
-    #   end
-    # end
   end
 
   def destroy
@@ -72,23 +55,17 @@ class Admin::Editor::SubAttributesController < ApplicationController
     respond_to do |format|
       format.js
     end
-    # @role.destroy
-    # respond_to do |format|
-    #   format.js
-    # end
   end
 
 
 private
 
   def set_item
-    # @role = Role.find(params[:id])
-    pp @klass = params[:klass].constantize.find(params[:id])
+    @klass = params[:klass].constantize.find(params[:id])
   end
 
   def permited_params
-    # params.require(:role).permit(:name, :description, :klass)
-    # pp lass = params[:klass].downcase.parameterize.to_sym
+    # pp klass = params[:klass].downcase.parameterize.to_sym
     klass = params[:klass].tableize.singularize.to_sym
     params.require(klass).permit(:name, :description, :category_id)
   end

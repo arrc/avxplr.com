@@ -10,4 +10,5 @@
 #
 
 class Quote < ApplicationRecord
+  validates :body, presence: { message: "you must enter some quote to save into database." }
 end
