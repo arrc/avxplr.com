@@ -10,6 +10,11 @@ class Admin::QuotesController < ApplicationController
     @quote = Quote.new
   end
 
+  def new
+    #code
+    @quote = Quote.new
+  end
+
   def create
     @quote = Quote.new(permited_params)
     respond_to do |format|

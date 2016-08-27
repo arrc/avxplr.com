@@ -50,7 +50,7 @@ Rails.application.routes.draw do
       resources :engines
     end
 
-    resources :quotes, except: [:new, :edit]
+    resources :quotes#, except: [:new, :edit]
     resources :users, except: [:new, :create]
     resources :flags, only: [:index, :destroy]
     resources :shots, only: [:index, :destroy]

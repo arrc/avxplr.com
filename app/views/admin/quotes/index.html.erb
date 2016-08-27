@@ -1,9 +1,9 @@
 <section class="clearfix">
   <h3 class="float-left">Quotes</h3>
-  <button class="button small float-right">New</button>
+  <%= link_to 'Add new', new_admin_quote_path, remote: true , class: "button small float-right secondary", data: { open: "new-quote-modal" } %>
 </section>
 
-<table>
+<table id="av_quotes_table">
   <thead>
     <tr>
       <th>#No.</th>
@@ -14,12 +14,8 @@
   </thead>
   <tbody>
     <% @quotes.each_with_index do |quote, index| %>
-      <tr>
-        <td><%= index %></td>
-        <td><%= quote.id %></td>
-        <td><%= quote.body %></td>
-        <td>Edit | Delete</td>
-      </tr>
+      <%= render "quotes", quote: quote, index: index %>
     <% end %>
   </tbody>
 </table>
+<%= render "new", object: @quote %>
