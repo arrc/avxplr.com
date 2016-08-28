@@ -1,6 +1,6 @@
 <ul class="menu av_subnav__menu">
     <li class="av_subnav__menu__item">
-      <%=  link_to shots_path(category: "aeroplanes") do %>
+      <%= link_to subnav_path(category: "aeroplanes") do %>
        <section class="av_subnav__menu__item-icon icon-airplane"></section>
        <p class="av_subnav__menu__item-name">
          <span>Aeroplanes</span>
@@ -8,7 +8,7 @@
        <% end %>
    </li>
  <li class="av_subnav__menu__item">
-   <%=  link_to shots_path(category: "helicopters") do %>
+   <%=  link_to subnav_path(category: "helicopters") do %>
      <section class="av_subnav__menu__item-icon icon-helicopter"></section>
      <p class="av_subnav__menu__item-name">
        <span>Helicoptors</span>
@@ -16,7 +16,7 @@
      <% end %>
  </li>
  <li class="av_subnav__menu__item">
-   <%=  link_to shots_path(category: "drones") do %>
+   <%=  link_to subnav_path(category: "drones") do %>
      <section class="av_subnav__menu__item-icon icon-drone"></section>
      <p class="av_subnav__menu__item-name">
        <span>Drones</span>
@@ -24,7 +24,7 @@
      <% end %>
  </li>
  <li class="av_subnav__menu__item av_subnav__menu__item--active">
-   <%=  link_to shots_path(category: "jets") do %>
+   <%=  link_to subnav_path(category: "jets") do %>
      <section class="av_subnav__menu__item-icon icon-jet"></section>
      <p class="av_subnav__menu__item-name">
        <span>Jets</span>

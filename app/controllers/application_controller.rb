@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :latest_shots
   before_action :random_quote
 
-  @category_hash = { '1': "aeroplanes", '2': "drones", '3': 'drones', '4': 'jets' }
-
   def latest_shots
     # TODO - limit 9 or 12
     @latest_shots = Shot.order(created_at: :desc)
