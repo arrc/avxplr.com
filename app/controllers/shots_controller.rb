@@ -8,7 +8,8 @@ class ShotsController < ApplicationController
     # binding.pry
     pp params
     if params[:category]
-      return @shots = Shot.where(shot_category_id: params[:category]).where(is_public: true).all.includes(:user)
+      cat_id = CATEGORIES.fetch params[:category].to_sym
+      return @shots = Shot.where(shot_category_id: cat_id).where(is_public: true).all.includes(:user)
     end
     @shots = Shot.where(is_public: true).all.includes(:user)
     # pp @flag
