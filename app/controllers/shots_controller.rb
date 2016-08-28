@@ -6,7 +6,6 @@ class ShotsController < ApplicationController
 
   def index
     # binding.pry
-    pp params
     if params[:category]
       cat_id = CATEGORIES.fetch params[:category].to_sym
       return @shots = Shot.where(shot_category_id: cat_id).where(is_public: true).all.includes(:user)

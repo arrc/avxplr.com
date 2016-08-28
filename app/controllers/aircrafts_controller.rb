@@ -4,6 +4,10 @@ class AircraftsController < ApplicationController
   after_action :increment_views, only: :show
 
   def index
+    if params[:category]
+      cat_id = CATEGORIES.fetch params[:category].to_sym
+      return @aircrafts = Aircraft.where(category_id: cat_id).where(is_public: true).all
+    end
     @aircrafts = Aircraft.all
   end
 
