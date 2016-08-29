@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   resources :comments, only: [:show]
 
 # ADMIN routes
-  get 'admin/dashboard', to: "admin/admin#dashboard" # Dashboard
+  get 'admin/dashboard', to: "admin#dashboard" # Dashboard
   namespace :admin do
     # Editor
     namespace :editor do

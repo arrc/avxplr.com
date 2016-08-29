@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
+  helper_method :admin_user?
+
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :latest_shots
   before_action :random_quote
@@ -13,6 +15,15 @@ class ApplicationController < ActionController::Base
   def random_quote
     @random_quote = Quote.limit(1).order("RANDOM()").pluck(:body).first
   end
+
+  def admin_user?
+    if current_user.is_admin?
+      true
+    elsif !current_user.is_admin?
+      false
+    end
+  end
+
 
   protected
 

@@ -10,4 +10,5 @@ module ApplicationHelper
       shots_path(obj)
     end
   end
+
 end

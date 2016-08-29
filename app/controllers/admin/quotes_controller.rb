@@ -1,4 +1,4 @@
-class Admin::QuotesController < ApplicationController
+class Admin::QuotesController < AdminController
 
   layout 'admin'
 
