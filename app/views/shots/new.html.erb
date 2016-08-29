@@ -2,17 +2,27 @@
   <section class="av_shot_wrapper">
     <% if @shot.errors.any? %>
       <p class="av_error">Please fix the errors and try again</p>
+      <% @shot.errors.full_messages.each do |message| %>
+        <li class="av_error"><%= message %></li>
+      <% end %>
+      <hr>
     <% end %>
 
     <%= form_for @shot, url: shots_path, html: { multipart: true, class: 'av_forms' } do |f| %>
 
       <%= f.label :image, "Image" %>
       <%= f.file_field :image, required: false %>
+      <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
+
+      <!-- video -->
+      <%= f.text_field :video, placeholder: "youtube video link" %>
+      <p class="help-text av_help_text">https://www.youtube.com/watch?v=PKNnqoJY0NM</p>
+      <p class="help-text av_error"><%= @shot.errors[:video].first %></p>
+
       <%= f.hidden_field :image_cache %>
       <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
-      <%= f.label :caption, "Caption" %>
-      <%= f.text_field :caption, required: false %>
+      <%= f.text_field :caption, placeholder: "caption", required: false %>
       <p class="help-text av_error"><%= @shot.errors[:caption].first %></p>
 
       <%= f.label :shot_category_id, "Category" %>

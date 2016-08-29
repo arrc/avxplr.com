@@ -32,8 +32,10 @@ class Shot < ApplicationRecord
   as_enum :shot_type, {photo:0, video:1}
 
   validates :caption, presence: { message: "caption cannot be blank." }
-  validates :image, presence: { message: "please upload some image." }
+  # validates :image, presence: { message: "please upload some image." }
   validates :shot_category_id, presence: { message: "select a category." }
+  validate :image_or_video
+
 
   # def all_tags=(names)
   #   self.tags = names.split(",").map do |name|
@@ -57,5 +59,13 @@ class Shot < ApplicationRecord
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).shots
+  end
+
+  private
+
+  def image_or_video
+    unless image.blank? ^ video.blank?
+      errors.add(:base, "please upload an image or enter a youtube video link.")
+    end
   end
 end
