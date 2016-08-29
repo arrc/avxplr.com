@@ -34,5 +34,6 @@ class User < ApplicationRecord
 
   mount_uploader :profile_image, ProfileImageUploader
 
+  validates :username, presence: { message: "Username is required."}
   scope :favorite_aircrafts, -> { where(favoritable_type: 'Aircraft') }
 end

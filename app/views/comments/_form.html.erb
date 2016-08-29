@@ -13,6 +13,7 @@
 
     <div class="field">
       <%= f.text_area :body, rows: 2 %>
+      <p class="help-text av_error"><%= @comment.errors[:body].first %></p>
     </div>
     <div class="actions">
       <%= f.submit "Post", class: "button tiny secondary" %>
