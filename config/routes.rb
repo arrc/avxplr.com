@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   # root 'pages#home'
   root 'shots#index'
+
   # http://ricostacruz.com/cheatsheets/devise.html
   devise_for :users, skip: [:sessions], controllers: {
     sessions: 'users/sessions'

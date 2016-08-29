@@ -2,7 +2,11 @@
   <% @comments.each do |comment| %>
   <div class="av_comment__item clearfix">
       <section class="av_comment__item comment__user float-left">
+        <% if comment.user.profile_image.present? %>
+          <span title="<%= comment.user.username %>"><%= image_tag(comment.user.profile_image.small.url) %></span>
+        <% else %>
           <%= image_tag("user.png") %>
+        <% end %>
       </section>
       <section class="av_comment_item comment__body float-right">
           <%= simple_format comment.body, class: "comment__body__text" %>
