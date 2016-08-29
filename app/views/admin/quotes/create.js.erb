@@ -1,3 +1,3 @@
 $("#new-quote-modal").foundation('close');
 $("#new-quote-modal .av_quote_body").val('');
-$("#av_quotes_table tbody").append("<%= j render(partial: 'quotes', locals: {quote: @quote}) %>");
+$("#av_quotes_table tbody").append("<%= j render(partial: 'quote', locals: {quote: @quote}) %>");
