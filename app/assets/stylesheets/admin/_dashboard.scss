@@ -4,12 +4,18 @@
 }
 
 .av_admin__menu {
-    padding: 20px 20px 0 !important;
+    // padding: 20px 20px 0 !important;
+    margin-left: 20px !important;
+    height: 50px;
+    line-height: 50px;
     font-family: 'worksans-regular';
-    a {color: gray;}
+    a {
+      color: gray;
+      padding: 16px 0 !important;
+    }
 
     li {
-
+      // height: 50px;
     }
 
     .av_active {
