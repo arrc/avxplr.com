@@ -5,8 +5,8 @@ ruby '2.3.1'
 gem 'devise', '~> 4.2'# rails g devise:install
 gem 'ransack', '~> 1.8'
 # gem 'ruby_gntp'
-gem 'foundation-rails'# rails d foundation:install
-gem 'compass-rails'
+gem 'foundation-rails', '~> 6.2.3.0'# rails d foundation:install
+gem 'compass-rails', '~> 3.0.2'
 gem 'chosen-rails'
 gem 'simple_form'# rails g simple_form:install --foundation
 gem "select2-rails"
@@ -21,6 +21,7 @@ gem "mini_magick"
 gem "simple_enum"
 gem 'lightbox2-rails'
 gem 'will_paginate', '~> 3.1.0'
+gem 'active_link_to', '~> 1.0.3'
 #---------------------------- CUSTOM END
 
 gem 'rails', '~> 5.0.0'

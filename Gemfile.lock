@@ -26,6 +26,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_link_to (1.0.3)
+      actionpack
     activejob (5.0.0)
       activesupport (= 5.0.0)
       globalid (>= 0.3.6)
@@ -441,6 +443,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_link_to (~> 1.0.3)
   annotate
   awesome_print (~> 1.7)
   better_errors
@@ -449,12 +452,12 @@ DEPENDENCIES
   carrierwave
   chosen-rails
   coffee-rails (~> 4.2)
-  compass-rails
+  compass-rails (~> 3.0.2)
   devise (~> 4.2)
   dotenv-rails
   figaro
   fog
-  foundation-rails
+  foundation-rails (~> 6.2.3.0)
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks
