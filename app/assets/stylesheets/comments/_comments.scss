@@ -23,7 +23,6 @@
         .comment__user {
           padding: 0px;
           margin-bottom: 0;
-          margin-top: 20px;
          }
 
         .comment__user img {
@@ -32,6 +31,14 @@
             border-radius: 50px;
             border: 1px solid $tertiary-color;
 
+        }
+
+        .comment__body__meta__flag {
+
+        }
+
+        .comment__body__meta__flag:hover {
+          cursor: pointer;
         }
 
         .comment__body {

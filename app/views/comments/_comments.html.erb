@@ -5,11 +5,10 @@
           <%= image_tag("user.png") %>
       </section>
       <section class="av_comment_item comment__body float-right">
-          <p class="comment__body__text"><%= simple_format comment.body %></p>
+          <%= simple_format comment.body, class: "comment__body__text" %>
           <div class="comment__body__meta clearfix">
               <date class="comment__body__meta__date float-left">20 July 2016</date>
-
-              <span class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>">Flag</span>
+              <span title="report this comment to admin." class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>"><i class="fa fa-flag">&nbsp;</i>Flag</span>
           </div>
       </section>
   </div>
@@ -25,7 +24,8 @@
       </blockquote>
       <%= simple_form_for @flag, url: comment_flag_path(flagable_type, comment), remote: true do |f| %>
       <%= f.input :message, input_html: {class: 'comment-flag-modal-message'} %>
-      <%= f.button :submit %>
+      <p class="help-text">Message is optional and not required.</p>
+      <%= f.button :submit, "Flag", class: 'button small secondary' %>
       <% end %>
     </div>
   <% end %>
