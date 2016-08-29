@@ -26,15 +26,12 @@
 
     &__menu__item {
       height: 70px;
-
-        a {
-            font-family: 'worksans-light';
-            color: $secondary-color;
-        }
     }
 
-    &__menu--left {
-
+    &__menu__item > a {
+      font-family: 'worksans-light';
+      color: $secondary-color;
+      padding: 27px 16px !important;
     }
 
     &__menu--right, &__menu--left {
