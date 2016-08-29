@@ -8,10 +8,9 @@ class ShotsController < ApplicationController
     # binding.pry
     if params[:category]
       cat_id = CATEGORIES.fetch params[:category].to_sym
-      return @shots = Shot.where(shot_category_id: cat_id).where(is_public: true).all.includes(:user)
+      return @shots = Shot.where(shot_category_id: cat_id).where(is_public: true).all.includes(:user).order("created_at DESC").page(params[:page]).per_page(3)
     end
-    @shots = Shot.where(is_public: true).all.includes(:user)
-    # pp @flag
+    @shots = Shot.where(is_public: true).all.includes(:user).page(params[:page]).per_page(5).order("created_at DESC")
   end
 
   def show

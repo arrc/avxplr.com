@@ -1,0 +1,6 @@
+$('.av_shots_list').append('<%= j render(@shots) %>');
+<% if @shots.next_page %>
+  $('.digg_pagination').replaceWith('<%= j render "paginate", object: @shots %>');
+<% else %>
+  $('.digg_pagination').remove();
+<% end %>

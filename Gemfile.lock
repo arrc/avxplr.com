@@ -60,7 +60,6 @@ GEM
     bullet (5.1.1)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
-    byebug (9.0.5)
     callsite (0.0.11)
     capistrano (3.6.0)
       airbrussh (>= 1.0.0)
@@ -435,6 +434,7 @@ GEM
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.0)
     xml-simple (1.1.5)
 
 PLATFORMS
@@ -445,7 +445,6 @@ DEPENDENCIES
   awesome_print (~> 1.7)
   better_errors
   bullet (~> 5.1)
-  byebug
   capistrano-rails
   carrierwave
   chosen-rails
@@ -485,6 +484,7 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console
+  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.3.1p112

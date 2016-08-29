@@ -95,7 +95,8 @@ class Aircraft < ApplicationRecord
     austria: 3,
     canada: 4,
     uk: 5,
-    india: 6
+    india: 6,
+    israel: 7
   }
 
   mount_uploader :image_front, AircraftUploader

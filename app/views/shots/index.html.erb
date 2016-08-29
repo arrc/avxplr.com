@@ -1,21 +1,6 @@
 <section class="large-8 columns av_shots_list">
-  <% @shots.each do |shot| %>
-    <%= link_to shot_path(shot) do %>
-      <section class="av_shot_item">
-          <!-- <img src="images/piper_m600.jpg" class="av_shot_item__shot_image" /> -->
-          <%= image_tag(shot.image.url, class: "av_shot_item__shot_image") %>
-          <div class="av_shot_item__shot_info">
-              <div class="shot_info__caption">
-                  <p><%= shot.caption %></p>
-              </div>
-              <div class="shot_info__meta">
-                  by <em><%= shot.user.username %></em>,
-                  <date title="<%= shot.created_at.strftime("%b %d,%Y") %>"><%= time_ago_in_words(shot.created_at) %></date>
-              </div>
-          </div>
-      </section>
-    <% end %>
-  <% end %>
+  <%= render @shots %>
+  <%= render "paginate", object: @shots %>
 </section>
 <!-- <hr>
 <div class="tags-cloud glassy-bg">

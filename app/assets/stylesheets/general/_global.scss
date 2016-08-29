@@ -6,3 +6,12 @@
 .error {
   color: red;
 }
+
+// For will_paginate
+.digg_pagination {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'muli-regular';
+  color: darkgray;
+  font-size: rem-calc(14);
+}
