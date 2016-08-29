@@ -14,7 +14,7 @@
     <section class="row av_admin">
         <ul class="row column menu simple av_admin__menu">
             <li><%= active_link_to 'Dashboard', admin_dashboard_path, class_active: 'av_active' %></li>
-            <li><%= active_link_to "Aircrafts", admin_editor_aircrafts_path, class_active: 'av_active' %></li>
+            <li><%= active_link_to "Aircrafts", admin_editor_aircrafts_path, :active => :exclusive, class_active: 'av_active' %></li>
             <li><%= active_link_to "Editor", new_admin_editor_aircraft_path, class_active: 'av_active' %></li>
             <li><%= active_link_to "Engine", admin_editor_engines_path, class_active: 'av_active' %></li>
             <li><%= active_link_to "Sub Attributes",  admin_editor_sub_attributes_path, class_active: 'av_active' %></li>
