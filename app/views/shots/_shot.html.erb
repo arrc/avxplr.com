@@ -1,7 +1,8 @@
 <%= link_to shot_path(shot) do %>
   <section class="av_shot_item">
       <!-- <img src="images/piper_m600.jpg" class="av_shot_item__shot_image" /> -->
-      <%= image_tag(shot.image.url, class: "av_shot_item__shot_image") %>
+      <%= image_tag(shot.image.url, class: "av_shot_item__shot_image") if shot.image.present? %>
+      <%= video_embed(shot.video) if shot.video.present? %>
       <div class="av_shot_item__shot_info">
           <div class="shot_info__caption">
               <p><%= shot.caption %></p>

@@ -10,4 +10,9 @@ module ShotsHelper
       yield(tag, classes[index.round])
     end
   end
+
+  def video_embed(video_url)
+    video_id = video_url.split("=").last
+    content_tag(:iframe, nil, width:"100%", height:"400", frameborder: 0, allowFullScreen: true, src: "http://www.youtube.com/embed/#{video_id}")
+  end
 end
