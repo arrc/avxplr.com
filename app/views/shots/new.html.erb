@@ -12,7 +12,7 @@
       <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
       <%= f.label :caption, "Caption" %>
-      <%= f.text_field :caption, placeholder: "caption" , required: false %>
+      <%= f.text_field :caption, required: false %>
       <p class="help-text av_error"><%= @shot.errors[:caption].first %></p>
 
       <%= f.label :shot_category_id, "Category" %>

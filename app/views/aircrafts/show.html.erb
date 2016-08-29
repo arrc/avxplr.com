@@ -54,7 +54,7 @@
 
               <div class="row av_aircraft__details--specifications__item">
                   <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.production_status %></div>
+                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.production_status.to_s.humanize %></div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
@@ -70,11 +70,6 @@
               <div class="row av_aircraft__details--specifications__item">
                   <div class="large-4 columns av_aircraft__details--specifications__name">Roles:</div>
                   <div class="large-8 columns av_aircraft__details--specifications__value"><%=raw x_links(@aircraft.roles.pluck(:name)) %></div>
-              </div>
-
-              <div class="row av_aircraft__details--specifications__item">
-                  <div class="large-4 columns av_aircraft__details--specifications__name">Production status:</div>
-                  <div class="large-8 columns av_aircraft__details--specifications__value"><%= @aircraft.production_status %></div>
               </div>
 
               <div class="row av_aircraft__details--specifications__item">
