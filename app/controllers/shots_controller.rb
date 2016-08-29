@@ -50,7 +50,7 @@ class ShotsController < ApplicationController
       redirect_back(fallback_location: root_path, notice: "Unfavorited")
     else
       Favorite.create(user_id: current_user.id, favoritable_id: params[:id], favoritable_type: "Shot")
-      redirect_back(fallback_location: root_path, notice: "Favorited")
+      redirect_back(fallback_location: root_path, alert: "Favorited")
     end
   end
 

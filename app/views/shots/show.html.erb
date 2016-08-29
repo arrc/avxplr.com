@@ -12,15 +12,18 @@
                     By: <em><%= @shot.user.username %></em>
                 </section>
                 <!-- Date -->
-                <date title="<%= @shot.created_at.strftime("%b %d,%Y") %>"><%= time_ago_in_words(@shot.created_at) %></date>
+                <date title="<%= @shot.created_at.strftime("%b %d,%Y") %>"><%= time_ago_in_words(@shot.created_at) %> ago</date>
                 <section class="shot_info__meta__flag float-right">
                     <span>Views: <%= @shot.view_count %></span>
                     <!-- Fav -->
                     <% if current_user %>
-                      <span><%= current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @shot.id) %>Already favorited</span>
-                      <span class="shot_info__meta__flag float-right"><%= link_to "Fav", favorite_shot_path(@shot), method: :put %></span>
+                      <% if current_user.favorites.exists?(favoritable_type: "Shot", favoritable_id: @shot.id) %>
+                        <%= link_to favorite_shot_path(@shot), method: :put do %> <i title="Remove this from your favorites." class="fa fa-heart av_fav">&nbsp;</i> <% end %>
+                      <% else %>
+                        <%= link_to favorite_shot_path(@shot), method: :put do %> <i title="Add this to your favorites." class="fa fa-heart-o av_fav">&nbsp;</i> <% end %>
+                      <% end %>
                     <% end %>
-                    <span data-open="shot-flag-modal-<%= @shot.id %>">Flag</span>
+                    <span title="report this shot to admin." class="av_flag" data-open="shot-flag-modal-<%= @shot.id %>"><i class="fa fa-flag">&nbsp;</i></span>
                 </section>
             </div>
         </div>
@@ -33,7 +36,7 @@
       </button>
       <%= simple_form_for @flag, url: flag_shot_path(@shot), remote: true do |f| %>
       <%= f.input :message, input_html: {class: 'shot-flag-modal-message'} %>
-      <%= f.button :submit %>
+      <%= f.button :submit, "Flag", class: "button small secondary" %>
       <% end %>
     </div>
 

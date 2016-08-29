@@ -7,7 +7,7 @@
       <section class="av_comment_item comment__body float-right">
           <%= simple_format comment.body, class: "comment__body__text" %>
           <div class="comment__body__meta clearfix">
-              <date class="comment__body__meta__date float-left">20 July 2016</date>
+              <date class="comment__body__meta__date float-left"><%= comment.created_at.strftime("%b %d, %Y") %></date>
               <span title="report this comment to admin." class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>"><i class="fa fa-flag">&nbsp;</i>Flag</span>
           </div>
       </section>
