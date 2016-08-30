@@ -34,4 +34,9 @@
   </table>
 
 </div>
-<%= will_paginate @aircrafts %>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @aircrafts %>
+  </div>
+  <%= will_paginate @aircrafts, :container => false %>
+</div>

@@ -26,4 +26,9 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @flags %>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @flags %>
+  </div>
+  <%= will_paginate @flags, :container => false %>
+</div>

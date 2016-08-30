@@ -22,4 +22,9 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @shots %>
+<div class="digg_pagination">
+  <div class="page_info">
+    <%= page_entries_info @shots %>
+  </div>
+  <%= will_paginate @shots, :container => false %>
+</div>
