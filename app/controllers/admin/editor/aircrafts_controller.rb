@@ -3,7 +3,11 @@ class Admin::Editor::AircraftsController < ApplicationController
   before_action :set_aircraft, only: [:show, :edit, :update, :destroy]
 
   def index
-    @aircrafts = Aircraft.all.order('created_at DESC').includes(:roles, :types)
+    if params[:search]
+      @aircrafts = Aircraft.where("model ILIKE ?", "%#{params[:search]}%").order('created_at DESC')
+    else
+      @aircrafts = Aircraft.all.order('created_at DESC')
+    end
   end
 
   def show
