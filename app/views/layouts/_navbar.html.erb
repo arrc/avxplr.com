@@ -22,7 +22,7 @@
             <% if user_signed_in? %>
               <% if admin_user? %>
                 <li class="av_navbar__menu__item has-submenu is-dropdown-submenu-parent">
-                  <%= link_to 'Dashboard', admin_dashboard_path %>
+                  <%= active_link_to 'Dashboard', admin_dashboard_path, class_active: 'av_active' %>
                   <ul class="submenu menu vertical" data-submenu>
                     <li><%= link_to "Aircraft editor", new_admin_editor_aircraft_path %></li>
                     <li><%= link_to "List", admin_editor_aircrafts_path %></li>

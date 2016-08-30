@@ -53,9 +53,12 @@
 
 // Admin
 @import "admin/admin";
-@import "admin/dashboard";
 @import "admin/editor/aircrafts";
 
+// Admin:Dashboard
+@import "admin/dashboard/dashboard";
+@import "admin/dashboard/stats";
+@import "admin/dashboard/latest";
 
 // Aircrafts
 @import "aircrafts/aircrafts";

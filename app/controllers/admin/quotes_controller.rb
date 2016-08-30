@@ -42,6 +42,9 @@ class Admin::QuotesController < AdminController
 
   def destroy
     @quote.destroy
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

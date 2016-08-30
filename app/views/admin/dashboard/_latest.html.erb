@@ -1,0 +1,110 @@
+<div class="row av_dashboard_latest">
+  <h3 class="text-center av_heading">Latest activities</h3>
+
+  <!-- shots -->
+  <div class="large-4 columns av_latest_column av_latest_shots">
+    <%= link_to admin_shots_path do %> <h4 class="av_heading">Shots</h4> <% end %>
+    <% @shots.each do |shot| %>
+      <%= link_to shot_path(shot) do %>
+        <div class="clearfix av_shot_item">
+          <section class="float-left av_i_image_wrapper">
+              <%= image_tag(shot.image.thumb.url) if shot.image.present? %>
+          </section>
+          <section class="float-right av_i_caption_wrapper">
+            <p class="av_i_caption"><%= shot.caption.truncate_words(10) %></p>
+            <div class="clearfix av_i_info">
+              <span class="float-left"><%= shot.user.username %></span>
+              <span class="float-right"><%= shot.created_at.strftime("%b %d, %Y") %></span>
+            </div>
+          </section>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- comments -->
+  <div class="large-3 columns av_latest_column">
+    <h4>Comments</h4>
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+    <a href="#" class="av_comment_item">
+        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-right">21/Aug/2016</span>
+        </div>
+    </a>
+
+  </div>
+
+  <!-- flags -->
+  <div class="large-3 columns av_latest_column">
+    <h4>Flags</h4>
+    <a href="" class="av_flag_item">
+        <p class="av_i_message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-left av_i_type"> <strong>Type: Shot</strong> </span>
+            <span class="float-right">21/aug/2016</span>
+        </div>
+    </a>
+
+    <a href="" class="av_flag_item">
+
+        <div class="clearfix av_i_info">
+            <span class="float-left">@username</span>
+            <span class="float-left av_i_type"> <strong>Type: Shot</strong> </span>
+            <span class="float-right">21/aug/2016</span>
+        </div>
+    </a>
+  </div>
+
+  <!-- users -->
+  <div class="large-2 columns av_latest_column">
+    <h4>Users</h4>
+    <a href="" class="av_user_item">
+        <div>
+            <p class="av_i_username">@username</p>
+            <span class="av_i_date">21/aug/2016</span>
+        </div>
+    </a>
+  </div>
+</div>

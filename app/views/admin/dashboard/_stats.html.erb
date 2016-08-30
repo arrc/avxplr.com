@@ -1,0 +1,61 @@
+<div class="row av_dashboard_stats">
+<!-- Users -->
+    <%= link_to admin_users_path do %>
+       <div class="large-3 columns av_stats_column av_stats_users">
+        <div class="clearfix av_count_wrapper">
+          <section class="float-left">
+            <i class="fa fa-user"></i>
+          </section>
+          <section class="float-right">
+            <span  class="av_count"><%= @users_count %></span>
+          </section>
+        </div>
+        <p class="av_count_info"><em>No.of users.</em></p>
+      </div>
+    <% end %>
+
+<!-- Aircraft -->
+  <%= link_to admin_editor_aircrafts_path do %>
+    <div class="large-3 columns av_stats_column av_stats_aircrafts">
+      <div class="clearfix av_count_wrapper">
+        <section class="float-left">
+          <i class="fa fa-plane"></i>
+        </section>
+        <section class="float-right">
+          <span  class="av_count"><%= @aircrafts_count %></span>
+        </section>
+      </div>
+      <p class="av_count_info"><em>No.of aircrafts profile created.</em></p>
+    </div>
+  <% end %>
+
+<!-- Shots -->
+  <%= link_to admin_shots_path do %>
+    <div class="large-3 columns av_stats_column av_stats_shots">
+      <div class="clearfix av_count_wrapper">
+        <section class="float-left">
+          <i class="fa fa-camera-retro"></i>
+        </section>
+        <section class="float-right">
+          <span  class="av_count"><%= @shots_count %></span>
+        </section>
+      </div>
+      <p class="av_count_info"><em>No.of shots created by users.</em></p>
+    </div>
+  <% end %>
+
+<!-- Flags -->
+  <%= link_to admin_flags_path do %>
+    <div class="large-3 columns av_stats_column av_stats_flags">
+        <div class="clearfix av_count_wrapper">
+          <section class="float-left">
+            <i class="fa fa-flag"></i>
+          </section>
+          <section class="float-right">
+            <span class="av_count"><%= @flags_count %></span>
+          </section>
+        </div>
+        <p class="av_count_info"><em>No.of spam pending for review.</em></p>
+      </div>
+    </div>
+  <% end %>

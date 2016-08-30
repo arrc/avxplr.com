@@ -1,0 +1,32 @@
+// STATS
+.av_dashboard_stats {
+    height: 70px;
+
+    .av_stats_column {
+
+        &:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+            // box-shadow:inset 0px -1px 0px lightgray;
+        }
+
+        .av_count_wrapper {
+            color: darken($tertiary-color, 20);
+            font-size: rem-calc(40);
+            padding: rem-calc(10);
+            margin: 0 50px;
+        }
+
+        .av_count_wrapper .av_count {
+            font-family: 'josefin-italic';
+        }
+
+        .av_count_info {
+            color: $secondary-color;
+            font-size: rem-calc(14);
+            text-align: center;
+            margin-bottom: 5px !important;
+            font-family: 'josefin-regular';
+        }
+    }
+}

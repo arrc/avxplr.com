@@ -34,6 +34,9 @@ class Admin::Editor::AircraftsController < ApplicationController
   end
 
   def destroy
+    if @aircraft.destroy
+      redirect_to admin_editor_aircrafts_path, notice: "Aircraft was deleted successfully."
+    end
   end
 
   private
