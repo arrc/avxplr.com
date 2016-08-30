@@ -24,55 +24,16 @@
 
   <!-- comments -->
   <div class="large-3 columns av_latest_column">
-    <h4>Comments</h4>
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
-    <a href="#" class="av_comment_item">
-        <p class="av_i_body">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, placeat?</p>
-        <div class="clearfix av_i_info">
-            <span class="float-left">@username</span>
-            <span class="float-right">21/Aug/2016</span>
-        </div>
-    </a>
-
+    <%= link_to admin_comments_path do %> <h4 class="av_heading">Comments</h4> <% end %>
+    <% @comments.each do |comment| %>
+      <div class="av_comment_item">
+          <p class="av_i_body"><%= comment.body.truncate_words(10) %></p>
+          <div class="clearfix av_i_info">
+              <span class="float-left"><%= comment.user.username %></span>
+              <span class="float-right"> <%= comment.created_at.strftime("%b %d, %Y") %> </span>
+          </div>
+      </div>
+    <% end %>
   </div>
 
   <!-- flags -->

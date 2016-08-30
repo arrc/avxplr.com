@@ -54,11 +54,12 @@
     .av_comment_item {
         margin-bottom: 10px;
         display: block;
-        min-height: 90px;
+        min-height: 30px;
         padding: 10px 10px 0 10px;
         outline: 1px solid lightgray;
 
         &:hover {
+            cursor: pointer;
             outline: 1px solid gray;
         }
 
