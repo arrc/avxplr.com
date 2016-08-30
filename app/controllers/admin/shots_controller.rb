@@ -4,7 +4,7 @@ layout "admin"
 
 # TODO: comments,fav count
   def index
-    @shots = Shot.all.includes(:user)
+    @shots = Shot.all.includes(:user).page(params[:page]).per_page(3)
   end
 
 # TODO: shots destroy js response

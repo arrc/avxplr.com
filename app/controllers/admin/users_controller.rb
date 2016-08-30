@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
     if params[:search]
       @users = User.where("username ILIKE ?", "%#{params[:search]}%").order('created_at DESC')
     else
-      @users = User.all
+      @users = User.all.page(params[:page]).per_page(3)
     end
   end
 

@@ -6,7 +6,7 @@ class Admin::Editor::AircraftsController < ApplicationController
     if params[:search]
       @aircrafts = Aircraft.where("model ILIKE ?", "%#{params[:search]}%").order('created_at DESC')
     else
-      @aircrafts = Aircraft.all.order('created_at DESC')
+      @aircrafts = Aircraft.all.order('created_at DESC').page(params[:page]).per_page(3)
     end
   end
 
