@@ -1,9 +1,9 @@
 <div class="row av_dashboard_latest">
-  <h3 class="text-center av_heading">Latest activities</h3>
-
+  <h3 class="text-center av_heading av_main_heading">Latest activities</h3>
+  <hr>
   <!-- shots -->
   <div class="large-4 columns av_latest_column av_latest_shots">
-    <%= link_to admin_shots_path do %> <h4 class="av_heading">Shots</h4> <% end %>
+    <%= link_to admin_shots_path do %> <h4 class="text-center av_heading--red">Shots</h4> <% end %>
     <% @shots.each do |shot| %>
       <%= link_to shot_path(shot) do %>
         <div class="clearfix av_shot_item">
@@ -24,7 +24,7 @@
 
   <!-- comments -->
   <div class="large-3 columns av_latest_column">
-    <%= link_to admin_comments_path do %> <h4 class="av_heading">Comments</h4> <% end %>
+    <%= link_to admin_comments_path do %> <h4 class="text-center av_heading--red">Comments</h4> <% end %>
     <% @comments.each do |comment| %>
       <div class="av_comment_item">
           <p class="av_i_body"><%= comment.body.truncate_words(10) %></p>
@@ -38,7 +38,7 @@
 
   <!-- flags -->
   <div class="large-3 columns av_latest_column">
-    <%= link_to admin_flags_path do %> <h4 class="av_heading">Flags</h4> <% end %>
+    <%= link_to admin_flags_path do %> <h4 class="text-center av_heading--red">Flags</h4> <% end %>
     <% @flags.each do |flag| %>
       <%= link_to root_path do %>
         <div class="av_flag_item">
@@ -55,12 +55,16 @@
 
   <!-- users -->
   <div class="large-2 columns av_latest_column">
-    <h4>Users</h4>
-    <a href="" class="av_user_item">
-        <div>
-            <p class="av_i_username">@username</p>
-            <span class="av_i_date">21/aug/2016</span>
+    <%= link_to admin_users_path do %> <h4 class="text-center av_heading--red">Users</h4> <% end %>
+    <% @users.each do |user| %>
+      <%= link_to admin_users_path do %>
+        <div class="av_user_item">
+            <div>
+                <p class="av_i_username"><%= user.username %></p>
+                <span title="<%= user.created_at %>"  class="av_i_date"> <%= user.created_at.strftime("%b %d, %Y") %> </span>
+            </div>
         </div>
-    </a>
+      <% end %>
+    <% end %>
   </div>
 </div>

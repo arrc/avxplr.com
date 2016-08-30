@@ -1,10 +1,27 @@
 // LATEST
 .av_dashboard_latest {
 
+    .av_main_heading {
+      margin: 30px 0;
+    }
+
+    hr {
+      margin-bottom: 0px;
+    }
+
+    .av_heading--red {
+      font-family: 'josefin-regular';
+      font-size: rem-calc(16);
+    }
+
     .av_latest_column:not(:last-child) {
         min-height: 700px;
         box-sizing: border-box;
         border-right: thin solid lightgray;
+    }
+
+    .av_latest_column {
+      padding-top: 20px;
     }
 
     // SHOTS
