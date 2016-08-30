@@ -1,4 +1,14 @@
-<h3>All users</h3>
+<div class="row av_admin_users">
+
+  <div class="clearfix">
+    <h3 class="float-left av_heading">Users</h3>
+
+    <section class="float-right av_search_form">
+      <%= form_tag(admin_users_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "search" %>
+      <% end %>
+    </section>
+  </div>
 
 <table>
   <thead>
@@ -29,3 +39,4 @@
     <% end %>
   </tbody>
 </table>
+</div>

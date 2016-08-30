@@ -3,7 +3,11 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, except: [:index]
 
   def index
-    @users = User.all
+    if params[:search]
+      @users = User.where("username ILIKE ?", "%#{params[:search]}%").order('created_at DESC')
+    else
+      @users = User.all
+    end
   end
 
   def show
