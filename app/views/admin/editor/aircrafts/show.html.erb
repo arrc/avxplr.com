@@ -1,8 +1,8 @@
+<% @aircraft.attributes.each_pair do |name, value| %>
+  <p><strong><%= name %></strong> - <em><%= value %></em></p>
+<% end %>
 
-<%= @aircraft.id %>
-<%= @aircraft.model %>
-<%= @aircraft.description %>
-<%= @aircraft.year %>
+<hr>
 
 <% if @aircraft.roles.present? %>
   <p><strong>Roles</strong></p>
@@ -13,6 +13,7 @@
   <p>No roles for this aircraft.</p>
 <% end %>
 
+<hr>
 <% if @aircraft.types.present? %>
   <p><strong>Types</strong></p>
   <% @aircraft.types.each do |type| %>

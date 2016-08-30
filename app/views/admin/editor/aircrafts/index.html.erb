@@ -7,8 +7,7 @@
     <tr>
       <th>Id</th>
       <th>Model</th>
-      <th>Description</th>
-      <th>Year</th>
+      <th>Public?</th>
       <th>Roles</th>
       <th>Types</th>
       <th colspan="3"></th>
@@ -20,8 +19,7 @@
       <tr>
         <td><%= aircraft.id %></td>
         <td><%= aircraft.model %></td>
-        <td><%= aircraft.description %></td>
-        <td><%= aircraft.year %></td>
+        <td><%= aircraft.is_public %></td>
         <td><%= aircraft.roles.map(&:name) %></td>
         <td><%= aircraft.types.map(&:name) %></td>
         <td><%= link_to 'Show', admin_editor_aircraft_path(aircraft) %></td>

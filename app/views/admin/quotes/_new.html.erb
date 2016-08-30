@@ -5,6 +5,6 @@
   <h3>New Quote</h3>
   <%= simple_form_for @quote, url: admin_quotes_path, remote: true do |f| %>
     <%= f.input :body, input_html: {class: 'av_quote_body'} %>
-    <%= f.button :submit, value: "Save", class: "button secondary small" %>
+    <%= f.button :submit, "Save", class: "button secondary small" %>
   <% end %>
 </div>

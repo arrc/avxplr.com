@@ -3,7 +3,7 @@ class Admin::Editor::AircraftsController < ApplicationController
   before_action :set_aircraft, only: [:show, :edit, :update, :destroy]
 
   def index
-    @aircrafts = Aircraft.all.includes(:roles, :types)
+    @aircrafts = Aircraft.all.order('created_at DESC').includes(:roles, :types)
   end
 
   def show
@@ -45,6 +45,7 @@ class Admin::Editor::AircraftsController < ApplicationController
 
     def aircraft_params
       params.require(:aircraft).permit(
+        :is_public,
         :model, :description, :year, :maiden_flight, :production_status_cd, :national_origin_cd, :category_id,
         :crew, :passengers, :bootspace,
         :length, :height, :wing_span, :wing_area,

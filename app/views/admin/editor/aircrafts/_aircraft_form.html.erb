@@ -35,6 +35,10 @@
       <%= f.input :remote_image_airborne_url, placeholder: "year"  %>
       <%= f.input :remote_image_landing_url %>
     </fieldset>
+
+    <fieldset class="fieldset">
+      <%= f.input :is_public %>
+    </fieldset>
   </div>
   <div class="large-6 columns">
     <fieldset class="fieldset">
@@ -107,5 +111,5 @@
 
 
 
-<%= f.button :submit %>
+<%= f.button :submit, 'Save', class: "button secondary" %>
 <% end %>
