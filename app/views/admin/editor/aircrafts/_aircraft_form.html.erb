@@ -11,6 +11,7 @@
       <legend>1 : General</legend>
       <%= f.input :model, placeholder: "model" %>
       <%= f.input :description, placeholder: "description" %>
+      <%= f.input :price %>
       <%= f.input :year, placeholder: "year"  %>
       <%= f.input :maiden_flight, placeholder: "mainden flight"  %>
       <%= f.label "Production status" %>
@@ -64,10 +65,12 @@
       <%= f.input :max_landing_weight %>
       <%= f.input :max_payload %>
       <%= f.input :full_fuel_payload %>
+      <%= f.input :max_fuel_capacity %>
     </fieldset>
 
     <fieldset class="fieldset">
       <legend>5 : Power plant</legend>
+      <%= f.input :engine_count %>
       <%= f.association :engine_manufacturers, as: :check_boxes, collection: EngineManufacturer.all, wrapper_html: { class: 'row large-up-2' }, item_wrapper_class: "column"  %>
       <%= f.association :engine_models, as: :check_boxes, collection: EngineModel.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column"  %>
       <%= f.association :engine_types, as: :check_boxes, collection: EngineType.all, wrapper_html: { class: 'row large-up-3' }, item_wrapper_class: "column"  %>
@@ -77,6 +80,7 @@
 
     <fieldset class="fieldset">
       <legend>6 : Performance</legend>
+      <%= f.input :endurance %>
       <%= f.input :max_cruise_speed, placeholder: "max cruise speed"  %>
       <%= f.input :stall_speed, placeholder: "stall speed"  %>
       <%= f.input :range, placeholder: "range"  %>

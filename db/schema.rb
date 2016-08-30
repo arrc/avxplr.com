@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160829133727) do
+ActiveRecord::Schema.define(version: 20160830180027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,10 @@ ActiveRecord::Schema.define(version: 20160829133727) do
     t.string   "image_airborne"
     t.string   "image_landing"
     t.integer  "category_id"
+    t.float    "price"
+    t.float    "endurance"
+    t.integer  "engine_count"
+    t.float    "max_fuel_capacity"
     t.index ["category_id"], name: "index_aircrafts_on_category_id", using: :btree
     t.index ["model"], name: "index_aircrafts_on_model", using: :btree
   end
