@@ -10,24 +10,36 @@
 
     <%= form_for @shot, url: shots_path, html: { multipart: true, class: 'av_forms' } do |f| %>
 
-      <%= f.label :image, "Image" %>
-      <%= f.file_field :image, required: false %>
-      <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
+      <fieldset class="fieldset">
+        <%= f.label :image, "Image" %>
+        <%= f.file_field :image, required: false %>
+        <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
-      <!-- video -->
-      <%= f.text_field :video, placeholder: "youtube video link" %>
-      <p class="help-text av_help_text">https://www.youtube.com/watch?v=PKNnqoJY0NM</p>
-      <p class="help-text av_error"><%= @shot.errors[:video].first %></p>
+        <%= f.hidden_field :image_cache %>
+        <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
-      <%= f.hidden_field :image_cache %>
-      <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
+        <p class="text-center"><em>OR</em></p>
 
-      <%= f.text_field :caption, placeholder: "caption", required: false %>
-      <p class="help-text av_error"><%= @shot.errors[:caption].first %></p>
+        <!-- video -->
+        <%= f.label :video %>
+        <%= f.text_field :video, placeholder: "youtube video link" %>
+        <p class="help-text av_help_text">https://www.youtube.com/watch?v=PKNnqoJY0NM</p>
+        <p class="help-text av_error"><%= @shot.errors[:video].first %></p>
+      </fieldset>
 
-      <%= f.label :shot_category_id, "Category" %>
-      <%= f.collection_radio_buttons :shot_category_id, ShotCategory.all, :id, :name, required: false %> <br>
-      <p class="help-text av_error"><%= @shot.errors[:shot_category_id].first %></p>
+
+
+      <fieldset class="fieldset">
+        <%= f.label :caption, class: "av_required" %>
+        <%= f.text_field :caption, placeholder: "caption", required: true %>
+        <p class="help-text av_error"><%= @shot.errors[:caption].first %></p>
+
+        <%= f.label :shot_category_id, "Category", class: "av_required" %>
+        <%= f.collection_radio_buttons :shot_category_id, ShotCategory.all, :id, :name do |b| %>
+          <%= b.radio_button + b.label(:class => "xxxx") %>
+        <% end %>
+        <p class="help-text av_error"><%= @shot.errors[:shot_category_id].first %></p>
+      </fieldset>
 
       <%#= f.collection_select :all_tags, Tag.all, :name, :name, {include_blank: true}, {multiple: true, id: "shot-tag-select"} %>
 

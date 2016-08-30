@@ -51,6 +51,12 @@
     font-style: italic;
   }
 
+  .av_required::after {
+    content: "*";
+    margin-left: 1px;
+    color: salmon;
+  }
+
   .check_boxes {
     margin-left: 15px;
 
