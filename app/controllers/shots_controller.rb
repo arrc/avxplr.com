@@ -73,7 +73,7 @@ private
   end
 
   def set_shot
-    @shot = Shot.find(params[:id])
+    @shot = Shot.friendly.find(params[:id])
   end
 
   def shot_params

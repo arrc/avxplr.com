@@ -61,7 +61,7 @@ class AircraftsController < ApplicationController
 
   private
   def set_aircraft
-    @aircraft = Aircraft.find(params[:id])
+    @aircraft = Aircraft.friendly.find(params[:id])
   end
 
   def aircrafts_count
@@ -69,7 +69,7 @@ class AircraftsController < ApplicationController
   end
 
   def increment_views
-    @aircraft = Aircraft.find(params[:id])
+    # @aircraft = Aircraft.friendly.find(params[:id])
     @aircraft.increment!(:view_count)
   end
 end

@@ -50,6 +50,7 @@
 #
 
 class Aircraft < ApplicationRecord
+  extend FriendlyId
 
   belongs_to :category
 
@@ -108,4 +109,5 @@ class Aircraft < ApplicationRecord
   mount_uploader :image_airborne, AircraftUploader
   mount_uploader :image_landing, AircraftUploader
 
+  friendly_id :model, use: [:slugged, :finders]
 end

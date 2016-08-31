@@ -18,6 +18,8 @@
 #
 
 class Shot < ApplicationRecord
+  extend FriendlyId
+  
   belongs_to :user
   belongs_to :aircraft
   belongs_to :shot_category
@@ -35,6 +37,8 @@ class Shot < ApplicationRecord
   # validates :image, presence: { message: "please upload some image." }
   validates :shot_category_id, presence: { message: "select a category." }
   validate :image_or_video
+
+  friendly_id :caption, use: [:slugged, :finders]
 
 
   # def all_tags=(names)

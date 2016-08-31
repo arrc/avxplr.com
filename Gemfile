@@ -23,6 +23,7 @@ gem 'lightbox2-rails'
 gem 'will_paginate', '~> 3.1.0'
 gem 'active_link_to', '~> 1.0.3'
 gem "font-awesome-rails", '~> 4.6.3.1'
+gem 'friendly_id', '~> 5.1.0'
 #---------------------------- CUSTOM END
 
 gem 'rails', '~> 5.0.0'
