@@ -47,7 +47,7 @@ class Admin::Editor::AircraftsController < ApplicationController
 
     def set_aircraft
       # pry.binding
-      @aircraft = Aircraft.find(params[:id])
+      @aircraft = Aircraft.friendly.find(params[:id])
     end
 
     def aircraft_params

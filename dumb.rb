@@ -1,6 +1,3 @@
-# air.aircraft_types.create(type: type)
-# air.aircraft_roles.create(role: role)
-cars = ["car", "rewr", "vsafdsa"]
-# roles.split(",").map { |role| link_to role.strip, tag_path(role.strip) }.join(", ")
+CATEGORIES = { aeroplanes:1 , helicopters:2, drones:3, jets:4}
 
-puts cars.map { |i| "#{i.strip}" }.join(", ")
+p CATEGORIES.key(1).to_s
