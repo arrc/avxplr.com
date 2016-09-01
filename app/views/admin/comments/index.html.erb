@@ -1,4 +1,13 @@
-<h2>Comments</h2>
+<div class="row av_admin_aircrafts">
+
+  <div class="clearfix av_header_wrapper">
+    <h3 class="float-left av_heading">Comments</h3>
+    <section class="float-right av_search_form">
+      <%= form_tag(admin_editor_aircrafts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "search" %>
+      <% end %>
+    </section>
+  </div>
 
 <table>
   <thead>
@@ -6,7 +15,8 @@
       <th>Id</th>
       <th>Comment body</th>
       <th>User</th>
-      <th colspan="3"></th>
+      <th>Date</th>
+      <th width="200">Action</th>
     </tr>
   </thead>
 
@@ -16,6 +26,7 @@
         <td><%= comment.id %></td>
         <td><%= comment.body %></td>
         <td><%= comment.user.username if comment.user.present? %></td>
+        <td><%= comment.created_at.strftime("%b %d, %Y") %></td>
         <td><%= link_to 'Destroy', admin_comment_path(comment), remote: true, method: :delete %></td>
       </tr>
     <% end %>
@@ -27,4 +38,5 @@
     <%= page_entries_info @comments %>
   </div>
   <%= will_paginate @comments, :container => false %>
+</div>
 </div>

@@ -10,7 +10,8 @@
     <tr>
       <th>Id</th>
       <th>Detail</th>
-      <th>Actions</th>
+      <th>Date</th>
+      <th width="200">Actions</th>
     </tr>
   </thead>
 
@@ -26,6 +27,7 @@
             <small class="float-right">Flagged by: <em><%= flaged_by_user(flag) %></em> | Flagged user: <em><%= flaged_user(flag) %></em></small>
           </section>
         </td>
+        <td><%= flag.created_at.strftime("%b %d, %Y") %></td>
         <td>
           <%= link_to 'Destroy', admin_flag_path(flag), remote: true, method: :delete %> |
           <%= link_to 'Nuke it!', admin_flag_path(flag, nuke: true), remote: true, method: :delete %>

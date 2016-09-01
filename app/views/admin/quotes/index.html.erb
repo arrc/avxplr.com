@@ -1,7 +1,14 @@
-<section class="clearfix">
-  <h3 class="float-left">Quotes</h3>
-  <%= link_to 'Add new', new_admin_quote_path, remote: true , class: "button small float-right secondary", data: { open: "new-quote-modal" } %>
-</section>
+<div class="row av_admin_aircrafts">
+
+  <div class="clearfix av_header_wrapper">
+    <h3 class="float-left av_heading">Quotes</h3>
+    <section class="float-right av_search_form">
+      <%= link_to 'Add new', new_admin_quote_path, remote: true , class: "button small hollow secondary", data: { open: "new-quote-modal" } %>
+      <%= form_tag(admin_editor_aircrafts_path, :method => "get", class: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "search" %>
+      <% end %>
+    </section>
+  </div>
 
 <table id="av_quotes_table">
   <thead>
@@ -16,3 +23,4 @@
   </tbody>
 </table>
 <%= render "new", object: @quote %>
+</div>
