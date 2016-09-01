@@ -13,7 +13,7 @@
                  <p class="grid__item__info__manufacturer"><%=raw comma_seperated(aircraft.manufacturers.pluck(:name)) %></p>
                  <p class="grid__item__info__roles"><%=raw comma_seperated(aircraft.roles.pluck(:name)) %></p>
                  <p class="grid__item__info__speed"><%= aircraft.max_cruise_speed %></p>
-                 <p class="grid__item__info__cost">$400 million</p>
+                 <p class="grid__item__info__cost"><%= "#{aircraft.price} million" if aircraft.price.present? %></p>
              </section>
              <% end %>
           </div>
