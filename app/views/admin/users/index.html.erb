@@ -1,6 +1,6 @@
 <div class="row av_admin_users">
 
-  <div class="clearfix">
+  <div class="clearfix av_header_wrapper">
     <h3 class="float-left av_heading">Users</h3>
 
     <section class="float-right av_search_form">
@@ -14,12 +14,13 @@
   <thead>
     <tr>
       <th>Id</th>
+      <th width="50">Avatar</th>
       <th>Username</th>
       <th>Email</th>
       <th>Is active</th>
-      <th>Comments count</th>
-      <th>Shots count</th>
-      <th colspan="3"></th>
+      <th>Comments</th>
+      <th>Shots</th>
+      <th colspan="3">Actions</th>
     </tr>
   </thead>
 
@@ -27,7 +28,8 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
-        <td><%= user.username %></td>
+        <td class="av_i_user_image"><%= image_tag(user.profile_image.small.url) %></td>
+        <td> <%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.is_active %></td>
         <td><%= user.comments.count %></td>
