@@ -20,4 +20,18 @@
     color: #444;
     font-size: rem-calc(14);
   }
+
+  .av_search_form {
+    font-family: worksans-regular;
+    letter-spacing: 1px;
+    padding: 10px;
+
+    a {
+      margin-bottom: 0 !important;
+    }
+
+    form {
+      display: inline-block !important;
+    }
+  }
 }
