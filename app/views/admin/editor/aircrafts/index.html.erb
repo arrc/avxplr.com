@@ -15,7 +15,7 @@
         <th>Id</th>
         <th>Model</th>
         <th>Public?</th>
-        <th colspan="2"></th>
+        <th width="200"></th>
       </tr>
     </thead>
 
@@ -25,9 +25,11 @@
         <td><%= aircraft.id %></td>
         <td><%= aircraft.model %></td>
         <td><%= aircraft.is_public %></td>
-        <td><%= link_to 'Show', admin_editor_aircraft_path(aircraft) %></td>
-        <td><%= link_to 'Edit', edit_admin_editor_aircraft_path(aircraft) %></td>
-        <td><%= link_to 'Destroy', admin_editor_aircraft_path(aircraft), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to 'Show', admin_editor_aircraft_path(aircraft) %> |
+          <%= link_to 'Edit', edit_admin_editor_aircraft_path(aircraft) %> |
+          <%= link_to 'Destroy', admin_editor_aircraft_path(aircraft), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
       <% end %>
     </tbody>

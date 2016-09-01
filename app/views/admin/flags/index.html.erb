@@ -1,11 +1,16 @@
-<h2>Flags</h2>
+<div class="row av_admin_flags">
+  <div class="clearfix av_header_wrapper">
+    <h3 class="float-left av_heading">Flags</h3>
+    <section class="float-right">
 
+    </section>
+  </div>
 <table>
   <thead>
     <tr>
       <th>Id</th>
       <th>Detail</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -15,13 +20,16 @@
         <td><%= flag.id %></td>
         <td>
           <p><%= flag.message %></p>
-          <hr>
-          <%= link_to flag.flagable_type, shot_or_comment_path(flag) %>
-          <small> Type: <%= flag.flagable_type %></small>
-          <small>Flagged by: <%= flaged_by_user(flag) %> | Flagged user <%= flaged_user(flag) %></small>
+
+          <section class="clearfix av_i_info">
+            <small class="float-left"><%= link_to flag.flagable_type, shot_or_comment_path(flag) %></small>
+            <small class="float-right">Flagged by: <em><%= flaged_by_user(flag) %></em> | Flagged user: <em><%= flaged_user(flag) %></em></small>
+          </section>
         </td>
-        <td><%= link_to 'Destroy', admin_flag_path(flag), remote: true, method: :delete %></td>
-        <td><%= link_to 'Nuke it!', admin_flag_path(flag, nuke: true), remote: true, method: :delete %></td>
+        <td>
+          <%= link_to 'Destroy', admin_flag_path(flag), remote: true, method: :delete %> |
+          <%= link_to 'Nuke it!', admin_flag_path(flag, nuke: true), remote: true, method: :delete %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +39,5 @@
     <%= page_entries_info @flags %>
   </div>
   <%= will_paginate @flags, :container => false %>
+</div>
 </div>
