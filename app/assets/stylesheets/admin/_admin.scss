@@ -1,3 +1,23 @@
 .av_admin {
   background-color: $white;
+
+  .av_header_wrapper {
+    padding: 10px 10px 0;
+  }
+
+  table {
+
+  }
+
+  table thead {
+    font-family: 'worksans-regular';
+    letter-spacing: 1px;
+    color: darkcyan;
+  }
+
+  table tbody {
+    font-family: worksans-regular;
+    color: #444;
+    font-size: rem-calc(14);
+  }
 }
