@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render "layouts/header" %> <!-- Main header block -->
+  </head>
+
+  <body id="<%= params[:controller].parameterize %>_controller">
+    <!-- Notifications -->
+    <%= render "layouts/notifications" %>
+
+    <!-- Heaer/ navbar -->
+    <div class="av_header">
+      <%= render "layouts/navbar" %> <!-- Navigation menu -->
+    </div>
+
+
+    <!-- secondary menu & quotes block -->
+    <div class="row av_subnav">
+
+      <section class="large-12 columns av_subnav__column av_subnav__column--quotes">
+        <%= render "layouts/qoutes" %>
+      </section>
+    </div>
+
+    <!-- content sidebar row -->
+    <div class="row av_content">
+
+        <%= yield %>
+
+      <section class="large-4 columns av_sidebar">
+        <%= render "layouts/sidebar" %>
+      </section>
+    </div>
+
+    <%= javascript_include_tag "lightbox", 'data-turbolinks-track' => true %>
+    <script type="text/javascript">
+      $(function(){ $(document).foundation(); });
+    </script>
+  </body>
+</html>

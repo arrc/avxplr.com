@@ -1,11 +1,19 @@
 class PagesController < ApplicationController
-  def home
+  layout "pages"
+
+  def faq
   end
 
   def about
   end
 
   def contact
+  end
+
+  def credits
+  end
+
+  def help
   end
 
   def user
