@@ -8,4 +8,13 @@
     font-family: 'muli-light';
     font-size: rem-calc(10);
     a { color:  $tertiary-color; }
+
+    .av_copyright {
+      color: goldenrod;
+      font-size: rem-calc(10);
+      a {
+        color:  inherit;
+        text-decoration: underline;
+      }
+    }
 }
