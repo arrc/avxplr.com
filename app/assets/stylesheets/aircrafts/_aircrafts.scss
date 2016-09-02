@@ -41,5 +41,9 @@
             font-size: rem-calc(11);
             color: darken($tertiary-color, 20);
         }
+
+        &:hover {
+          background-color: lavender;
+        }
     }
 }
