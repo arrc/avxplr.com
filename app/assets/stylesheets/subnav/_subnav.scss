@@ -21,11 +21,24 @@ $subnav-row--min-height: 100px;
         text-align: center;
         padding: 5px;
         color: darken($tertiary-color, 20);
+        position: relative;
+
+        .av_font_icon {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          font-style: italic;
+          // color: gainsboro;
+          color: rgba(220,220,220,0.5);
+          font-size: 42px;
+        }
 
         span {
             display: inline-block;
             vertical-align: middle;
             line-height: 20px;
+            position: relative;
+            z-index: 10;
         }
     }
 
