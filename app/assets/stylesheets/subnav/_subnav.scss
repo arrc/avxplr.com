@@ -57,10 +57,11 @@ $subnav-row--min-height: 100px;
           color: $secondary-color;
         }
     }
-
-    &__menu__item:hover {
+// .av_subnav__menu__item:not(.av_subnav__menu__item--last):hover
+    &__menu__item:not(.av_subnav__menu__item--last):hover {
         cursor: pointer;
         background-color: $hover-color;
+        border-bottom: thin solid lightskyblue;
     }
 
     &__menu__item-icon {
