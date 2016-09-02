@@ -11,8 +11,13 @@
     <%= form_for @shot, url: shots_path, html: { multipart: true, class: 'av_forms' } do |f| %>
 
       <fieldset class="fieldset">
-        <%= f.label :image, "Image" %>
-        <%= f.file_field :image, required: false %>
+        <%#= f.label :image, "Image" %>
+        <%= f.label :image, class: "av_form_addon_label" do %>
+            <i class="fa fa-photo  av_form_addon_icon"></i>
+            <%= f.file_field :image, class: "av_form_addon_input" %>
+        <% end %>
+        <p class="help-text av_help_text"> upload an image </p>
+        <%#= f.file_field :image, required: false %>
         <p class="help-text av_error"><%= @shot.errors[:image].first %></p>
 
         <%= f.hidden_field :image_cache %>
@@ -20,10 +25,13 @@
 
         <p class="text-center"><em>OR</em></p>
 
+
         <!-- video -->
-        <%= f.label :video %>
-        <%= f.text_field :video, placeholder: "youtube video link" %>
-        <p class="help-text av_help_text">https://www.youtube.com/watch?v=PKNnqoJY0NM</p>
+        <%= f.label :video, class: "av_form_addon_label" do %>
+            <i class="fa fa-video-camera  av_form_addon_icon"></i>
+            <%= f.text_field :video, placeholder: "youtube video link", class: "av_form_addon_input" %>
+        <% end %>
+        <p class="help-text av_help_text">eg: <em>https://www.youtube.com/watch?v=PKNnqoJY0NM</em></p>
         <p class="help-text av_error"><%= @shot.errors[:video].first %></p>
       </fieldset>
 

@@ -10,12 +10,27 @@
   }
 
   input:not([type="file"]):not([type="submit"]) {
+    display: inline-block !important;
     font-family: 'muli-light';
     color: #444;
-    border: none;
     background: transparent;
     border-bottom: 1px solid lightgray;
     box-shadow: none;
+  }
+
+  .av_form_addon_label {
+
+  }
+
+  .av_form_addon_input {
+    width: 90%;
+    // border: none !important;
+  }
+
+  .av_form_addon_icon {
+    font-size: rem-calc(24);
+    vertical-align: middle;
+    margin-right: 10px;
   }
 
 
