@@ -302,7 +302,7 @@
         <!-- Front -->
         <% if @aircraft.image_front.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_front.url do %>
+            <%= link_to @aircraft.image_front.url , { 'data-lightbox': "gallery", rel: "lightbox" } do %>
               <%= image_tag(@aircraft.image_front.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Front</p>
             <% end %>
@@ -313,7 +313,7 @@
         <!-- Back -->
         <% if @aircraft.image_back.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_back.url do %>
+            <%= link_to @aircraft.image_back.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_back.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Back</p>
             <% end %>
@@ -323,7 +323,7 @@
         <!-- Left -->
         <% if @aircraft.image_left.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_left.url do %>
+            <%= link_to @aircraft.image_left.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_left.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Left</p>
             <% end %>
@@ -333,7 +333,7 @@
         <!-- Right -->
         <% if @aircraft.image_right.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_right.url do %>
+            <%= link_to @aircraft.image_right.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_right.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Right</p>
             <% end %>
@@ -343,7 +343,7 @@
         <!-- Takeoff -->
         <% if @aircraft.image_takeoff.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_takeoff.url do %>
+            <%= link_to @aircraft.image_takeoff.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_takeoff.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Takeoff</p>
             <% end %>
@@ -353,7 +353,7 @@
         <!-- Landing -->
         <% if @aircraft.image_landing.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_landing.url do %>
+            <%= link_to @aircraft.image_landing.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_landing.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Landing</p>
             <% end %>
@@ -363,7 +363,7 @@
         <!-- Airborne -->
         <% if @aircraft.image_airborne.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_airborne.url do %>
+            <%= link_to @aircraft.image_airborne.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_airborne.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Airborne</p>
             <% end %>
@@ -373,7 +373,7 @@
         <!-- Top -->
         <% if @aircraft.image_top.present? %>
           <div class="column av_gallery__item">
-            <%= link_to @aircraft.image_top.url do %>
+            <%= link_to @aircraft.image_top.url , { 'data-lightbox': "gallery", rel: "lightbox" }  do %>
               <%= image_tag(@aircraft.image_top.thumb.url, class: "thumbnail av_gallery__item--image")  %>
               <p class="av_gallery__item--caption">Top</p>
             <% end %>
