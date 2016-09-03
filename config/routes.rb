@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'users/show'
-
   root 'shots#index'
 
   # http://ricostacruz.com/cheatsheets/devise.html
@@ -65,5 +62,5 @@ Rails.application.routes.draw do
   end
 
 # PROFILE
-  get 'users/:id', to: 'users#show'
+  get 'users/:id', to: 'users#show', as: 'profile'
 end
