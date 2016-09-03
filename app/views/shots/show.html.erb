@@ -1,7 +1,9 @@
 <div class="large-8 columns av_shot_show">
 
     <section class="av_shot_item">
-        <%= image_tag(@shot.image.url, class: "av_shot_item__shot_image" ) if @shot.image.present? %>
+        <%= link_to @shot.image.url do %>
+          <%= image_tag(@shot.image.url, class: "av_shot_item__shot_image" ) if @shot.image.present? %>
+        <% end %>
         <%= video_embed(@shot.video) if @shot.video.present? %>
         <div class="av_shot_item__shot_info">
             <div class="shot_info__caption">

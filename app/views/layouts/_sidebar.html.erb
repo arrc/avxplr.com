@@ -5,7 +5,7 @@
       <% if shot.image.present? %>
         <div class="column">
           <%= link_to shot.image.url, { 'data-lightbox': "sidebar", rel: "lightbox" } do %>
-          <%= image_tag(shot.image.thumb.url, class: "thumbnail") %>
+            <%= image_tag(shot.image.thumb.url, class: "thumbnail") %>
           <% end %>
         </div>
       <% end %>
