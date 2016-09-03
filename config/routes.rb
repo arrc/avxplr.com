@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   end
 
 # PAGES
-  %w[about contact credits faq help].each do |page|
+  %w[about contact credits faq].each do |page|
     get page, controller: "pages", action: page
   end
 
