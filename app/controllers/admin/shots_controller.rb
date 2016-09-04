@@ -9,7 +9,7 @@ layout "admin"
 
 # TODO: shots destroy js response
   def destroy
-    @shot = Shot.find(params[:id])
+    @shot = Shot.friendly.find(params[:id])
     @shot.destroy
   end
 end

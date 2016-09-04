@@ -28,13 +28,21 @@
       </div>
     </div>
     <div class="tabs-panel" id="av_user_profile_fav_tab">
-      <% @fav_shots.each do |shot| %>
-        <p><%#= shot.caption %></p>
-      <% end %>
-      <hr>
-      <% @fav_aircrafts.each do |aircraft| %>
-        <p><%#= aircraft.model %></p>
-      <% end %>
+      <ul class="accordion" data-accordion>
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 1</a>
+          <div class="accordion-content" data-tab-content>
+            I would start in the open state, due to using the `is-active` state class.
+          </div>
+        </li>
+        <!-- ... -->
+        <li class="accordion-item is-active" data-accordion-item>
+          <a href="#" class="accordion-title">Accordion 2</a>
+          <div class="accordion-content" data-tab-content>
+            I would start in the open state, due to using the `is-active` state class.
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
