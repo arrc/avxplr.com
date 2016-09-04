@@ -19,9 +19,13 @@
 
   <div class="tabs-content" data-tabs-content="av_user_profile_tabs">
     <div class="tabs-panel is-active" id="av_user_profile_shots_tab">
-      <% @shots.each do |shot| %>
-        <p><%= shot.caption %></p>
-      <% end %>
+      <div class="row small-up-1 medium-up-2 large-up-4">
+        <% @shots.each do |shot| %>
+        <div class="column">
+          <%= image_tag(shot.image.thumb.url, class: "av_shot_item__shot_image thumbnail") if shot.image.present? %>
+        </div>
+        <% end %>
+      </div>
     </div>
     <div class="tabs-panel" id="av_user_profile_fav_tab">
       <% @fav_shots.each do |shot| %>
