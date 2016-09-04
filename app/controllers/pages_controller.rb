@@ -12,8 +12,4 @@ class PagesController < ApplicationController
 
   def credits
   end
-
-  def user
-    @user = params[:user]
-  end
 end
