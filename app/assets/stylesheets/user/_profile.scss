@@ -2,4 +2,19 @@
   &_wrapper {
     background-color: white;
   }
+
+  .av_user_profile_image {
+    width: 150px;
+    height: 150px;
+    margin-right: 5%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .av_user_profile_username {
+
+  }
 }

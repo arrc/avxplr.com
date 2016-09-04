@@ -1,6 +1,28 @@
 <%= page_title "avxplr - #{@user.username}'s profile" %>
+
 <div class="large-8 columns av_user_profile">
-  <div class="av_user_profile_wrapper">
-    <h3 class="av_heading">@<%= @user.username %></h3>
+  <div class="av_user_profile_wrapper av_wrapper clearfix">
+    <section class="av_user_profile_image float-left">
+      <% if current_user.profile_image.url.present? %>
+        <%= image_tag(current_user.profile_image.thumb.url) %>
+      <% end %>
+    </section>
+    <h3 class="av_heading av_user_profile_username">@<%= @user.username %></h3>
+  </div>
+
+  <!-- Tabs  -->
+
+  <ul class="tabs" data-tabs id="av_user_profile_tabs">
+    <li class="tabs-title is-active"><a href="#av_user_profile_shots_tab" aria-selected="true">Shots</a></li>
+    <li class="tabs-title"><a href="#av_user_profile_fav_tab">Favorites</a></li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="av_user_profile_tabs">
+    <div class="tabs-panel is-active" id="av_user_profile_shots_tab">
+      <p>Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</p>
+    </div>
+    <div class="tabs-panel" id="av_user_profile_fav_tab">
+      <p>Suspendisse dictum feugiat nisl ut dapibus.  Vivamus hendrerit arcu sed erat molestie vehicula. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor.  Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor.</p>
+    </div>
   </div>
 </div>
