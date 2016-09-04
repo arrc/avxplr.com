@@ -3,8 +3,8 @@
 <div class="large-8 columns av_user_profile">
   <div class="av_user_profile_wrapper av_wrapper clearfix">
     <section class="av_user_profile_image float-left">
-      <% if current_user.profile_image.url.present? %>
-        <%= image_tag(current_user.profile_image.thumb.url) %>
+      <% if @user.profile_image.url.present? %>
+        <%= image_tag(@user.profile_image.thumb.url) %>
       <% end %>
     </section>
     <h3 class="av_heading av_user_profile_username">@<%= @user.username %></h3>
