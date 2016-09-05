@@ -56,6 +56,10 @@ $subnav-row--min-height: 100px;
           padding: 0 !important;
           color: $secondary-color;
         }
+
+        .av_i_name {
+          color: $secondary-color;
+        }
     }
 // .av_subnav__menu__item:not(.av_subnav__menu__item--last):hover
     &__menu__item:not(.av_subnav__menu__item--last):hover {
