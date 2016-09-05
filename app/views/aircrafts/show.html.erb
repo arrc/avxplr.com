@@ -8,11 +8,11 @@
       <h2 class="float-left aircraft_show__title--heading"><%= @aircraft.model %></h2>
       <!-- Fav -->
         <% if current_user && current_user.favorites.exists?(favoritable_type: "Aircraft", favoritable_id: @aircraft.id) %>
-          <%= link_to favorite_aircraft_path(@aircraft), method: :put do %>
+          <%= link_to favorite_aircraft_path(@aircraft.id), method: :put do %>
             <i title="Remove this from your favorites." class="float-right fa fa-heart av_fav aircraft_show__title--fav-icon">&nbsp;</i>
           <% end %>
         <% elsif current_user %>
-          <%= link_to favorite_aircraft_path(@aircraft), method: :put do %>
+          <%= link_to favorite_aircraft_path(@aircraft.id), method: :put do %>
             <i title="Add this to your favorites." class="float-right fa fa-heart-o av_fav aircraft_show__title--fav-icon">&nbsp;</i>
           <% end %>
         <% end %>

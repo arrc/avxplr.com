@@ -6,9 +6,9 @@ class AircraftsController < ApplicationController
   def index
     if params[:category]
       cat_id = CATEGORIES.fetch params[:category].to_sym
-      return @aircrafts = Aircraft.where(category_id: cat_id).where(is_public: true).all
+      return @aircrafts = Aircraft.where(category_id: cat_id).where(is_public: true).all.order('created_at DESC')
     end
-    @aircrafts = Aircraft.all
+    @aircrafts = Aircraft.all.order('created_at DESC')
   end
 
   def show
