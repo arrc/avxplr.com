@@ -1,6 +1,10 @@
-p, a {
+p, a, h3, h4 {
   font-family: 'worksans-regular';
   color: #617374;
+}
+
+a {
+  text-decoration: inherit;
 }
 
 p {
