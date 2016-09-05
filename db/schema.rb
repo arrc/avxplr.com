@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831075719) do
+ActiveRecord::Schema.define(version: 20160905155454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20160831075719) do
     t.string   "favoritable_type"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.index ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable_id_and_favoritable_type", unique: true, using: :btree
+    t.index ["favoritable_id", "favoritable_type"], name: "index_favorites_on_favoritable_id_and_favoritable_type", using: :btree
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
   end
 

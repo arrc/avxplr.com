@@ -3,5 +3,5 @@ $(document).ready(function(){
     $('.av_flash_messages').fadeOut("slow", function(){
       $(this).remove();
     })
-  }, 3000);
+  }, 1000);
 });

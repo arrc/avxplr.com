@@ -36,7 +36,7 @@
       <button class="close-button" data-close aria-label="Close modal" type="button">
         <span aria-hidden="true">&times;</span>
       </button>
-      <%= simple_form_for @flag, url: flag_shot_path(@shot), remote: true do |f| %>
+      <%= simple_form_for @flag, url: flag_shot_path(@shot.id), remote: true do |f| %>
       <%= f.input :message, input_html: {class: 'shot-flag-modal-message'} %>
       <%= f.button :submit, "Flag", class: "button small secondary" %>
       <% end %>
