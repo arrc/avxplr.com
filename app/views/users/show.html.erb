@@ -26,8 +26,7 @@
         </div>
         <% end %>
       </div>
-    </div>
-    <div class="tabs-panel" id="av_user_profile_fav_tab">
+      <hr>
       <ul class="accordion" data-accordion>
         <li class="accordion-item is-active" data-accordion-item>
           <a href="#" class="accordion-title">Accordion 1</a>
@@ -43,6 +42,11 @@
           </div>
         </li>
       </ul>
+    </div>
+    <div class="tabs-panel" id="av_user_profile_fav_tab">
+      <% @fav_aircrafts.each do |aircraft| %>
+        <p><%= aircraft.model %></p>
+      <% end %>
     </div>
   </div>
 </div>
