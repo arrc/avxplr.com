@@ -19,12 +19,13 @@
   </ul>
 
   <div class="tabs-content" data-tabs-content="av_user_profile_tabs">
+    <!-- Posted shots tab -->
     <div class="tabs-panel is-active" id="av_user_profile_shots_tab">
       <p>Shots posted by the user.</p>
-      <div class="row column small-up-1 medium-up-2 large-up-3 av_profile_posted_shots_grid">
+      <div class="row column large-up-3 av_profile_posted_shots_grid av_i_grid">
         <% @shots.each do |shot| %>
           <%= link_to shot_path(shot)  do %>
-          <div class="column av_profile_posted_shots_item">
+          <div class="column av_profile_posted_shots_item av_i_grid_item">
             <section class="av_i_image">
               <%  if shot.image.present? %>
                 <%= image_tag(shot.image.thumb.url) %>
@@ -38,17 +39,47 @@
         <% end %>
       </div>
     </div>
+
+    <!-- Fav tab -->
     <div class="tabs-panel" id="av_user_profile_fav_tab">
+
+      <!-- Fav Aircrafts -->
       <section class="av_user_profile_fav--aircrafts">
-        <% @fav_aircrafts.each do |aircraft| %>
-          <p><%= aircraft.model %></p>
-        <% end %>
+        <p>Favorite aircrafts</p>
+        <div class="row column large-up-3 av_profile_fav_aircrafts_grid av_i_grid">
+          <% @fav_aircrafts.each do |aircraft| %>
+            <%= link_to aircraft_path(aircraft)  do %>
+            <div class="column av_profile_fav_aircrafts_item av_i_grid_item">
+              <section class="av_i_image">
+                <%= image_tag(aircraft.image_front.thumb.url) %>
+              </section>
+              <section class="av_i_link"><%= aircraft.model %></section>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
       </section>
+
+<hr>
+      <!-- Fav Shots -->
       <section class="av_user_profile_fav--shots">
-        <% @fav_shots.each do |shot| %>
-          <%= image_tag(shot.image.thumb.url, class: "av_shot_item__shot_image thumbnail") if shot.image.present? %>
-          <%= link_to "#id #{shot.id}", shot_path(shot)%>
-        <% end %>
+        <p>Favorite shots</p>
+        <div class="row column large-up-3 av_profile_posted_shots_grid av_i_grid">
+          <% @fav_shots.each do |shot| %>
+            <%= link_to shot_path(shot)  do %>
+            <div class="column av_profile_posted_shots_item av_i_grid_item">
+              <section class="av_i_image">
+                <%  if shot.image.present? %>
+                  <%= image_tag(shot.image.thumb.url) %>
+                <% else %>
+                  <%= image_tag('video.png') %>
+                <% end %>
+              </section>
+              <section class="av_i_link"><%= "#id #{shot.id}" %></section>
+            </div>
+            <% end %>
+          <% end %>
+        </div>
       </section>
     </div>
   </div>

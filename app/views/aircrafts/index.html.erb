@@ -7,14 +7,14 @@
       <% @aircrafts.each do |aircraft| %>
           <div class="column av_aircrafts_grid__item">
             <%= link_to aircraft_path(aircraft) do %>
-            <%= image_tag(aircraft.image_front.thumb.url, class: "thumbnail av_aircrafts_grid__item--image")  %>
-            <section class="grid__item__info">
-                 <h5><%= aircraft.model %></h5>
-                 <p class="grid__item__info__manufacturer"><%=raw comma_seperated(aircraft.manufacturers.pluck(:name)) %></p>
-                 <p class="grid__item__info__roles"><%=raw comma_seperated(aircraft.roles.pluck(:name)) %></p>
-                 <p class="grid__item__info__speed"><%= aircraft.max_cruise_speed %></p>
-                 <p class="grid__item__info__cost"><%= "#{aircraft.price} million" if aircraft.price.present? %></p>
-             </section>
+              <%= image_tag(aircraft.image_front.thumb.url, class: "thumbnail av_aircrafts_grid__item--image")  %>
+              <section class="grid__item__info">
+                   <h5><%= aircraft.model %></h5>
+                   <p class="grid__item__info__manufacturer"><%=raw comma_seperated(aircraft.manufacturers.pluck(:name)) %></p>
+                   <p class="grid__item__info__roles"><%=raw comma_seperated(aircraft.roles.pluck(:name)) %></p>
+                   <p class="grid__item__info__speed"><%= aircraft.max_cruise_speed %></p>
+                   <p class="grid__item__info__cost"><%= "#{aircraft.price} million" if aircraft.price.present? %></p>
+               </section>
              <% end %>
           </div>
       <% end %>

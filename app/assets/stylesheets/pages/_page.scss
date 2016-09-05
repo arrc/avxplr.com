@@ -8,6 +8,10 @@
 }
 
 .av_page_faq {
+  .av_faq_wrapper {
+    margin-bottom: 30px;
+
+  }
   .av_faq_question {
     font-family: 'worksans-light';
     color: lighten(black, 30);
@@ -16,6 +20,6 @@
   }
 
   .av_faq_answer {
-    margin-left: 20px;
+    margin-left: 30px;
   }
 }
