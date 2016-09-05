@@ -19,11 +19,11 @@
 
 class Shot < ApplicationRecord
   extend FriendlyId
-  
+
   belongs_to :user
   belongs_to :aircraft
   belongs_to :shot_category
-  has_many :favorites, as: :favoritable
+  has_many :favorites, as: :favoritable, reverse: true
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :flags, as: :flagable, dependent: :destroy
   has_many :taggings
