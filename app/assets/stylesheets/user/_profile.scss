@@ -17,4 +17,35 @@
   .av_user_profile_username {
 
   }
+
+  .av_profile_posted_shots_grid {
+
+  }
+
+  .av_profile_posted_shots_item {
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    height: 200px;
+
+    .av_i_image {
+      width: 180px;
+      height: 150px;
+
+      img {
+        max-width: 180px;
+        max-height: 150px;
+      }
+    }
+
+    .av_i_link {
+      text-align: center;
+      font-family: 'worksans-regular';
+      font-size: rem-calc(12);
+    }
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
 }
