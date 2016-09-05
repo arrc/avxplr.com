@@ -76,10 +76,10 @@ class Aircraft < ApplicationRecord
   has_many :industries,  through: :aircraftindustries
 
   # Favorite
-  has_many :favorites, as: :favoritable
+  has_many :favorites, as: :favoritable, dependent: :destroy
 
   # comments
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, dependent: :destroy
 
   # Shots
   has_many :shots
