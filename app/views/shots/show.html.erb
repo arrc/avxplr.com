@@ -20,12 +20,12 @@
                     <!-- Fav -->
                     <% if current_user %>
                       <% if current_user.favorites.exists?(favoritable_type: "Shot", favoritable_id: @shot.id) %>
-                        <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Remove this from your favorites." class="fa fa-heart av_fav">&nbsp;</i> <% end %>
+                        <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Remove this from your favorites." class="fa fa-heart av_fav hvr-pulse">&nbsp;</i> <% end %>
                       <% else %>
-                        <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Add this to your favorites." class="fa fa-heart-o av_fav">&nbsp;</i> <% end %>
+                        <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Add this to your favorites." class="fa fa-heart-o av_fav hvr-pulse">&nbsp;</i> <% end %>
                       <% end %>
                     <% end %>
-                    <span title="report this shot to admin." class="av_flag" data-open="shot-flag-modal-<%= @shot.id %>"><i class="fa fa-flag">&nbsp;</i></span>
+                    <span title="report this shot to admin." class="av_flag" data-open="shot-flag-modal-<%= @shot.id %>"><i class="fa fa-flag hvr-pop">&nbsp;</i></span>
                 </section>
             </div>
         </div>
