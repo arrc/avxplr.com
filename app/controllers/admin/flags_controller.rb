@@ -1,7 +1,7 @@
 class Admin::FlagsController < ApplicationController
   layout "admin"
   def index
-    @flags = Flag.all.includes(:user, :flagable).page(params[:page]).per_page(3)
+    @flags = Flag.all.includes(:user, :flagable).page(params[:page]).per_page(20)
   end
 
 # TODO: flag destroy js response
