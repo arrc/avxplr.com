@@ -15,7 +15,9 @@
           <%= simple_format comment.body, class: "comment__body__text" %>
           <div class="comment__body__meta clearfix">
               <date class="comment__body__meta__date float-left"><%= comment.created_at.strftime("%b %d, %Y") %></date>
-              <span title="report this comment to admin." class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>"><i class="fa fa-flag">&nbsp;</i>Flag</span>
+              <% if current_user %>
+                <span title="report this comment to admin." class="comment__body__meta__flag float-right" data-open="comment-flag-modal-<%= comment.id %>"><i class="fa fa-flag">&nbsp;</i>Flag</span>
+              <% end %>
           </div>
       </section>
   </div>
