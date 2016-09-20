@@ -23,9 +23,9 @@
                         <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Remove this from your favorites." class="fa fa-heart av_fav hvr-pulse">&nbsp;</i> <% end %>
                       <% else %>
                         <%= link_to favorite_shot_path(@shot.id), method: :put do %> <i title="Add this to your favorites." class="fa fa-heart-o av_fav hvr-pulse">&nbsp;</i> <% end %>
+                        <span title="report this shot to admin." class="av_flag" data-open="shot-flag-modal-<%= @shot.id %>"><i class="fa fa-flag hvr-pop">&nbsp;</i></span>
                       <% end %>
                     <% end %>
-                    <span title="report this shot to admin." class="av_flag" data-open="shot-flag-modal-<%= @shot.id %>"><i class="fa fa-flag hvr-pop">&nbsp;</i></span>
                 </section>
             </div>
         </div>
